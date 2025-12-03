@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр архива</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #content { 
+            white-space: pre-wrap; 
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 5px;
+            max-height: 70vh;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+        }
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .search-box {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Просмотр части архива</h1>
+        
+        <div class="controls">
+            <a href="index.html" class="btn">← Назад к списку</a>
+            <input type="text" id="search" class="search-box" placeholder="🔍 Поиск в файле (Ctrl+F тоже работает)...">
+            <button class="btn" onclick="scrollToSearch()">Найти</button>
+            <button class="btn" onclick="scrollToTop()">⬆️ Наверх</button>
+            <button class="btn" onclick="copyRawLink()">📋 Копировать RAW ссылку</button>
+        </div>
+        
+        <div id="content">Загрузка...</div>
+        
+        <div style="margin-top: 20px; color: #666; font-size: 0.9em;">
+            <p>💡 <strong>Подсказки:</strong></p>
+            <ul>
+                <li>Используйте Ctrl+F для поиска по странице</li>
+                <li>Файл обрезан до 100,000 символов для производительности</li>
+                <li>Для полного файла скачайте его через "Скачать файл" на главной</li>
+                <li>Для ИИ используйте RAW ссылку (кнопка выше)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Загружаем нужную часть
+        const params = new URLSearchParams(window.location.search);
+        const part = params.get('part') || '1';
+        let fullText = '';
+        
+        fetch(`../archive/МЕГА_АРХИВ_часть_${part.padStart(2, '0')}.txt`)
+            .then(response => response.text())
+            .then(text => {
+                fullText = text;
+                // Показываем первые 100000 символов
+                const displayText = text.substring(0, 100000) + 
+                    (text.length > 100000 ? '\n\n... [файл обрезан для производительности, полный размер: ' + 
+                    text.length.toLocaleString() + ' символов] ...' : '');
+                document.getElementById('content').textContent = displayText;
+            })
+            .catch(error => {
+                document.getElementById('content').textContent = 'Ошибка загрузки файла: ' + error;
+            });
+        
+        function scrollToSearch() {
+            const searchTerm = document.getElementById('search').value;
+            if (!searchTerm) return;
+            
+            const content = document.getElementById('content');
+            const text = content.textContent;
+            const index = text.toLowerCase().indexOf(searchTerm.toLowerCase());
+            
+            if (index !== -1) {
+                // Создаём выделение
+                const highlighted = text.substring(0, index) + 
+                    '<mark>' + text.substring(index, index + searchTerm.length) + '</mark>' +
+                    text.substring(index + searchTerm.length);
+                content.innerHTML = highlighted;
+                
+                // Прокручиваем к найденному
+                const marker = document.createElement('span');
+                marker.id = 'found-marker';
+                content.insertBefore(marker, content.firstChild);
+                marker.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Текст не найден');
+            }
+        }
+        
+        function scrollToTop() {
+            document.getElementById('content').scrollTop = 0;
+        }
+        
+        function copyRawLink() {
+            const link = `https://raw.githubusercontent.com/makasimmm1987-coder/robot-dyak-archive/main/archive/МЕГА_АРХИВ_часть_${part.padStart(2, '0')}.txt`;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('✅ RAW ссылка скопирована!');
+            });
+        }
+        
+        // Поиск по Ctrl+F
+        document.getElementById('search').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                scrollToSearch();
+            }
+        });
+    </script>
+</body>
+</html>

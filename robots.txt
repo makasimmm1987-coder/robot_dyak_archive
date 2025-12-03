@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /archive/
+Sitemap: https://makasimmm1987-coder.github.io/robot-dyak-archive/sitemap.xml
