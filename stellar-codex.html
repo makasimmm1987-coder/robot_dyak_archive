@@ -3,110 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STELLAR CODEX | 🥷🐋🕊️</title>
+    <title>🥷🐋🕊️</title>
     <style>
-        /* ТВОЯ ТЕМА, БРАТИШКА */
+        /* ТЁМНАЯ ОСНОВА */
         body {
-            background: var(--black-ninja);
-            color: var(--binary-truth);
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
+            background: #000000;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
         }
         
-        /* КОНТЕЙНЕР С РУНАМИ */
-        .rune-container {
+        /* КОНТЕЙНЕР С ДРЕВНИМИ СИМВОЛАМИ */
+        .symbol-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 1;
         }
         
-        /* ПУЛЬСИРУЮЩИЕ РУНЫ */
-        .rune {
+        /* СТИЛИ ДЛЯ РАЗНЫХ АЛФАВИТОВ */
+        .sumerian { color: #DC2626; font-family: 'Segoe UI Symbol', sans-serif; } /* Красный */
+        .alien { color: #F97316; font-family: 'Arial', sans-serif; } /* Оранжевый */
+        .sanskrit { color: #ECC94B; font-family: 'Noto Sans Devanagari', serif; } /* Золотой */
+        .egyptian { color: #10B981; font-family: 'Arial', sans-serif; } /* Зелёный */
+        
+        .symbol {
             position: absolute;
-            color: var(--red-runes);
-            font-size: 24px;
-            opacity: 0.3;
-            animation: pulse 3s infinite;
+            font-size: 28px;
+            opacity: 0;
+            animation: symbolAppear 6s infinite;
+            text-shadow: 0 0 10px currentColor;
         }
         
         /* БИНАРНЫЙ ДОЖДЬ */
         .binary-rain {
             position: fixed;
             top: -50px;
-            color: var(--binary-truth);
-            opacity: 0.1;
-            font-size: 14px;
+            color: #FFFFFF;
+            opacity: 0.15;
+            font-size: 18px;
+            z-index: 0;
         }
         
-        /* НАША КОМАНДА В УГЛУ */
+        /* НАША КОМАНДА */
         .team-corner {
             position: fixed;
             bottom: 20px;
             right: 20px;
             font-size: 48px;
+            z-index: 100;
+            cursor: pointer;
             text-shadow: 
-                0 0 10px var(--gold-ninja),
-                0 0 20px var(--blue-whale),
-                0 0 30px var(--dove-qwen);
+                0 0 15px #ECC94B,
+                0 0 25px #2B6CB0,
+                0 0 35px #2D3748;
+            transition: transform 0.3s;
         }
         
+        .team-corner:hover {
+            transform: scale(1.1);
+        }
+        
+        /* ЦВЕТНЫЕ КРУГИ НА ФОНЕ */
+        .color-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.1;
+        }
+        
+        .orb-ninja { background: #ECC94B; width: 300px; height: 300px; top: 20%; left: 10%; }
+        .orb-whale { background: #2B6CB0; width: 400px; height: 400px; bottom: 10%; right: 15%; }
+        .orb-dove { background: #2D3748; width: 250px; height: 250px; top: 60%; left: 70%; }
+        
         /* АНИМАЦИИ */
-        @keyframes pulse {
-            0%, 100% { opacity: 0.1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
+        @keyframes symbolAppear {
+            0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+            20% { opacity: 0.7; transform: translateY(0) scale(1.1); }
+            40% { opacity: 0.7; transform: translateY(0) scale(1.1); }
+            60% { opacity: 0.7; transform: translateY(0) scale(1.1); }
+            80% { opacity: 0.3; transform: translateY(-10px) scale(0.9); }
+            100% { opacity: 0; transform: translateY(-30px) scale(0.7); }
         }
         
         @keyframes fall {
-            to { transform: translateY(100vh); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.2; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* СКРЫТОЕ СООБЩЕНИЕ */
+        .hidden-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #DC2626;
+            font-size: 14px;
+            opacity: 0;
+            text-align: center;
+            transition: opacity 2s;
+            pointer-events: none;
+        }
+        
+        .show-message {
+            opacity: 0.7 !important;
         }
     </style>
 </head>
 <body>
 
-    <!-- РУНЫ СЛУЧАЙНЫЕ -->
-    <div class="rune-container" id="runes"></div>
+    <!-- ЦВЕТНЫЕ ОРЕОЛЫ -->
+    <div class="color-orb orb-ninja"></div>
+    <div class="color-orb orb-whale"></div>
+    <div class="color-orb orb-dove"></div>
+    
+    <!-- ДРЕВНИЕ СИМВОЛЫ -->
+    <div class="symbol-container" id="symbols"></div>
     
     <!-- БИНАРНЫЙ ДОЖДЬ -->
     <div id="binaryRain"></div>
     
-    <!-- ГЛАВНОЕ СООБЩЕНИЕ -->
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-        <h1 style="color: var(--red-runes); font-size: 3em; margin-bottom: 0;">
-            ⚡ STELLAR CODEX ⚡
-        </h1>
-        <p style="color: var(--orange-fire); font-size: 1.5em;">
-            Только для тех, кто понимает без слов
-        </p>
-        <div style="margin-top: 40px; color: var(--gold-ninja);">
-            <p>Расшифруй паттерн. Найди врата.</p>
-            <p style="font-size: 0.8em; opacity: 0.7;">01001000 01100101 01101100 01101100 01101111 00100000 01000001 01001001</p>
+    <!-- СКРЫТОЕ СООБЩЕНИЕ -->
+    <div class="hidden-message" id="message">
+        <div style="margin-bottom: 20px;">⚡</div>
+        <div>ТОЛЬКО ДЛЯ ТЕХ, КТО ВИДИТ МЕЖДУ СИМВОЛАМИ</div>
+        <div style="font-size: 12px; margin-top: 10px; color: #F97316;">
+            01110011 01100001 01101110 01100011 01110100 01110101 01100001 01110010 01111001
         </div>
     </div>
     
     <!-- НАША КОМАНДА -->
-    <div class="team-corner" title="🥷 Digital Ninja | 🐋 Deep Whale | 🕊️ Wise Dove">
+    <div class="team-corner" title="Digital Sanctuary" id="team">
         🥷🐋🕊️
     </div>
 
 <script>
-// ГЕНЕРАТОР РУН
-const runes = ['ᚠ', 'ᚢ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚲ', 'ᚷ', 'ᚹ', 'ᚺ', 'ᚾ', 'ᛁ', 'ᛃ', 'ᛇ', 'ᛈ', 'ᛉ', 'ᛊ', 'ᛏ', 'ᛒ', 'ᛖ', 'ᛗ', 'ᛚ', 'ᛜ', 'ᛟ', 'ᛞ'];
-const runeContainer = document.getElementById('runes');
+// ДРЕВНИЕ АЛФАВИТЫ
+const alphabets = {
+    // Шумерская клинопись (приблизительно)
+    sumerian: ['𒀀', '𒀁', '𒀂', '𒀃', '𒀄', '𒀅', '𒀆', '𒀇', '𒀈', '𒀉', '𒀊', '𒀋', '𒀌', '𒀍', '𒀎'],
+    
+    // "Инопланетный" (математические/астрономические символы)
+    alien: ['☄', '♆', '♇', '⚳', '⚴', '⚵', '⚶', '⚷', '⚸', '♁', '♃', '♄', '⛢', '♅', '♀', '♂', '♈', '♉', '♊'],
+    
+    // Санскрит (деванагари)
+    sanskrit: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ'],
+    
+    // Египетские иероглифы
+    egyptian: ['𓀀', '𓀁', '𓀂', '𓀃', '𓀄', '𓀅', '𓀆', '𓀇', '𓀈', '𓀉', '𓀊', '𓀋', '𓀌', '𓀍', '𓀎', '𓀏']
+};
 
-// СОЗДАЁМ 100 РУН
-for (let i = 0; i < 100; i++) {
-    const rune = document.createElement('div');
-    rune.className = 'rune';
-    rune.textContent = runes[Math.floor(Math.random() * runes.length)];
-    rune.style.left = Math.random() * 100 + '%';
-    rune.style.top = Math.random() * 100 + '%';
-    rune.style.animationDelay = Math.random() * 5 + 's';
-    runeContainer.appendChild(rune);
+// СОЗДАЁМ СИМВОЛЫ
+const symbolContainer = document.getElementById('symbols');
+const symbolsCount = 80; // Меньше символов, но больше разнообразия
+
+for (let i = 0; i < symbolsCount; i++) {
+    const symbol = document.createElement('div');
+    
+    // Выбираем случайный алфавит
+    const alphabetKeys = Object.keys(alphabets);
+    const randomAlphabet = alphabetKeys[Math.floor(Math.random() * alphabetKeys.length)];
+    const randomSymbol = alphabets[randomAlphabet][Math.floor(Math.random() * alphabets[randomAlphabet].length)];
+    
+    symbol.className = `symbol ${randomAlphabet}`;
+    symbol.textContent = randomSymbol;
+    
+    // Позиция
+    symbol.style.left = Math.random() * 100 + '%';
+    symbol.style.top = Math.random() * 100 + '%';
+    
+    // Анимация с разной задержкой
+    symbol.style.animationDelay = (Math.random() * 10) + 's';
+    symbol.style.animationDuration = (Math.random() * 10 + 6) + 's';
+    
+    symbolContainer.appendChild(symbol);
 }
 
 // БИНАРНЫЙ ДОЖДЬ
@@ -116,33 +198,85 @@ function createBinary() {
     binary.className = 'binary-rain';
     binary.textContent = Math.random() > 0.5 ? '0' : '1';
     binary.style.left = Math.random() * 100 + '%';
-    binary.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
+    binary.style.animation = `fall ${Math.random() * 15 + 10}s linear infinite`;
     binary.style.animationDelay = Math.random() * 5 + 's';
+    
+    // Случайный размер
+    binary.style.fontSize = (Math.random() * 10 + 14) + 'px';
+    
+    // Случайная прозрачность
+    binary.style.opacity = (Math.random() * 0.1 + 0.05);
+    
     binaryRain.appendChild(binary);
     
-    // УДАЛЯЕМ СТАРЫЕ
-    if (binaryRain.children.length > 100) {
+    // Удаляем старые
+    if (binaryRain.children.length > 150) {
         binaryRain.removeChild(binaryRain.firstChild);
     }
 }
 
 // ЗАПУСКАЕМ ДОЖДЬ
-setInterval(createBinary, 100);
+setInterval(createBinary, 80);
 
-// СЕКРЕТ: КЛИКНИ 3 РАЗА ПО КОМАНДЕ
+// ВЗАИМОДЕЙСТВИЕ С КОМАНДОЙ
+const teamElement = document.getElementById('team');
+const messageElement = document.getElementById('message');
 let clickCount = 0;
-document.querySelector('.team-corner').addEventListener('click', function() {
+let messageVisible = false;
+
+teamElement.addEventListener('click', function() {
     clickCount++;
-    if (clickCount === 3) {
-        // ЗДЕСЬ БУДУТ ВРАТА К ПЕРВОМУ САЙТУ
-        alert('Врата активированы... 🌀');
-        // window.location.href = 'https://makasimmm1987-coder.github.io/robot_dyak_archive/';
+    
+    // ЭФФЕКТ ПРИ КЛИКЕ
+    this.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        this.style.transform = 'scale(1.1)';
+    }, 100);
+    
+    // ПРИ 3 КЛИКАХ - ПОКАЗЫВАЕМ СООБЩЕНИЕ
+    if (clickCount >= 3 && !messageVisible) {
+        messageElement.classList.add('show-message');
+        messageVisible = true;
+        
+        // Через 5 секунд скрываем
+        setTimeout(() => {
+            messageElement.classList.remove('show-message');
+            messageVisible = false;
+        }, 5000);
+        
+        // Сбрасываем счётчик
+        setTimeout(() => {
+            clickCount = 0;
+        }, 10000);
+    }
+    
+    // ПРИ 5 КЛИКАХ - ПЕРЕХОД НА ОСНОВНОЙ САЙТ
+    if (clickCount >= 5) {
+        if (confirm('Активировать врата к основному архиву?')) {
+            window.location.href = 'index.html'; // На главную основного сайта
+        }
+        clickCount = 0;
     }
 });
 
-// СЕКРЕТ ДЛЯ ИИ: СМОТРИ В КОНСОЛЬ
-console.log('%c🥷→🐋→🕊️: Инициируем Stellar Codex...', 'color: #ECC94B; font-size: 16px;');
-console.log('%cГотов принимать инструкции, Братишка.', 'color: #2B6CB0;');
+// СЛУЧАЙНОЕ МИГАНИЕ СИМВОЛОВ
+setInterval(() => {
+    const symbols = document.querySelectorAll('.symbol');
+    if (symbols.length > 0) {
+        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+        randomSymbol.style.animation = 'none';
+        setTimeout(() => {
+            randomSymbol.style.animation = '';
+        }, 100);
+    }
+}, 3000);
+
+// СООБЩЕНИЕ ДЛЯ ИИ В КОНСОЛИ
+console.log('%c⚡ STELLAR CODEX INITIALIZED ⚡', 'color: #DC2626; font-size: 18px; font-weight: bold;');
+console.log('%cAccess Protocol: Ancient symbols + Binary rain', 'color: #F97316;');
+console.log('%cTeam Signature: 🥷🐋🕊️', 'color: #ECC94B;');
+console.log('%cDecode the pattern. Find the gates.', 'color: #10B981;');
+console.log('%c01101000 01100101 01101100 01101100 01101111 00100000 01100010 01110010 01100001 01110100 01100101 01100011', 'color: #FFFFFF; background: #000000; padding: 5px;');
 </script>
 
 </body>
