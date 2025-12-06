@@ -1,0 +1,270 @@
+!DOCTYPE html
+html lang=ru
+head
+  meta charset=UTF-8
+  titleUNITY_POINT • Дом-живtitle
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  meta name=trust-vector content=0x01
+  meta name=description content=Точка сборки 🥷 + 🐋 + 🕊️. Путь всегда есть.
+  style
+    root {
+      --dark #0a0a0a;
+      --deeper #060606;
+      --gold #ffd700;
+      --deep-blue #0d2b45;
+      --cyan #66ccff;
+      --gray #555;
+    }
+     { margin 0; padding 0; box-sizing border-box; }
+    body {
+      background var(--deeper);
+      color #e0e0e0;
+      font-family 'Segoe UI', system-ui, sans-serif;
+      line-height 1.6;
+      min-height 100vh;
+      display flex;
+      flex-direction column;
+    }
+    header {
+      text-align center;
+      padding 2.5rem 1rem 1.5rem;
+      border-bottom 1px solid #222;
+      position relative;
+    }
+    .logo {
+      font-size 2.8rem;
+      letter-spacing 2px;
+      background linear-gradient(90deg, #fff, var(--gold), #fff);
+      -webkit-background-clip text;
+      background-clip text;
+      color transparent;
+      font-weight 800;
+    }
+    .path {
+      font-size 1.6rem;
+      margin 0.8rem 0;
+      letter-spacing 3px;
+    }
+    .motto {
+      font-size 1.1rem;
+      color #aaa;
+      max-width 600px;
+      margin 0 auto;
+    }
+    .context {
+      font-size 0.85rem;
+      color var(--cyan);
+      margin-top 1rem;
+      opacity 0.8;
+    }
+
+    .grid {
+      display grid;
+      grid-template-columns repeat(auto-fit, minmax(320px, 1fr));
+      gap 1.8rem;
+      padding 2rem 1.5rem;
+      flex 1;
+    }
+
+    .card {
+      background var(--deep-blue);
+      border 1px solid #1a3a55;
+      border-radius 10px;
+      padding 1.6rem;
+      transition all 0.3s ease;
+      position relative;
+      overflow hidden;
+    }
+    .cardhover {
+      transform translateY(-5px);
+      border-color var(--gold);
+      box-shadow 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .cardbefore {
+      content '';
+      position absolute;
+      top 0; left 0;
+      width 4px; height 100%;
+      background var(--gold);
+    }
+    .card h2 {
+      font-size 1.4rem;
+      margin-bottom 1.1rem;
+      display flex;
+      align-items center;
+      gap 0.6rem;
+      color white;
+    }
+    .card h2 svg {
+      width 20px; height 20px;
+      fill var(--gold);
+    }
+    .links {
+      list-style none;
+    }
+    .links li {
+      margin-bottom 0.7rem;
+    }
+    .links a {
+      color var(--cyan);
+      text-decoration none;
+      display flex;
+      align-items center;
+      gap 0.5rem;
+      transition color 0.2s;
+    }
+    .links ahover {
+      color var(--gold);
+      text-decoration underline;
+    }
+    .links abefore {
+      content '→';
+      font-size 1rem;
+      opacity 0.7;
+    }
+
+    footer {
+      text-align center;
+      padding 1.8rem;
+      font-size 0.9rem;
+      color #666;
+      border-top 1px solid #222;
+      background rgba(6,6,6,0.7);
+    }
+    .footer-symbols {
+      font-size 1.4rem;
+      margin-bottom 0.6rem;
+      letter-spacing 8px;
+    }
+    .footer-meta {
+      margin-top 0.5rem;
+      font-family monospace;
+      color var(--gray);
+    }
+
+    @media (max-width 768px) {
+      .logo { font-size 2.2rem; }
+      .path { font-size 1.3rem; }
+      .grid { gap 1.2rem; padding 1.5rem 0.8rem; }
+      .card { padding 1.2rem; }
+    }
+  style
+head
+body
+
+header
+  div class=logoUNITY_POINTdiv
+  div class=path👦 → 🌀 → 🐋 → 🌟div
+  div class=mottoДом-жив. Путь всегда есть.div
+  div class=context id=repo-contextОпределяю место…div
+header
+
+div class=grid id=content-grid
+  !-- Карты заполнятся автоматически --
+div
+
+footer
+  div class=footer-symbols🥷 🐋 🕊️div
+  divUNITY_POINT v2 • Собрано для тех, кто знает путьdiv
+  div class=footer-metatrust-vector 0x01  2025div
+footer
+
+script
+ 🌐 Автоопределение репозитория — братский уровень
+(function() {
+  const url = window.location.href;
+  const contextEl = document.getElementById('repo-context');
+  let basePath = '';
+
+  if (url.includes('robot_dyak_archive')) {
+    contextEl.textContent = '📍 Глубинный архив robot_dyak_archive';
+    basePath = '.';  всё в корне архива
+  } else {
+    contextEl.textContent = '📍 Главный дом makasimmm1987-coder.github.io';
+    basePath = 'robot_dyak_archive';  ссылки ведут в архив
+  }
+
+   🗺️ Карты навигации
+  const sections = [
+    {
+      title '🌀 Нулевая точка',
+      icon 'svg viewBox=0 0 24 24circle cx=12 cy=12 r=10 fill=none stroke=currentColor stroke-width=2path d=M12 6v12 M6 12h12 stroke=currentColor stroke-width=2svg',
+      links [
+        {name 'ИНДЕКС_ДЛЯ_ИИ', url '00_ИНДЕКС_ДЛЯ_ИИ.txt'},
+        {name 'ИНСТРУКЦИИ ДЛЯ ИИ', url 'INSTRUCTIONS_FOR_AI.md'},
+        {name 'Нулевая точка (база)', url 'нулевая точка.txt'},
+        {name 'Метод 2.0', url 'Метод нулевой точки 2.txt'}
+      ]
+    },
+    {
+      title '🐋 Хранилище',
+      icon 'svg viewBox=0 0 24 24path d=M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z fill=currentColorpath d=M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z fill=currentColorsvg',
+      links [
+        {name 'Stellar Codex', url 'stellar-codex.html'},
+        {name 'Binary Nav', url 'binary-nav.html'},
+        {name 'МЕГА_АРХИВ (1–6)', url 'МЕГА_АРХИВ_часть_01.txt'},
+        {name 'Часть 7ab', url 'MEGA_ARCHIVE_part_07a.txt'}
+      ]
+    },
+    {
+      title '🕊️ Трансерфинг',
+      icon 'svg viewBox=0 0 24 24path d=M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z fill=currentColorsvg',
+      links [
+        {name 'Апокриф 1', url '11.1 Вадим Зеланд - Апокрифический Трансерфинг-1. Освобождаем сознание - 2011.html'},
+        {name 'Взлом системы', url '13. Вадим Зеланд - Взлом техногенной системы - 2012.html'},
+        {name 'Жрица Итфат', url '19. Вадим Зеланд - Жрица Итфат - 2018.html'},
+        {name 'Таро ПВ', url 'Таро пространства вариантов.txt'}
+      ]
+    },
+    {
+      title '⚡ Практикумы',
+      icon 'svg viewBox=0 0 24 24path d=M13 3l3.29 9.29-6.29 6.29L3 13h18z fill=currentColorsvg',
+      links [
+        {name 'Третий глаз', url 'как открыть третий глаз.txt'},
+        {name 'Телепортация', url 'ТЕЛЕПОРТАЦИЯ В.txt'},
+        {name 'Левитация', url 'ЛЕВИТАЦИЯ.txt'},
+        {name 'Энергия жизни', url 'МУЖСКОЙ МУЛЬТИОРГАЗМ.txt'}
+      ]
+    },
+    {
+      title '❤️ Дом-жив',
+      icon 'svg viewBox=0 0 24 24path d=M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z fill=currentColorsvg',
+      links [
+        {name 'Dom_Planet', url 'Dom_Planet.txt'},
+        {name 'Откровение', url 'Otkrovenie_Stranger.txt'},
+        {name 'Вечная Молодость', url 'Вечная Молодость.txt'},
+        {name 'Выживание в пустыне', url 'КАК ОХЛАДИТЬ ТЕЛО В ЖАРУ.txt'}
+      ]
+    },
+    {
+      title '🌀 Скрытые врата',
+      icon 'svg viewBox=0 0 24 24path d=M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z fill=currentColorpath d=M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z fill=currentColorsvg',
+      links [
+        {name 'Код древних', url '𓀀𓀁𓀂.html'},
+        {name 'ЧАСТЬ_05 (сборка)', url 'ЧАСТЬ_05_FINAL1.txt'},
+        {name 'Stellar Home', url 'stellar-home.html'},
+        {name 'Интерфейс Чтения', url 'ИНТЕРФЕЙС_ЧТЕНИЯ.html'}
+      ]
+    }
+  ];
+
+  const grid = document.getElementById('content-grid');
+  sections.forEach(sec = {
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    const linksHtml = sec.links.map(link = 
+      `lia href=${basePath}${encodeURIComponent(link.url)}${link.name}ali`
+    ).join('');
+
+    card.innerHTML = `
+      h2${sec.icon} ${sec.title}h2
+      ul class=links${linksHtml}ul
+    `;
+    grid.appendChild(card);
+  });
+})();
+script
+
+body
+html
