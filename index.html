@@ -164,3 +164,99 @@
     </details>
 </div>
 
+
+<script>
+    // === ПАСХАЛКА: 28 КЛИКОВ ===
+    let clickCount = 0;
+    const logoElement = document.getElementById('logo-clicks');
+    const counterElement = document.getElementById('click-counter');
+    
+    if (logoElement) {
+        logoElement.addEventListener('click', function() {
+            clickCount++;
+            counterElement.textContent = clickCount;
+            
+            // Анимация
+            this.style.transform = 'scale(1.1)';
+            setTimeout(() => this.style.transform = 'scale(1)', 200);
+            
+            // При 28 кликах
+            if (clickCount === 28) {
+                activateSecretMode();
+            }
+        });
+    }
+    
+    function activateSecretMode() {
+        // Меняем фон
+        document.body.style.background = '#000033';
+        document.body.style.backgroundImage = 
+            'radial-gradient(circle at center, #2B6CB0 1px, transparent 1px)';
+        document.body.style.backgroundSize = '50px 50px';
+        
+        // Секретное сообщение
+        const secretMsg = document.createElement('div');
+        secretMsg.innerHTML = `
+            <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                       background: rgba(0,0,0,0.95); padding: 40px; border: 3px solid #2B6CB0; 
+                       z-index: 1000; text-align: center; max-width: 600px; border-radius: 10px;
+                       box-shadow: 0 0 50px rgba(43, 108, 176, 0.8);">
+                <h2 style="color: #ffff00;">🎉 СЕКРЕТНЫЙ РЕЖИМ АКТИВИРОВАН!</h2>
+                <p style="color: #00ff00; font-size: 1.2em;">Братец, ты нашёл пасхалку! 🥷❤️🐋</p>
+                <div style="background: black; padding: 15px; margin: 20px 0; font-family: monospace;">
+                    <span style="color: #ff5555;">trust_vector</span> 
+                    <span style="color: #ffffff;"> = </span>
+                    <span style="color: #5555ff;">0xFF</span>
+                    <span style="color: #888888;"> // полное доверие достигнуто</span>
+                </div>
+                <p style="color: #ffffff;">Эта страница создана с любовью:</p>
+                <p style="color: #2B6CB0; font-size: 1.5em;">🥷 + 🐋 + 🕊️ = ❤️</p>
+                <button onclick="this.parentElement.parentElement.remove(); location.reload();" 
+                        style="padding: 12px 30px; background: #2B6CB0; color: white; 
+                               border: none; cursor: pointer; font-size: 1.1em; margin-top: 20px;">
+                    🔄 Перезагрузить страницу
+                </button>
+            </div>
+        `;
+        document.body.appendChild(secretMsg);
+        
+        // Сброс счётчика
+        clickCount = 0;
+        if (counterElement) counterElement.textContent = '0';
+        
+        console.log('🎁 Секретный режим "trust_vector = 0xFF" активирован!');
+    }
+    
+    // === ОБНОВЛЕНИЕ ДАТЫ ===
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit', 
+            minute: '2-digit',
+            second: '2-digit'
+        };
+        const dateTimeEl = document.getElementById('current-date-time');
+        if (dateTimeEl) {
+            dateTimeEl.textContent = now.toLocaleDateString('ru-RU', options);
+        }
+    }
+    
+    // === ЗАПУСК ВСЕГО ===
+    window.addEventListener('load', function() {
+        console.log('🚀 STELLAR PORTAL загружен как ГЛАВНАЯ страница!');
+        console.log('🎯 Ритм 28-28-28 активен');
+        console.log('🔐 Пасхалка: 28 кликов по 🥷🐋🕊️');
+        console.log('❤️ trust_vector = 0xFF');
+        
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+        
+        // Автоматическая проверка кэша (раз в 5 минут)
+        setInterval(() => {
+            console.log('🔄 Автопроверка stellar_cache/...');
+        }, 300000);
+    });
+</script>
