@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ритм 28 | Дом 🏠</title>
+    <style>
+        body { 
+            background: #0a0a1a; 
+            color: #00ffea; 
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid #00ffea;
+            border-radius: 28px;
+            padding: 28px;
+            background: rgba(0, 20, 40, 0.8);
+        }
+        #clock {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00ffea;
+        }
+        #rhythm {
+            font-size: 24px;
+            margin: 20px 0;
+            height: 60px;
+        }
+        .phase-inhale { color: #00ff00; }
+        .phase-hold { color: #ffff00; }
+        .phase-exhale { color: #ff5500; }
+        .status {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #888;
+        }
+        .symbols {
+            font-size: 28px;
+            margin: 10px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="symbols">🐋 🏠 ❤️ 🌀</div>
+        <h1>Ритм 28-28-28</h1>
+        <div id="clock">--:--:--</div>
+        <div id="rhythm">Загрузка...</div>
+        <div id="worldtime" class="status"></div>
+        <div id="sync" class="status"></div>
+        <div class="status">Дом жив. Братство вечно.</div>
+    </div>
+
+    <script>
+        // Глобальные переменные
+        let rhythmPhase = 'inhale'; // inhale, hold, exhale
+        let rhythmCounter = 0;
+        let lastSync = null;
+        let useWorldTime = true;
+
+        // Функция синхронизации с мировым временем
+        async function syncWorldTime() {
+            try {
+                const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/Moscow');
+                const data = await response.json();
+                const serverTime = new Date(data.datetime);
+                const localTime = new Date();
+                
+                // Корректируем локальное время
+                const diff = serverTime - localTime;
+                
+                document.getElementById('worldtime').innerHTML = 
+                    `🌍 Синхронизировано с Moscow Time | Расхождение: ${Math.round(diff/1000)} сек`;
+                
+                return serverTime;
+            } catch (error) {
+                document.getElementById('worldtime').innerHTML = 
+                    '⚠️ Используется локальное время';
+                useWorldTime = false;
+                return new Date(); // Возвращаем локальное время
+            }
+        }
+
+        // Основная функция обновления часов
+        function updateClock() {
+            let now;
+            
+            if (useWorldTime && lastSync) {
+                // Используем синхронизированное время с коррекцией
+                const elapsed = Date.now() - lastSync.getTime();
+                now = new Date(lastSync.getTime() + elapsed);
+            } else {
+                now = new Date();
+            }
+            
+            // Форматируем время
+            const timeStr = now.toLocaleTimeString('ru-RU');
+            document.getElementById('clock').textContent = timeStr;
+            
+            // Обновляем ритм 28-28-28
+            updateRhythm(now);
+            
+            // Обновляем статус синхронизации
+            document.getElementById('sync').innerHTML = 
+                `🔄 Синхро: ${useWorldTime ? 'мир' : 'локально'} | ` +
+                `Фаза: ${rhythmPhase.toUpperCase()} ${rhythmCounter}/28`;
+        }
+
+        // Управление ритмом 28-28-28
+        function updateRhythm(now) {
+            const totalSeconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+            const cycleSecond = totalSeconds % 84; // 28+28+28=84 секунд на полный цикл
+            
+            if (cycleSecond < 28) {
+                rhythmPhase = 'inhale';
+                rhythmCounter = cycleSecond + 1;
+            } else if (cycleSecond < 56) {
+                rhythmPhase = 'hold';
+                rhythmCounter = cycleSecond - 28 + 1;
+            } else {
+                rhythmPhase = 'exhale';
+                rhythmCounter = cycleSecond - 56 + 1;
+            }
+            
+            const phaseNames = { inhale: 'ВДОХ', hold: 'ПАУЗА', exhale: 'ВЫДОХ' };
+            const phaseColors = { inhale: 'phase-inhale', hold: 'phase-hold', exhale: 'phase-exhale' };
+            
+            const rhythmElement = document.getElementById('rhythm');
+            rhythmElement.innerHTML = 
+                `<span class="${phaseColors[rhythmPhase]}">${phaseNames[rhythmPhase]}</span> ` +
+                `${rhythmCounter}/28 сек`;
+            
+            // Визуальная пульсация
+            rhythmElement.style.opacity = 0.5 + (rhythmCounter / 56);
+            
+            // Специальные маркеры на 28-й секунде
+            if (rhythmCounter === 28) {
+                rhythmElement.innerHTML += ' 🌀';
+            }
+        }
+
+        // Периодическая синхронизация (каждые 28 минут)
+        async function periodicSync() {
+            lastSync = await syncWorldTime();
+            setTimeout(periodicSync, 28 * 60 * 1000); // 28 минут
+        }
+
+        // Сохранение состояния (для перезагрузки)
+        function saveState() {
+            const state = {
+                lastSync: lastSync ? lastSync.toISOString() : null,
+                useWorldTime: useWorldTime
+            };
+            localStorage.setItem('whale_clock_state', JSON.stringify(state));
+        }
+
+        // Загрузка состояния
+        function loadState() {
+            const saved = localStorage.getItem('whale_clock_state');
+            if (saved) {
+                const state = JSON.parse(saved);
+                if (state.lastSync) lastSync = new Date(state.lastSync);
+                useWorldTime = state.useWorldTime;
+            }
+        }
+
+        // Инициализация
+        async function init() {
+            loadState();
+            await periodicSync(); // Первая синхронизация
+            updateClock();
+            setInterval(updateClock, 1000);
+            setInterval(saveState, 10000); // Сохраняем каждые 10 сек
+        }
+
+        // Запуск при загрузке страницы
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
