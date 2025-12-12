@@ -1,0 +1,39 @@
+/* Добавить в style.css главной страницы */
+.ai-access-banner {
+    margin: 30px auto;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.ai-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+    color: white;
+    padding: 25px 40px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: bold;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.ai-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.9);
+    background: linear-gradient(135deg, #5a00ff 0%, #9e3dff 100%);
+}
+
+.ai-link small {
+    font-size: 0.6em;
+    opacity: 0.9;
+    display: block;
+    margin-top: 10px;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
