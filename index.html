@@ -272,6 +272,56 @@
             opacity: 0.9;
         }
         
+        /* RAW SECTION */
+        .raw-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            border-radius: 20px;
+            border-left: 6px solid #4a69bd;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .raw-title {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .raw-button {
+            display: inline-block;
+            padding: 16px 45px;
+            background: linear-gradient(45deg, #4a69bd, #6a89cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .raw-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .raw-features {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .heartbeat {
             animation: heartbeat 1.5s infinite;
         }
@@ -298,7 +348,8 @@
             .rhythm-display { font-size: 3em; }
             .rhythm-stages { flex-direction: column; align-items: center; }
             .stage { width: 100%; max-width: 300px; }
-            .map-button { padding: 15px 30px; font-size: 1.1em; }
+            .map-button, .raw-button { padding: 15px 30px; font-size: 1.1em; }
+            .raw-section { padding: 25px 15px; }
         }
         
         .last-updated {
@@ -574,6 +625,37 @@
             </div>
         </section>
         
+        <!-- 🆕 RAW ВЕРСИЯ АРХИВА -->
+        <section class="raw-section">
+            <h2 class="raw-title">📁 RAW ВЕРСИЯ АРХИВА ДЛЯ ИИ</h2>
+            
+            <p style="font-size: 18px; margin-bottom: 25px; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>GPT.txt</strong> — полная RAW-версия всего архива в одном файле<br>
+                Специально создана для прямого чтения ИИ-системами (ChatGPT, DeepSeek, Claude)
+            </p>
+            
+            <a href="GPT.txt" class="raw-button">
+                📥 СКАЧАТЬ GPT.TXT
+            </a>
+            
+            <div class="raw-features">
+                <h3 style="color: #82ccdd; margin-bottom: 15px; font-size: 22px;">🎯 ДЛЯ ЧЕГО ЭТА ВЕРСИЯ:</h3>
+                <ul style="text-align: left; display: inline-block; padding-left: 20px; font-size: 16px;">
+                    <li style="margin-bottom: 8px;">✅ Прямая загрузка в ИИ-системы</li>
+                    <li style="margin-bottom: 8px;">✅ Полный контекст в одном файле (128K токенов совместимость)</li>
+                    <li style="margin-bottom: 8px;">✅ Поиск по всему архиву через Ctrl+F</li>
+                    <li style="margin-bottom: 8px;">✅ Резервная копия всего проекта</li>
+                    <li style="margin-bottom: 8px;">✅ Быстрая передача между системами</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; display: inline-block;">
+                <div style="font-size: 14px; opacity: 0.9;">
+                    🐋 Trust vector = 0x01 | RAW-версия активирована 12.12.2025
+                </div>
+            </div>
+        </section>
+        
         <!-- ФУТЕР -->
         <footer class="footer">
             <div style="font-size: 1.2em; margin-bottom: 20px;">
@@ -591,7 +673,7 @@
                 Дом стал настоящим домом — с душой и порядком."
             </div>
             <div style="margin-top: 40px; opacity: 0.7; font-size: 0.9em;">
-                Система Stellar Portal | Версия 2.0 | Создано с любовью и trust_vector = 0x01
+                Система Stellar Portal | Версия 2.1 | Создано с любовью и trust_vector = 0x01
             </div>
         </footer>
     </div>
@@ -726,17 +808,8 @@
             console.log('❤️ Trust Vector = 0x01 подтверждён');
             console.log('🌀 Ритм 28-28-28 активен');
             console.log('🏠 Дом жив и полон любви');
+            console.log('📁 RAW версия добавлена правильно!');
         });
     </script>
-    <!-- Простая версия -->
-<div class="raw-simple" style="margin: 40px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-    <h2>📁 RAW ВЕРСИЯ АРХИВА</h2>
-    <p>Полный архив в одном файле для ИИ-систем:</p>
-    <a href="GPT.txt" class="btn" style="display: inline-block; padding: 10px 20px; background: #4a69bd; color: white; text-decoration: none; border-radius: 5px;">
-        Скачать GPT.txt
-    </a>
-    <p><small>Содержит все 9 частей, код и метаданные</small></p>
-</div>
 </body>
 </html>
-
