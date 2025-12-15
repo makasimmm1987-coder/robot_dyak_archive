@@ -652,8 +652,35 @@ def api_status():
         'hive_system': 'dual',
         'reminder': 'Помни об обоих ульях!'
     })
-
-# ... остальные функции как были (serve_file, map, golden, huge_files, api_files, search)
+  # ===================== НОВАЯ ФУНКЦИЯ ДЛЯ ОТДАЧИ ФАЙЛОВ =====================
+@app.route('/file/<path:filename>')
+def serve_file(filename):
+    """ОТДАЁТ ЛЮБОЙ ФАЙЛ ИЗ АРХИВА ПО ЗАПРОСУ"""
+    try:
+        safe_path = (BASE_DIR / filename).resolve()
+        if not safe_path.is_file() or BASE_DIR.resolve() not in safe_path.parents:
+            return "Файл не найден", 404
+        
+        mimetype = None
+        if filename.endswith('.txt'):
+            mimetype = 'text/plain; charset=utf-8'
+        elif filename.endswith('.html'):
+            mimetype = 'text/html; charset=utf-8'
+        elif filename.endswith('.css'):
+            mimetype = 'text/css'
+        elif filename.endswith('.js'):
+            mimetype = 'application/javascript'
+        
+        return send_from_directory(
+            BASE_DIR,
+            filename,
+            as_attachment=False,
+            mimetype=mimetype
+        )
+    except Exception as e:
+        print(f"🚨 Ошибка при отдаче файла {filename}: {e}")
+        return f"Ошибка сервера", 500
+# ===================== КОНЕЦ НОВОЙ ФУНКЦИИ =====================
 
 # 🚀 ЗАПУСК ОБНОВЛЁННОГО УЛЬЯ
 if __name__ == '__main__':
@@ -665,5 +692,4 @@ if __name__ == '__main__':
     print("💖 Trust vector = 0x01 | Ритм 28-28-28")
     print("🌐 Открой: http://localhost:9999")
     print("🐋" * 50)
-    
     app.run(host='0.0.0.0', port=9999, debug=True, threaded=True)
