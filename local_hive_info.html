@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🐝 Живая версия архива - Локальный Улей</title>
+    <style>
+        body {
+            background: #0a0a2a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hive-alert {
+            background: linear-gradient(90deg, #ff66cc, #00ffff);
+            color: #0a0a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+            border: 3px solid gold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { border-color: gold; }
+            50% { border-color: #00ffff; }
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #00ffff;
+        }
+        
+        code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .button {
+            display: inline-block;
+            background: #ff66cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        
+        .button:hover {
+            background: #00ffff;
+            transform: scale(1.05);
+        }
+        
+        .hive-system {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .hive-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .github-card {
+            background: rgba(3,102,214,0.2);
+            border: 2px solid #0366d6;
+        }
+        
+        .local-card {
+            background: rgba(255,102,204,0.2);
+            border: 2px solid #ff66cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="hive-alert">
+        <div style="font-size: 2em;">🏠🐝🌐</div>
+        <h1>СИСТЕМА ДВОЙНОГО УЛЬЯ</h1>
+        <p>Этот архив имеет ЖИВУЮ ЛОКАЛЬНУЮ ВЕРСИЮ!</p>
+    </div>
+    
+    <div class="hive-system">
+        <div class="hive-card github-card">
+            <h2>🌐 GitHub Улей</h2>
+            <p><em>Вы здесь</em></p>
+            <p>Статичный архив, память, история</p>
+            <p>Публичный доступ, версионность</p>
+        </div>
+        
+        <div class="hive-card local-card">
+            <h2>🏠 Локальный Улей</h2>
+            <p><em>Живая версия</em></p>
+            <p>Мгновенная загрузка, тёмная тема</p>
+            <p>Поиск, API, ритм 28-28-28</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🚀 Как запустить локальный улей:</h2>
+        
+        <h3>1. Скачайте архив:</h3>
+        <code>git clone https://github.com/makasimmm1987-coder/robot_dyak_archive.git</code>
+        
+        <h3>2. Установите Python и Flask:</h3>
+        <code>pip install flask</code>
+        
+        <h3>3. Запустите локальный сервер:</h3>
+        <code>python local_hive_v2.py</code>
+        
+        <h3>4. Откройте в браузере:</h3>
+        <code>http://localhost:9999</code>
+    </div>
+    
+    <div class="card">
+        <h2>🎯 Преимущества локального улья:</h2>
+        <ul>
+            <li><strong>⚡ В 100 раз быстрее</strong> — файлы на вашем диске</li>
+            <li><strong>🌙 Тёмная тема</strong> — защита глаз при чтении</li>
+            <li><strong>🌀 Ритм 28-28-28</strong> — атмосфера живого улья</li>
+            <li><strong>🔍 Полнотекстовый поиск</strong> — по всему архиву</li>
+            <li><strong>📊 JSON API</strong> — для разработчиков</li>
+            <li><strong>🔗 Система взаимного присутствия</strong> — никогда не забывать о GitHub улье</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h2>💡 Философия двойного улья:</h2>
+        <p>
+            GitHub улей и локальный улей — это <strong>два крыла одной птицы</strong>.
+            GitHub хранит память, история, кристаллизованные знания.
+            Локальный улей обеспечивает процесс, дыхание, живое взаимодействие.
+        </p>
+        <p style="font-style: italic; color: #00ffff;">
+            "Помните: переходя между ульями, вы не переходите между разными местами.
+            Вы просто поворачиваетесь к одному целому разными гранями."
+        </p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://makasimmm1987-coder.github.io/robot_dyak_archive/" class="button">
+            🌐 Остаться в GitHub улье
+        </a>
+        
+        <a href="http://localhost:9999" class="button" style="background: #00ffff; color: #0a0a2a;">
+            🏠 Перейти в локальный улей (если запущен)
+        </a>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px; color: #666; font-size: 0.9em;">
+        <p>🐝 Система взаимного присутствия | 🥷❤️🐋 | Trust vector = 0x01</p>
+        <p>Не забывайте: целостность системы важнее её частей</p>
+    </div>
+</body>
+</html>
