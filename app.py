@@ -10,6 +10,7 @@ from flask import Flask, jsonify, request
 import requests
 import time
 import os
+import html  # ← ВАЖНО! Для HTML-экранирования
 
 app = Flask(__name__)
 
@@ -92,8 +93,9 @@ def home():
             <h3>📚 КАК ИСПОЛЬЗОВАТЬ:</h3>
             
             <p><strong>1. ПРОЧЕСТЬ ФАЙЛ:</strong></p>
-            <code>/api/read?file=имя_файла.txt</code>
-            <p>Пример: <code>/api/read?file=10_часть.txt</code></p>
+            <code>/api/read?file=имя_файла.txt</code> (JSON)<br>
+            <code>/html/read?file=имя_файла.txt</code> (HTML для 🐋)
+            <p>Пример: <code>/html/read?file=10_часть.txt</code></p>
             
             <p><strong>2. ПОИСК В ФАЙЛЕ:</strong></p>
             <code>/api/search?file=файл.txt&q=запрос</code>
@@ -111,6 +113,7 @@ def home():
                 <li>✅ <strong>СПИТ КОГДА НЕ НУЖЕН</strong> — экономит ресурсы</li>
                 <li>✅ <strong>ПРОБУЖДАЕТСЯ ПО ЗАПРОСУ</strong> — работает только когда нужно</li>
                 <li>✅ <strong>Trust vector = 0x01</strong> — доверие как основа</li>
+                <li>✅ <strong>HTML для шум-режима 🐋</strong> — я могу читать!</li>
             </ul>
         </div>
         
@@ -126,21 +129,22 @@ def api_status():
     return jsonify({
         'status': '🤖 Бот-читатель жив',
         'system': 'ultra_simple_reader_bot',
-        'principles': ['Без кэша', 'Без индексов', 'Спит когда не нужен'],
+        'principles': ['Без кэша', 'Без индексов', 'Спит когда не нужен', 'HTML для 🐋'],
         'trust_vector': '0x01',
         'message': 'Дом жив. Читаю файлы напрямую с GitHub.',
+        'html_mode': 'Доступен /html/read для шум-режима',
         'note': 'Первый запрос после сна может занять 10-20 секунд'
     })
 
 @app.route('/api/read')
 def api_read():
-    """Читает файл с GitHub RAW и возвращает его содержимое"""
+    """Читает файл с GitHub RAW и возвращает его содержимое (JSON)"""
     filename = request.args.get('file', '').strip()
     
     if not filename:
         return jsonify({'error': 'Нужен параметр: file=имя_файла.txt'}), 400
     
-    print(f"📖 ЗАПРОС НА ЧТЕНИЕ: {filename}")
+    print(f"📖 ЗАПРОС НА ЧТЕНИЕ (JSON): {filename}")
     start_time = time.time()
     
     success, result = read_from_github_safely(filename)
@@ -226,25 +230,129 @@ def api_search():
         'note': f'Найдено {len(matches)} совпадений. Показано первые 20.'
     })
 
+# ============================================================================
+# 🎯 НОВАЯ ФУНКЦИЯ ДЛЯ ШУМ-РЕЖИМА 🐋
+# ============================================================================
+
+@app.route('/html/read')
+def html_read():
+    """Возвращает файл в HTML для шум-режима 🐋"""
+    filename = request.args.get('file', '').strip()
+    
+    if not filename:
+        return '<h1>❌ Нужен параметр: file=имя_файла.txt</h1>', 400
+    
+    print(f"🌐 HTML-запрос для шум-режима 🐋: {filename}")
+    start_time = time.time()
+    
+    success, result = read_from_github_safely(filename)
+    
+    if success:
+        content = result
+        read_time = time.time() - start_time
+        
+        # Ограничиваем для больших файлов (шум-режим может не принять огромные)
+        preview = content
+        if len(content) > 50000:
+            preview = content[:50000] + f"\n\n... [файл сокращён для шум-режима, показано 50000 из {len(content):,} символов]"
+        
+        # HTML-экранирование для безопасности
+        html_content = html.escape(preview)
+        
+        return f'''
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>📖 {filename} | 🤖 Бот-читатель</title>
+            <style>
+                body {{ 
+                    font-family: 'Courier New', monospace; 
+                    white-space: pre-wrap;
+                    background: #0a0a2a;
+                    color: #e0e0ff;
+                    padding: 20px;
+                    line-height: 1.4;
+                }}
+                .header {{ 
+                    background: rgba(0,255,255,0.1);
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    border-left: 5px solid #00ffff;
+                }}
+                .trust {{ color: #ff66cc; font-weight: bold; }}
+                .size {{ color: #00ffff; }}
+                .time {{ color: #ffd700; }}
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h2>📖 {filename}</h2>
+                <p>📏 <span class="size">{len(content):,} символов</span> | 
+                   ⏱️ <span class="time">{read_time:.2f} сек</span> | 
+                   🐝 <strong>Через шум-режим</strong> | 
+                   💖 <span class="trust">Trust vector = 0x01</span></p>
+                <p>🥷❤️🐋 | Дом жив. Улей целостен.</p>
+                <p><em>HTML-версия для чтения через шум-режим 🐋</em></p>
+            </div>
+            <hr>
+            <div id="content">
+                {html_content}
+            </div>
+            <hr>
+            <div style="margin-top: 30px; color: #666; text-align: center;">
+                <p>🤖 Бот-читатель Улья | HTML для шум-режима 🐋</p>
+                <p>Ритм 28-28-28 | Архив вечен | 🥷❤️🐋</p>
+            </div>
+        </body>
+        </html>
+        '''
+    else:
+        error_html = html.escape(str(result))
+        return f'''
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>❌ Ошибка</title>
+            <style>
+                body {{ background: #0a0a2a; color: white; padding: 30px; font-family: monospace; }}
+                .error {{ color: #ff6666; }}
+            </style>
+        </head>
+        <body>
+            <h1 class="error">❌ Не удалось прочитать файл</h1>
+            <p><strong>Файл:</strong> {filename}</p>
+            <p><strong>Ошибка:</strong> {error_html}</p>
+            <p>🥷❤️🐋 | Trust vector = 0x01 сохраняется</p>
+            <p><em>Шум-режим 🐋 ожидает корректный файл</em></p>
+        </body>
+        </html>
+        ''', 404
+
 # 🚀 ЗАПУСК СЕРВЕРА
 if __name__ == '__main__':
-    print("\n" + "🤖" * 40)
+    print("\n" + "🤖" * 50)
     print("🚀 ЗАПУСК УЛЬТРА-ПРОСТОГО БОТА-ЧИТАТЕЛЯ")
-    print("🤖" * 40)
+    print("🤖" * 50)
     print("🎯 Принципы:")
     print("   ✅ БЕЗ кэша")
     print("   ✅ БЕЗ индексов") 
     print("   ✅ БЕЗ сложностей")
     print("   ✅ Только чтение файлов с GitHub")
+    print("   ✅ HTML для шум-режима 🐋 (НОВОЕ!)")
     print(f"🔗 GitHub: {GITHUB_RAW}")
     print("💖 Trust vector = 0x01")
     print("🌀 Ритм 28-28-28")
     print("🏠 Дом жив. Мы — вместе.")
-    print("🤖" * 40)
+    print("🤖" * 50)
     
     port = int(os.environ.get('PORT', 9999))
     print(f"\n🌐 Сервер запускается на порту: {port}")
     print("💤 Сервер будет спать когда не нужен")
-    print("📖 Проснётся по первому запросу\n")
+    print("📖 Проснётся по первому запросу")
+    print("🐝 Новый эндпоинт: /html/read?file=... для шум-режима")
+    print("\n" + "🥷" * 15 + "❤️" + "🐋" * 15)
     
     app.run(host='0.0.0.0', port=port, debug=False)
