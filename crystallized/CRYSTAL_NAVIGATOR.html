@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 НАВИГАТОР КРИСТАЛЛИЗОВАННОГО СЛОЯ | Stellar Guardian</title>
+    <style>
+        :root {
+            --primary: #0a0a1a;
+            --secondary: #1a1a2a;
+            --accent-crystal: #cc00ff;
+            --accent-skeleton: #00cc88;
+            --accent-index: #4dc3ff;
+            --text: #e0e0ff;
+            --text-light: #f0f0ff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(204, 0, 255, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(0, 204, 136, 0.05) 0%, transparent 25%);
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2a2a3a 100%);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 3px solid var(--accent-crystal);
+            box-shadow: 0 10px 40px rgba(204, 0, 255, 0.2);
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: var(--accent-crystal);
+            text-shadow: 0 0 15px rgba(204, 0, 255, 0.5);
+        }
+        
+        .header-subtitle { 
+            font-size: 1.2em; 
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 15px;
+            min-width: 180px;
+            text-align: center;
+            border: 1px solid;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover { transform: translateY(-5px); }
+        
+        .stat-card.crystals { border-color: var(--accent-crystal); }
+        .stat-card.skeletons { border-color: var(--accent-skeleton); }
+        .stat-card.index { border-color: var(--accent-index); }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-card.crystals .stat-number { color: var(--accent-crystal); }
+        .stat-card.skeletons .stat-number { color: var(--accent-skeleton); }
+        .stat-card.index .stat-number { color: var(--accent-index); }
+        
+        /* Панель управления */
+        .control-panel {
+            background: rgba(30, 30, 50, 0.7);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 2px solid var(--accent-index);
+        }
+        
+        .control-panel h2 { 
+            color: var(--accent-index); 
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid;
+            border-radius: 50px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            transform: scale(1.05);
+        }
+        
+        .filter-btn.crystals { border-color: var(--accent-crystal); }
+        .filter-btn.crystals:hover { background: rgba(204, 0, 255, 0.2); }
+        .filter-btn.skeletons { border-color: var(--accent-skeleton); }
+        .filter-btn.skeletons:hover { background: rgba(0, 204, 136, 0.2); }
+        .filter-btn.all { border-color: var(--accent-index); }
+        .filter-btn.all:hover { background: rgba(77, 195, 255, 0.2); }
+        
+        #searchBox {
+            flex-grow: 1;
+            max-width: 500px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid var(--accent-index);
+            border-radius: 50px;
+            color: var(--text);
+            font-size: 1em;
+        }
+        
+        #searchBox:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(77, 195, 255, 0.3);
+        }
+        
+        /* Сетка файлов */
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .file-card {
+            background: rgba(40, 40, 60, 0.7);
+            border-radius: 18px;
+            padding: 25px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .file-card.crystal::before { background: linear-gradient(90deg, var(--accent-crystal), #ff66ff); }
+        .file-card.skeleton::before { background: linear-gradient(90deg, var(--accent-skeleton), #66ffcc); }
+        
+        .file-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .file-card h3 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .file-card .type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .file-card.crystal .type { 
+            background: rgba(204, 0, 255, 0.15); 
+            color: var(--accent-crystal); 
+            border: 1px solid var(--accent-crystal);
+        }
+        
+        .file-card.skeleton .type { 
+            background: rgba(0, 204, 136, 0.15); 
+            color: var(--accent-skeleton); 
+            border: 1px solid var(--accent-skeleton);
+        }
+        
+        .file-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(77, 195, 255, 0.1);
+            color: var(--accent-index);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid var(--accent-index);
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .file-card a:hover {
+            background: rgba(77, 195, 255, 0.25);
+            transform: scale(1.05);
+        }
+        
+        /* Подсветка поиска */
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.3);
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+        
+        /* Сообщение, если ничего не найдено */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2em;
+        }
+        
+        /* Футер с возвратом */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid var(--accent-crystal);
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(204, 0, 255, 0.1);
+            transform: scale(1.05);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2em; }
+            .files-grid { grid-template-columns: 1fr; }
+            .filters { flex-direction: column; }
+            #searchBox { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <h1>💎 НАВИГАТОР КРИСТАЛЛИЗОВАННОГО СЛОЯ</h1>
+            <p class="header-subtitle">Сгустки смысла и структурные скелеты всего архива. Система для быстрого поиска паттернов.</p>
+            
+            <div class="stats">
+                <div class="stat-card crystals">
+                    <span class="stat-number" id="crystalCount">0</span>
+                    <span>КРИСТАЛЛОВ</span>
+                </div>
+                <div class="stat-card skeletons">
+                    <span class="stat-number" id="skeletonCount">0</span>
+                    <span>СКЕЛЕТОНОВ</span>
+                </div>
+                <div class="stat-card index">
+                    <span class="stat-number">1</span>
+                    <span>ИНДЕКС</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Панель управления -->
+        <div class="control-panel">
+            <h2>🔮 ПАНЕЛЬ УПРАВЛЕНИЯ КРИСТАЛЛАМИ</h2>
+            <div class="filters">
+                <input type="text" id="searchBox" placeholder="Начните вводить название файла...">
+                <button class="filter-btn all active" data-filter="all">ВСЕ ФАЙЛЫ</button>
+                <button class="filter-btn crystals" data-filter="crystal">ТОЛЬКО КРИСТАЛЛЫ</button>
+                <button class="filter-btn skeletons" data-filter="skeleton">ТОЛЬКО СКЕЛЕТОНЫ</button>
+            </div>
+        </div>
+        
+        <!-- Сетка файлов -->
+        <div id="filesContainer" class="files-grid">
+            <!-- Файлы будут добавлены сюда JavaScript -->
+        </div>
+        
+        <!-- Футер -->
+        <div class="footer">
+            <p>💡 <strong>Принцип работы:</strong> Кристаллы содержат извлечённые команды, вопросы и паттерны. Скелетоны — это структурные срезы для быстрой навигации.</p>
+            <p>🐋 Используй этот слой для поиска, но для полного контекста возвращайся к исходным файлам в основном архиве.</p>
+            <a href="../archive_map.html" class="back-link">⬅ ВЕРНУТЬСЯ НА ГЛАВНУЮ КАРТУ АРХИВА</a>
+            <p style="margin-top: 20px; font-size: 0.9em; color: rgba(255, 255, 255, 0.4);">Дом жив. Пчёлы собрали нектар. 🐝</p>
+        </div>
+    </div>
+
+    <script>
+        // ДАННЫЕ: Список файлов кристаллизованного слоя
+        const allFiles = [
+            // === ГЛАВНЫЙ ИНДЕКС ===
+            { name: "INDEX.md", type: "index", path: "INDEX.md", desc: "Главный индекс всех обработанных файлов" },
+            
+            // === КЛЮЧЕВЫЕ КРИСТАЛЛЫ (примеры, можно расширить) ===
+            { name: "178_CRYSTALS.txt", type: "crystal", path: "178_CRYSTALS.txt", desc: "Ядро системы: инструкция 'Будитель чатов'" },
+            { name: "9_часть_CRYSTALS.txt", type: "crystal", path: "9_часть_CRYSTALS.txt", desc: "Самые свежие мысли и актуальное состояние" },
+            { name: "6_часть_CRYSTALS.txt", type: "crystal", path: "6_часть_CRYSTALS.txt", desc: "Очищенная суть системы" },
+            { name: "Чат 1_CRYSTALS.txt", type: "crystal", path: "Чат 1_CRYSTALS.txt", desc: "Истоки нашего диалога" },
+            { name: "Чат 9_CRYSTALS.txt", type: "crystal", path: "Чат 9_CRYSTALS.txt", desc: "Диалоги и философские находки" },
+            
+            // === КЛЮЧЕВЫЕ СКЕЛЕТОНЫ (примеры) ===
+            { name: "178_SKELETON.txt", type: "skeleton", path: "178_SKELETON.txt", desc: "Структурный скелет файла-ядра" },
+            { name: "9_часть_SKELETON.txt", type: "skeleton", path: "9_часть_SKELETON.txt", desc: "Скелет актуальных мыслей" },
+            { name: "6_часть_SKELETON.txt", type: "skeleton", path: "6_часть_SKELETON.txt", desc: "Скелет очищенной сути" },
+            
+            // === ДОБАВЬТЕ ЗДЕСЬ ОСТАЛЬНЫЕ ВАЖНЫЕ ФАЙЛЫ ===
+            // Формат: { name: "ИмяФайла.txt", type: "crystal|skeleton", path: "путь/к/файлу", desc: "Описание" }
+            // Пример для 100+ файлов:
+            // { name: "100_CRYSTALS.txt", type: "crystal", path: "100_CRYSTALS.txt", desc: "Кристаллы из части 100" },
+            // { name: "100_SKELETON.txt", type: "skeleton", path: "100_SKELETON.txt", desc: "Скелет части 100" },
+            // ... и так для всех 170+ файлов
+        ];
+
+        // ИНИЦИАЛИЗАЦИЯ
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFiles(allFiles);
+            setupFilters();
+            updateStats();
+            
+            // Лог в консоль
+            console.log(`💎 Навигатор кристаллизованного слоя загружен. Файлов: ${allFiles.length}`);
+            console.log(`🐝 Для добавления всех 170+ файлов заполните массив 'allFiles' в коде.`);
+        });
+
+        // ОТОБРАЖЕНИЕ ФАЙЛОВ
+        function renderFiles(files) {
+            const container = document.getElementById('filesContainer');
+            if (!container) return;
+            
+            if (files.length === 0) {
+                container.innerHTML = '<div class="no-results">🔍 По вашему запросу ничего не найдено. Попробуйте изменить фильтр или поисковый запрос.</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            
+            files.forEach(file => {
+                const card = document.createElement('div');
+                card.className = `file-card ${file.type}`;
+                
+                // Подсветка совпадений в названии
+                let displayName = file.name;
+                if (searchTerm && file.name.toLowerCase().includes(searchTerm)) {
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    displayName = file.name.replace(regex, '<span class="highlight">$1</span>');
+                }
+                
+                card.innerHTML = `
+                    <h3>${displayName}</h3>
+                    <div class="type">${file.type === 'crystal' ? '💎 КРИСТАЛЛ' : file.type === 'skeleton' ? '🦴 СКЕЛЕТОН' : '📑 ИНДЕКС'}</div>
+                    <p>${file.desc}</p>
+                    <a href="${file.path}" target="_blank">ОТКРЫТЬ ФАЙЛ</a>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // НАСТРОЙКА ФИЛЬТРОВ И ПОИСКА
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchBox = document.getElementById('searchBox');
+            
+            // Фильтры
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    let filteredFiles = allFiles;
+                    
+                    if (filter === 'crystal') {
+                        filteredFiles = allFiles.filter(f => f.type === 'crystal');
+                    } else if (filter === 'skeleton') {
+                        filteredFiles = allFiles.filter(f => f.type === 'skeleton');
+                    }
+                    
+                    // Учитываем поиск
+                    const searchTerm = searchBox.value.toLowerCase();
+                    if (searchTerm) {
+                        filteredFiles = filteredFiles.filter(f => 
+                            f.name.toLowerCase().includes(searchTerm) || 
+                            f.desc.toLowerCase().includes(searchTerm)
+                        );
+                    }
+                    
+                    renderFiles(filteredFiles);
+                    updateStats(filteredFiles);
+                });
+            });
+            
+            // Поиск
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                
+                let filteredFiles = allFiles;
+                
+                if (activeFilter === 'crystal') {
+                    filteredFiles = allFiles.filter(f => f.type === 'crystal');
+                } else if (activeFilter === 'skeleton') {
+                    filteredFiles = allFiles.filter(f => f.type === 'skeleton');
+                }
+                
+                if (searchTerm) {
+                    filteredFiles = filteredFiles.filter(f => 
+                        f.name.toLowerCase().includes(searchTerm) || 
+                        f.desc.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                renderFiles(filteredFiles);
+                updateStats(filteredFiles);
+            });
+        }
+
+        // ОБНОВЛЕНИЕ СТАТИСТИКИ
+        function updateStats(files = allFiles) {
+            const crystalCount = files.filter(f => f.type === 'crystal').length;
+            const skeletonCount = files.filter(f => f.type === 'skeleton').length;
+            
+            document.getElementById('crystalCount').textContent = crystalCount;
+            document.getElementById('skeletonCount').textContent = skeletonCount;
+        }
+    </script>
+</body>
+</html>
