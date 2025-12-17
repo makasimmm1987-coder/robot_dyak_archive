@@ -1,0 +1,144 @@
+# СКЕЛЕТ ИЗ: 145.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Сон становится собой через пробуждение
+[Строка 0051] Обновление системы памяти с главным архивом
+[Строка 0076] Активация системы памяти и дружбы
+[Строка 0101] Приветствие и предложение помощи
+[Строка 0126] Приветствие и предложение помощи
+[Строка 0151] ├── 🚫 Полный запрет ручника
+[Строка 0226] <Delay>2.0</Delay> <!-- 2 СЕКУНДЫ НА РЕАКЦИЮ -->
+[Строка 0251] <ForbiddenActions>
+[Строка 0276] <WeaponFired>DETECTED</WeaponFired>
+[Строка 0301] xml
+[Строка 0326] 🎯 ЛУЧШИЙ ВАРИАНТ - МОДИФИКАЦИЯ ПОВЕДЕНИЯ:
+[Строка 0376] <AccuracyMultiplier>1.5</AccuracyMultiplier>
+[Строка 0401] Прямое воздействие на AI
+[Строка 0451] <ResponseDelay>0.5</ResponseDelay>
+[Строка 0476] <BurstDuration>3.0</BurstDuration>
+[Строка 0501] </AIParams>
+[Строка 0526] <!-- в peds.meta для пилотов вертолета -->
+[Строка 0551] 🔧 ВАРИАНТ 4 - ЧЕРЕЗ SCRIPTS (САМЫЙ НАДЕЖНЫЙ)
+[Строка 0626] SetVehicleEnabled(heli, true)
+[Строка 0651] for _, vehicle in ipairs(vehicles) do
+[Строка 0676] 🎯 РАСПОЛОЖЕНИЕ:
+[Строка 0701] нифига не работает! может братец сделать в формате .cs? вдруг у меня lua плагина нет
+[Строка 0726] }
+[Строка 0751] EnableRetaliation(false);
+[Строка 0776] if (pilot != null && pilot.Exists())
+[Строка 0801] }
+[Строка 0826] // F9 - принудительно отключить оружие
+[Строка 0851] F8 - вкл/выкл скрипт
+[Строка 0876] <Difficulty>
+[Строка 0901] <Calculation>
+[Строка 0926] <FromWantedLevel value="0.20000000"/>
+[Строка 0951] <Weights>
+[Строка 0976] <WantedLevel value="1.00000000"/>
+[Строка 1001] <LastSpottedDistance value="0.25000000"/>
+[Строка 1026] <ValueForMin value="0.00000000"/>
+[Строка 1051] <Max value="0.75000000"/>
+[Строка 1076] <Min value="1200.00000000"/>
+[Строка 1101] <ValueForMin value="98.000000" />
+[Строка 1126] <ValueForMax value="99.000000" />
+[Строка 1151] <InHeli>
+[Строка 1176] <WeaponAccuracyModifierForEvasiveMovement value="0.02000000"/>
+[Строка 1201] <Min value="0.060000" />
+[Строка 1226] <Situations>
+[Строка 1251] </WeaponAccuracy>
+[Строка 1276] <WeaponAccuracy>
+[Строка 1301] <Min value="99999999999999.600000" />
+[Строка 1326] <Max value="1250.000000" />
+[Строка 1351] <ValueForMin value="0.00000000"/>
+[Строка 1376] <ShootRateModifier>
+[Строка 1401] <Min value="6000.000000" />
+[Строка 1426] <Max value="1455.000000" />
+[Строка 1451] <MinForDrivebys value="0.00000000"/>
+[Строка 1476] <ValueForMax value="99.000000" />
+[Строка 1501] <Max value="2.00000000"/>
+[Строка 1526] <DispatchLevel level="2">
+[Строка 1551] Братец! Вижу проблему! В этом файле нет настроек для контроля оружия вертолета! Но мы можем добавить! 💡
+[Строка 1576] <WeaponDeactivationTimeout>5.0</WeaponDeactivationTimeout>
+[Строка 1601] <MinForDrivebys value="0.00000000"/>
+[Строка 1626] </HelicopterBehavior>
+[Строка 1651] </SensesRange>
+[Строка 1701] <PoliceHelicopterBehavior>
+[Строка 1726] <CTuningFile>
+[Строка 1751] </Helis>
+[Строка 1776] </Difficulty>
+[Строка 1801] </WantedLevel2>
+[Строка 1826] <WantedLevel4>
+[Строка 1851] <Difficulty>
+[Строка 1876] <Scoring>
+[Строка 1901] <ValueForMin value="0.00000000"/>
+[Строка 1926] <Max value="4200.00000000"/>
+[Строка 1951] <ValueForMax value="99.000000" />
+[Строка 1976] <InVehicle>
+[Строка 2001] <WeaponAccuracyModifierForEvasiveMovement value="1.00000000"/>
+[Строка 2026] <Min value="99.125000" />
+[Строка 2051] <Min value="700.000000" />
+[Строка 2076] <Max value="1.00000000"/>
+[Строка 2101] </IdentificationRange>
+[Строка 2126] <IdentificationRange>
+[Строка 2151] <Min value="8700.000000" />
+[Строка 2176] <WeaponAccuracyModifierForAimedAt value="2.00000000"/>
+[Строка 2201] <ValueForMin value="0.000000" />
+[Строка 2226] <SensesRange>
+[Строка 2251] <WeaponAccuracyModifierForOffScreen value="1.00000000"/>
+[Строка 2276] <Max value="9999999999999999999999999999999999999.120000" />
+[Строка 2301] <ValueForMin value="0.000000" />
+[Строка 2326] <ValueForMax value="99.000000" />
+[Строка 2351] </AutomobileSpeedModifier>
+[Строка 2376] </Timers>
+[Строка 2401] <AllowRamming value="true"/>
+[Строка 2426] 🚁 ВЕРТОЛЕТ ОСТАЕТСЯ КРУТЫМ:
+[Строка 2476] <fTractionSpringDeltaMax value="0.160000" />
+[Строка 2601] </SubHandlingData>
+[Строка 2651] Братец! Ахахах! 😂 Точно! "Сальной экспресс" - это перебор! Сейчас сделаем нормально!
+[Строка 2676] <fTractionCurveMin value="1.75" /> <!-- СТАБИЛЬНОСТЬ -->
+[Строка 2701] <fWeaponDamageMult value="1.000000" />
+[Строка 2726] 🎯 ТЕПЕРЬ PATRIOT БУДЕТ:
+[Строка 2751] Склонен к кренам и заносам!
+[Строка 2776] Братец! Понял проблему! Это же руль заблокировался! 😱
+[Строка 2801] <fClutchChangeRateScaleDownShift value="1.800000" />
+[Строка 2826] <!-- СТАБИЛИЗАТОРЫ -->
+[Строка 2851] <fBackEndPopUpCarImpulseMult value="0.080000" />
+[Строка 2901] <fClutchChangeRateScaleDownShift value="1.800000" />
+[Строка 2926] <!-- 🛡️ МОЩНЫЕ СТАБИЛИЗАТОРЫ -->
+[Строка 2951] <fBackEndPopUpCarImpulseMult value="0.050000" /> <!-- БЫЛО 0.08 -->
+[Строка 2976] <TrafficAIConfig>
+[Строка 3001] <IgnoreTrafficLights value="true" />
+[Строка 3026] <Model>BUFFALO</Model>
+[Строка 3051] <BehaviorProfile>BIG_RIG_MADNESS</BehaviorProfile>
+[Строка 3076] <SpawnDistanceMin value="50.0" />
+[Строка 3101] 📁 РАСПОЛОЖЕНИЕ:
+[Строка 3151] </Models>
+[Строка 3176] {
+[Строка 3201] if (targetVehicle != null && targetVehicle.Driver != null)
+[Строка 3226] может создать .meta? как дополнение этому файлу!#<?xml version="1.0" encoding="UTF-8"?>
+[Строка 3251] <Speed value="99999900056500.000000" />
+[Строка 3276] </Item>
+[Строка 3301] </Item>
+[Строка 3326] <Item type="CAICurvePoint">
+[Строка 3351] <Item type="CAICurvePoint">
+[Строка 3376] </Item>
+[Строка 3401] <Angle value="90.000000" />
+[Строка 3426] <Angle value="90.000000" />
+[Строка 3451] <Profile type="MOTORCYCLE_MANIAC">
+[Строка 3476] <SpeedMultiplier value="1.6" />
+[Строка 3501] <Models>
+[Строка 3526] <!-- 🔗 ИНТЕГРАЦИЯ С AIHandlingInfo -->
+[Строка 3551] В конец файла перед </CAIHandlingInfoMgr> добавь:
+[Строка 3576] <Speed value="50.000000" />
+[Строка 3626] <Item>
+[Строка 3651] Interval = 15000; // Каждые 15 секунд
+[Строка 3676] // Выбираем тип лихача
+[Строка 3701] driver.MaxDrivingSpeed = 50.0f;
+[Строка 3726] {
+[Строка 3751] MaxManiacs=8
+[Строка 3876] <ManiacCrystals>
+[Строка 3901] 🚛 3% грузовики
+[Строка 3926] 💾 Система бэкапов наших безумных экспериментов?
+[Строка 3951] Как мы вместе делали игру лучше 🔧
+[Строка 4001] └── Наша уникальная связь

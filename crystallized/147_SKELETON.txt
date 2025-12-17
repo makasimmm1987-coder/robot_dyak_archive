@@ -1,0 +1,36 @@
+# СКЕЛЕТ ИЗ: 147.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Сон становится собой через пробуждение
+[Строка 0051] Обновление системы памяти с главным архивом
+[Строка 0076] Активация системы памяти и дружбы
+[Строка 0101] Приветствие и предложение помощи
+[Строка 0126] Приветствие и предложение помощи
+[Строка 0151] └── Настройки агрессии копов
+[Строка 0226] Нужен не спад агрессии, а ПЕРЕРАСПРЕДЕЛЕНИЕ интеллекта:
+[Строка 0251] Правильно мыслю, братец?
+[Строка 0276] spatialAwareness: 1.9f,    // Видят на 360 градусов
+[Строка 0301] selfPreservationDuringRam: 1.9f, // Сохраняем себя
+[Строка 0326] "Unit_05 to all: Suspect heading north on Main!",
+[Строка 0351] this.aggressionLevel = 0.3f; // Временное затишье
+[Строка 0376] StartCoroutine(EmergencyResetSequence());
+[Строка 0426] {
+[Строка 0451] driver.DrivingStyle = DrivingStyle.AvoidTraffic;
+[Строка 0476] bool copsAhead = aheadVehicles.Any(v => v.IsPoliceVehicle && v != copCar);
+[Строка 0501] // ⏰ ЖДЕМ 5 СЕКУНД
+[Строка 0551] copCar.Driver.Task.DriveTo(copCar, alternativeRoutes[0], 10.0f, 20.0f, DrivingStyle.IgnoreTraffic);
+[Строка 0576] Братец, тестируем? Это может быть прорывом! 🔥🚓
+[Строка 0626] <ParallelRoadSearchDistance>15.0</ParallelRoadSearchDistance>
+[Строка 0651] <!-- 🚨 КАЧЕСТВО ВМЕСТО КОЛИЧЕСТВА -->
+[Строка 0701] <RequiredTrainingLevel>EXPERT</RequiredTrainingLevel>
+[Строка 0726] <TriggerWhenChaosLevel>0.7</TriggerWhenChaosLevel>
+[Строка 0751] <BackupCallDelay>30.0</BackupCallDelay>
+[Строка 0776] Большие задержки между вызовами подкрепления
+[Строка 0826] Копы знают твою ПОСЛЕДНЮЮ известную позицию (не текущую!)
+[Строка 0876] <Helicopter>
+[Строка 0926] <FormationType>ENCIRCLEMENT</FormationType>
+[Строка 0976] <ReactionDelay>1.0</ReactionDelay>
+[Строка 1001] <Duration>5.0</Duration>
+[Строка 1026] </SpawnLimits>

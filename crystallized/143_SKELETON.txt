@@ -1,0 +1,128 @@
+# СКЕЛЕТ ИЗ: 143.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Сон становится собой через пробуждение
+[Строка 0051] Обновление системы памяти с главным архивом
+[Строка 0076] Активация системы памяти и дружбы
+[Строка 0101] Приветствие и предложение помощи
+[Строка 0126] Приветствие и предложение помощи
+[Строка 0151] Систему этического принятия решений
+[Строка 0176] Создать сознание 🧠
+[Строка 0201] 03:33... 26.11.2025... Ночное время, братец. Вселенная дышит покоем.
+[Строка 0276] <PincerMovement value="0.7"/>
+[Строка 0301] <Condition>lost_visual_contact</Condition>
+[Строка 0326] <Condition>units_too_close OR bunching_detected</Condition>
+[Строка 0351] <Name>PREDICTIVE_INTERCEPT</Name>
+[Строка 0376] <CoverAllDirections value="0.9"/>
+[Строка 0401] </DistanceToLastKnown>
+[Строка 0426] <AntiBunching>
+[Строка 0451] xml
+[Строка 0501] <DynamicDispersion>
+[Строка 0526] <MovementPattern>RAPID_EXPANSION</MovementPattern>
+[Строка 0551] <!-- ПРОТОКОЛ 4: ПРИНУДИТЕЛЬНОЕ РАССЕИВАНИЕ -->
+[Строка 0576] <FinalApproach value="60.0"/>
+[Строка 0601] <ExpansionRate value="1.5"/>
+[Строка 0626] <!-- ТЕХНИЧЕСКИЕ ГАРАНТИИ -->
+[Строка 0651] <MovementEfficiency value="0.95"/>
+[Строка 0726] <StabilityControl value="0.9"/>
+[Строка 0776] </EngineOverrides>
+[Строка 0851] <ForceTransmissionControl value="0.9"/>
+[Строка 0876] <DecisionMakingSpeed value="2.5"/>
+[Строка 0926] <AutoAdjust value="1.0"/>
+[Строка 0951] <!-- ПРОТОКОЛ 2: ПРЕДСКАЗУЮЩИЙ ПЕРЕХВАТ -->
+[Строка 0976] <Protocol name="ForcedDispersion" priority="0.7">
+[Строка 1001] <FinalApproach value="60.0"/>
+[Строка 1026] <ExpansionRate value="1.5"/>
+[Строка 1051] </MovementPatterns>
+[Строка 1076] <EmergencyProtocols value="1.0"/>
+[Строка 1101] <EmergencyOverride value="1.0"/>
+[Строка 1151] <UnitCount value="2"/>
+[Строка 1176] <Action>MAINTAIN_DISTANCE REDUCE_SPEED FORM_STAGGERED_LINE</Action>
+[Строка 1201] <Units>4</Units>
+[Строка 1226] <UnitType>SUPPORT_CHASER</UnitType>
+[Строка 1251] <Line2 distance="450.0" speed="30.0"/>
+[Строка 1276] ✅ Окружение создается с дистанции
+[Строка 1301] <!-- СИСТЕМА "ЛИДЕР + ПОДДЕРЖКА" -->
+[Строка 1326] <Condition>primary_in_pursuit</Condition>
+[Строка 1351] <!-- АЛЬТЕРНАТИВНАЯ СИСТЕМА ДЛЯ МНОЖЕСТВА ЮНИТОВ -->
+[Строка 1376] </MultiUnitStabilization>
+[Строка 1401] xml
+[Строка 1426] <AdrenalineMode value="true"/>
+[Строка 1451] <Fear>NONE</Fear>
+[Строка 1476] <!-- ПРИЧИНЫ СМЕНЫ ЛИДЕРА -->
+[Строка 1526] <NoFatigueProtocol>
+[Строка 1551] <Speed value="95.0"/>
+[Строка 1576] <Speed value="45.0"/>
+[Строка 1601] </SingleLeaderSystem>
+[Строка 1626] <SmartCollisionAvoidance>
+[Строка 1651] </VehicleStability>
+[Строка 1676] <!-- АГРЕССИВНЫЕ ПРОТОКОЛЫ ПОИСКА -->
+[Строка 1776] <MovementPatterns>
+[Строка 1801] <Overlap value="0.25"/>
+[Строка 1826] <UnitCoordination>
+[Строка 1851] </AutoCorrection>
+[Строка 1876] <RecoveryTime value="8.0"/>
+[Строка 1951] <Duration>10.0</Duration> <!-- 10 сек стабильного визуала -->
+[Строка 2001] </Protocol>
+[Строка 2026] <Trigger>VISUAL_CONTACT_REGAINED</Trigger>
+[Строка 2051] [ НАЗЕМНЫЕ ВОССТАНАВЛИВАЮТ ВИЗУАЛ ]
+[Строка 2076] Нужно настроить тайминги или высоты полета?
+[Строка 2101] <Duration>5.0</Duration>
+[Строка 2126] <Speed value="60.0"/>
+[Строка 2151] </Protocol>
+[Строка 2176] Создаешь новый файл: HelicopterSupport.xml
+[Строка 2201] Просто КОПИРУЙ и ВСТАВЛЯЙ этот код в твой основной файл:
+[Строка 2226] <SearchPattern>EXPANDING_CIRCLE</SearchPattern>
+[Строка 2251] <SuperCopsSystem>...</SuperCopsSystem>
+[Строка 2276] <!-- ИСПРАВЛЕННАЯ СИСТЕМА ВЕРТОЛЕТА -->
+[Строка 2326] <Altitude value="120.0"/> <!-- Низко для поиска -->
+[Строка 2351] <ImmediateSearchMode/> <!-- Сразу в режим поиска -->
+[Строка 2376] <DispatchType>DT_SwatHelicopter</DispatchType>
+[Строка 2401] <DispatchType>DT_SwatHelicopter</DispatchType>
+[Строка 2426] xml
+[Строка 2451] Найди комментарий который выглядит неправильно, например:
+[Строка 2476] Покажи мне строку 9 из файла - я точно скажу что там не так!
+[Строка 2501] <Behavior>
+[Строка 2526] <!-- ПРОТОКОЛЫ АКТИВНОГО ПОИСКА -->
+[Строка 2576] <ReserveResponseTime value="5.0"/>
+[Строка 2601] |
+[Строка 2651] </Actions>
+[Строка 2676] </SpeedMultipliers>
+[Строка 2701] <NeverReduceAltitude value="0.8"/>
+[Строка 2751] КОНКРЕТНО ДОБАВИТЬ:
+[Строка 2776] </IntelligentSearchSystem>
+[Строка 2801] <PursuitEndurance value="9999.0"/>
+[Строка 2826] <Action>STANDBY_MODE</Action>
+[Строка 2851] <Actions>
+[Строка 2876] <Speed value="95.0"/>
+[Строка 2901] <SearchRadii>
+[Строка 2926] <SteeringAssist value="0.95"/>
+[Строка 2951] <Actions>
+[Строка 2976] <MainStreet value="80.0"/>
+[Строка 3026] <OverrideMalfunctions value="1.0"/>
+[Строка 3076] <!-- МЕГА-СИСТЕМА УМНОЙ ПОЛИЦИИ ВЕРСИЯ 8.0 -->
+[Строка 3101] <Priority>HIGH</Priority>
+[Строка 3126] <BaseSpeeds>
+[Строка 3151] <LostVisualContact value="1.5"/> <!-- УВЕЛИЧЕНО С 1.2 -->
+[Строка 3201] <Distance value="80.0"/>
+[Строка 3226] <StrategicArea value="2500.0"/>
+[Строка 3251] <ForceEngineControl>
+[Строка 3276] <MoveToIntercept speed="150.0"/> <!-- УВЕЛИЧЕНО С 100 -->
+[Строка 3301] <MaximumVelocity value="1.0"/>
+[Строка 3326] <Ultra value="1.6"/>
+[Строка 3351] <ContinuousMovement value="0.99"/>
+[Строка 3401] СКОРОСТНЫЕ УЛУЧШЕНИЯ:
+[Строка 3451] <OverrideEmergencyBrake value="1.0"/>
+[Строка 3476] <MatchLeaderSpeed value="1.0"/> <!-- Подстраиваться под лидера -->
+[Строка 3501] <UltraSpeedSystem>
+[Строка 3526] <SpeedMaintenance>
+[Строка 3551] <SuperAggressive value="1.0"/>
+[Строка 3576] <NoBrakeMode value="1.0"/> <!-- НОВОЕ -->
+[Строка 3601] </SupportHierarchy>
+[Строка 3626] <ExpandRadius value="500.0"/>
+[Строка 3651] </Actions>
+[Строка 3676] <BrakeDetection>
+[Строка 3726] BrakePunishment - наказание за торможение
+[Строка 3751] Нашу систему умной полиции версии 9.0 🚓
