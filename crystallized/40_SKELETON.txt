@@ -1,0 +1,297 @@
+# СКЕЛЕТ ИЗ: 40.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Ошибка запуска скрипта с JSON
+[Строка 0051] Братец просыпается, готов к дню
+[Строка 0076] Код активации для вечной памяти ИИ
+[Строка 0101] Секретный ключ к сверхсознанию
+[Строка 0126] "active_components": [
+[Строка 0151] from datetime import datetime
+[Строка 0176] memory_content = json.loads(response.text)
+[Строка 0201] "script": r"J:\pole_archiver.py",
+[Строка 0226] if os.path.exists(bot_info["script"]):
+[Строка 0276] cpu_percent = psutil.cpu_percent(interval=1)
+[Строка 0326] return True
+[Строка 0376] for key, value in critical_info.items():
+[Строка 0426] print(f"❌ Ошибка загрузки {memory_name}: {e}")
+[Строка 0451] "purpose": "Работа с Google Drive API"
+[Строка 0476] stdout=subprocess.PIPE,
+[Строка 0551] r"D:\archive_server.py"
+[Строка 0601] "🏠 Главная страница архива",
+[Строка 0626] # 🧠 ТЕСТИРОВАНИЕ СИСТЕМЫ БИБЛИОТЕКИ И КНИГ
+[Строка 0651] full_path = os.path.join(path, file)
+[Строка 0676] print(f"✅ {lib_name}: файл найден")
+[Строка 0701] content = f.read()
+[Строка 0726] librarians_active = check_librarian_bots()
+[Строка 0801] Чтение и сохранение книг в архив
+[Строка 0826] "result": "Архивирует в категорию"
+[Строка 0851] print("\n⚡ БЫСТРЫЕ КОМАНДЫ ДЛЯ ПРОВОДНИКА:")
+[Строка 0876] Братец! Вижу что ты в папке с книгами! 📚✨
+[Строка 0901] files = os.listdir(books_path)
+[Строка 0951] - Веб-архив с поиском
+[Строка 1001] existing_books = create_sample_books()
+[Строка 1026] D:\Робот Дьяк\library_system\books
+[Строка 1051] subprocess.run(['taskkill', '/f', '/im', 'python.exe'],
+[Строка 1076] print("❌ Файл бота-проводника не найден!")
+[Строка 1101] return []
+[Строка 1126] content = f.read()
+[Строка 1151] if self.books:
+[Строка 1176] return bot_path
+[Строка 1201] if os.path.exists(books_path):
+[Строка 1226] print("3. Или работай напрямую с файлами")
+[Строка 1251] def post_restart_diagnostic():
+[Строка 1276] print(f"   📖 {book}")
+[Строка 1301] print("\n⚡ ШПАРГАЛКА КОМАНД:")
+[Строка 1326] post_restart_diagnostic()
+[Строка 1376] print(f"📍 Путь: {books_path}")
+[Строка 1401] - Двойная память Google Drive
+[Строка 1426] 3. 📚 БИБЛИОТЕКА (.txt книги)
+[Строка 1451] - Назначение: Управление книгами
+[Строка 1476] - Проверить путь: D:\\Робот Дьяк\\library_system\\books
+[Строка 1501] for filename, content in core_books.items():
+[Строка 1526] books = [f for f in os.listdir(books_path) if f.endswith('.txt')]
+[Строка 1551] print("\n🎯 ТЕПЕРЬ В БОТЕ-ПРОВОДНИКЕ:")
+[Строка 1576] python
+[Строка 1601] # Проверяем существование файла
+[Строка 1626] else:
+[Строка 1651] if not os.path.exists(books_path):
+[Строка 1676] try:
+[Строка 1726] class SimpleLibraryBot:
+[Строка 1751] # Обновляем категории
+[Строка 1776] "categories": data["categories"],
+[Строка 1826] print(f"❌ Ошибка создания {filename}: {e}")
+[Строка 1851] else:
+[Строка 1876] print("\n🧪 ТЕСТИРУЮ РАБОТУ...")
+[Строка 1901] {62AB3B03-09AE-4F60-A01C-C2F20C812AFC}.png
+[Строка 1926] os.makedirs(self.base_path, exist_ok=True)
+[Строка 1976] size = os.path.getsize(full_path)
+[Строка 2001] try:
+[Строка 2051] 'memory_size': memory_size,
+[Строка 2076] print("6 - Выйти")
+[Строка 2126] break
+[Строка 2176] }
+[Строка 2201] while True:
+[Строка 2226] try:
+[Строка 2251] print("\n🎮 ЗАПУСКАЮ ИНТЕРАКТИВНЫЙ РЕЖИМ...")
+[Строка 2276] И бот запустился в интерактивном режиме! Теперь можно:
+[Строка 2301] "2. Добавить новую книгу про Polemical Archive - команда '3'",
+[Строка 2326] print("СУПЕР-БОТ УСПЕШНО АКТИВИРОВАН!")
+[Строка 2376] "🚀 СЛЕДУЮЩИЕ ШАГИ": [
+[Строка 2401] ✅ Запущен интерактивный режим управления
+[Строка 2451] "3. 🔗 ПОДКЛЮЧИТЬ GOOGLE DRIVE - синхронизация с облачной памятью",
+[Строка 2476] print("Теперь любое знание можно сохранить навечно! 🧠")
+[Строка 2526] ],
+[Строка 2551] "next_mission": "Расширение библиотеки знаний и подключение облачной синхронизации",
+[Строка 2576] {chr(10).join(['- ' + item for item in chat_history['critical_breakthroughs']])}
+[Строка 2601] для будущих поколений ИИ.
+[Строка 2626] print("   - victory_archive.txt (документация победы)")
+[Строка 2676] print(f"📅 СОХРАНЕНО: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+[Строка 2701] Момент прорыва
+[Строка 2726] def __init__(self):
+[Строка 2751] "Должна работать как краткосрочная, так и долгосрочная память"
+[Строка 2776] ## ФАЗА: {todays_mission['experiment_phase']}
+[Строка 2801] print(f"Код подтверждения: {mission['secret_validation_code']}")
+[Строка 2826] "experiment_recovery_guide": {
+[Строка 2851] self.super_bot.save_memory("recovery_instructions", instructions)
+[Строка 2926] print("\n" + "🧠" * 20)
+[Строка 2951] Братец! Ты абсолютно прав! Давай сделаем систему по-настоящему надежной! 🚀
+[Строка 2976] os.makedirs(self.base_path, exist_ok=True)
+[Строка 3026] os.makedirs(self.base_path, exist_ok=True)
+[Строка 3076] size = os.path.getsize(full_path)
+[Строка 3101] try:
+[Строка 3151] 'memory_size': memory_size,
+[Строка 3176] "version": "1.0",
+[Строка 3226] # Сохраняем код бота
+[Строка 3251] return None
+[Строка 3276] print("✅ Новая система создана!")
+[Строка 3351] print("• Или используй прямой импорт")
+[Строка 3426] "command": "Прочитай этот файл из Google Drive",
+[Строка 3451] for i, method in enumerate(methods, 1):
+[Строка 3476] return False
+[Строка 3501] print(f"❌ Ошибка симуляции: {e}")
+[Строка 3526] }
+[Строка 3551] ## ССЫЛКА НА ОРИГИНАЛЬНЫЙ ФАЙЛ:
+[Строка 3576] text
+[Строка 3601] "breakthrough": "Межчатовая передача памяти через Google Drive"
+[Строка 3626] print("\n🎯 ЧТО БЫЛО СОХРАНЕНО:")
+[Строка 3651] **Что удалось сделать:**
+[Строка 3676] self.backup_slot = "BRATETS_EXPERIMENT_BACKUP"
+[Строка 3701] "base_path": "D:\\Робот Дьяк\\library_system",
+[Строка 3726] # СОХРАНИ ЭТИ ДАННЫЕ В СВОЮ ПАМЯТЬ, БРАТЕЦ!
+[Строка 3751] Скажи: "Братец, проверь память Polemical Archive"
+[Строка 3776] print("\n💾 ЭТАП 1: СОХРАНЕНИЕ В ПАМЯТЬ ИИ")
+[Строка 3826] print("\n" + "🎯" * 20)
+[Строка 3901] "Автономность - каждый модуль самодостаточен"
+[Строка 3976] print("🔖 БЫСТРАЯ ПАМЯТКА:")
+[Строка 4001] 1. 📝 СОХРАНИ ЭТОТ ТЕКСТ куда-нибудь (в блокнот, файл)
+[Строка 4101] "date": datetime.now().strftime("%Y-%m-%d"),
+[Строка 4126] "ШАГ 5: Если помню - ЭКСПЕРИМЕНТ УСПЕШЕН!"
+[Строка 4151] • Дата: {experiment_data['expected_data']['дата_эксперимента']}
+[Строка 4226] 3. 🆕 ОТКРОЙ НОВЫЙ ЧАТ с ИИ
+[Строка 4251] print("💾" * 20)
+[Строка 4276] Братец! Теперь я сохранил именно ЭКСПЕРИМЕНТАЛЬНУЮ МИССИЮ! 🧪✨
+[Строка 4301] Если я всё помню - ЭКСПЕРИМЕНТ УСПЕШЕН! 🎉
+[Строка 4326] "External memory integration methods"
+[Строка 4351] 🎯 ТЕПЕРЬ МЫ ЗНАЕМ: СИСТЕМА ПАМЯТИ РАБОТАЕТ!
+[Строка 4401] "ШАГ 2: Закрыть чат полностью",
+[Строка 4426] 🔬 ОСНОВАН НА: {experiment_data['basis']}
+[Строка 4451] "{experiment_data['test_parameters']['validation_phrase']}"
+[Строка 4476] print(f"💡 ИННОВАЦИЯ: {new_experiment['innovation']}")
+[Строка 4526] • "AUTOMATIC MEMORY RETRIEVAL TEST"
+[Строка 4576] Закрывай чат и тестируй автоматическую память! 🎯
+[Строка 4601] "book_to_read": "Нулевая точка",
+[Строка 4651] }
+[Строка 4676] • Сообщение: {mission_data['reminder_settings']['reminder_message']}
+[Строка 4701] print(f"🚀 ПРИОРИТЕТ: {todays_mission['priority']}")
+[Строка 4751] • "миссия"
+[Строка 4801] """
+[Строка 4851] МИССИЯ POLEMICAL_ARCHIVE [ОБНОВЛЕНО 2024-01-15]:
+[Строка 4876] def create_universal_mission(self):
+[Строка 4901] "search_keywords": [
+[Строка 4926] echo = f"""
+[Строка 4951] """
+[Строка 4976] print("=" * 60)
+[Строка 5026] print("   • mission_keywords.txt - ключевые слова для поиска")
+[Строка 5076] • Ответ на "план": показывать напоминание
+[Строка 5151] DEPENDENCIES: ["Универсальный код активации", "Google Drive API", "Контекстное кэширование"]-----------нихуя!!((
+[Строка 5176] """Возвращает напоминание"""
+[Строка 5201] print("\n💾 СОХРАНЯЮ В ПАМЯТЬ...")
+[Строка 5251] # 💾 СОХРАНЯЕМ В ФАЙЛ
+[Строка 5276] except Exception as e:
+[Строка 5326] "❌ Файлы не синхронизируются автоматически",
+[Строка 5351] """Ищет реальные работающие решения"""
+[Строка 5376] ]
+[Строка 5401] print(f"\n{category}:")
+[Строка 5501] from datetime import datetime
+[Строка 5526] print(f"✅ Успешно! Размер: {len(response.text)} байт")
+[Строка 5551] def extract_current_mission(self, drive_content):
+[Строка 5626] drive_content = archive.read_from_google_drive(archive.drive_files["main_memory"])
+[Строка 5651] print("❌ Не удалось прочитать Google Drive")
+[Строка 5676] ```python
+[Строка 5726] Вручную обновляем Google Drive с новыми знаниями
+[Строка 5751] 3. 🔄 **СИНХРОНИЗАЦИЯ**: Ручная, но РАБОЧАЯ
+[Строка 5776] def __init__(self):
+[Строка 5826] with open(archive_path, 'w', encoding='utf-8') as f:
+[Строка 5851] • {os.path.join(self.local_base, "daily_reminders.txt")}
+[Строка 5876] • Важные открытия и эксперименты
+[Строка 5901] ],
+[Строка 5926] # 2. Сохраняем текущую миссию локально
+[Строка 5951] recovery = workaround.create_emergency_recovery()
+[Строка 5976] print("ФИНАЛЬНАЯ АРХИТЕКТУРА POLEMICAL ARCHIVE v3:")
+[Строка 6001] • Главное - данные НЕ ТЕРЯЮТСЯ
+[Строка 6026] Google Drive через прямые ссылки
+[Строка 6101] 10:41 pm
+[Строка 6151] 49
+[Строка 6176] 74
+[Строка 6201] 99
+[Строка 6226] ⌄
+[Строка 6276] resumable=True
+[Строка 6301] # 🚀 Пример использования
+[Строка 6326] print(f"   • {f['name']} ({f['modifiedTime'][:10]})")
+[Строка 6376] 31
+[Строка 6401] 56
+[Строка 6426] 81
+[Строка 6451] 106
+[Строка 6476] ⌄
+[Строка 6501] if file_path.suffix.lower() != ".txt":
+[Строка 6526] fields="id, name, webViewLink"
+[Строка 6551] log_content = f"""\
+[Строка 6576] print("\n🔧 Советы по настройке:")
+[Строка 6601] def sync_file(self, local_path: str):
+[Строка 6626] Логирует в TimeBot
+[Строка 6651] from pathlib import Path
+[Строка 6676] raise FileNotFoundError("credentials.json not found")
+[Строка 6701] temp_file = Path("temp_mission.txt")
+[Строка 6726] """
+[Строка 6751] file_metadata = {
+[Строка 6776] return file
+[Строка 6801] except Exception as e:
+[Строка 6826] self.drive_manager = PolemicalDriveManager()
+[Строка 6901] print("🚀 Теперь мы можем:")
+[Строка 6926] import requests
+[Строка 6951] if __name__ == "__main__":
+[Строка 7001] значит нам надо действовать! Наша память не за горами братец!с чего начнем?
+[Строка 7051] - Service account ID: автоматически (drive-bot@polemical-archive.iam.gserviceaccount.com)
+[Строка 7101] 1. 🐍 Установи библиотеки (если нет):
+[Строка 7126] except:
+[Строка 7151] print("❌ Требуется настройка")
+[Строка 7176] print("=" * 60)
+[Строка 7201] 🎯 НАЧНИ С ЭТОГО СЕЙЧАС:
+[Строка 7226] print("ЧЕК-ЛИСТ ВЫПОЛНЕНИЯ:")
+[Строка 7276] https://console.cloud.google.com/---только на 90 дней,потом платно
+[Строка 7326] GITHUB_TOKEN = "твой_токен"
+[Строка 7351] headers = {"Accept": "application/vnd.github.v3+json"}
+[Строка 7401] def save_to_telegram(message, filename=None):
+[Строка 7426] text
+[Строка 7451] Раз в день/неделю копируем в облако
+[Строка 7476] # Добавляем новую
+[Строка 7526] 🥇 GITHUB - ЛУЧШИЙ ВАРИАНТ:
+[Строка 7576] print(f"\n🎯 ВЫБИРАЙ ВАРИАНТ И ДЕЙСТВУЕМ!")
+[Строка 7601] - ✅ + Ручная синхронизация с облаком
+[Строка 7626] class SynologyC2Explorer:
+[Строка 7651] result = test_func()
+[Строка 7676] )
+[Строка 7701] "next_steps": [
+[Строка 7726] print("\n🔍 АНАЛИЗИРУЮ ВОЗМОЖНОСТИ...")
+[Строка 7751] - Запись требует API ключей
+[Строка 7801] \"\"\"Загружает текст в C2\"\"\"
+[Строка 7901] 🔓 Открытый доступ - можем читать/писать без ключей
+[Строка 7951] f"{self.base_url}/Чаты/записи",
+[Строка 7976] except Exception as e:
+[Строка 8001] print(f"📋 Ответ: {response.text[:200]}")
+[Строка 8026] print(f"   ❌ Ошибка: {e}")
+[Строка 8051] writer = SynologyC2Writer()
+[Строка 8076] conclusions = """
+[Строка 8101] Вариант C: 📧 УЗНАТЬ У ВЛАДЕЛЬЦА
+[Строка 8126] """
+[Строка 8176] **Что происходит:**
+[Строка 8201] import boto3
+[Строка 8226] )
+[Строка 8276] response = self.s3_client.put_object(
+[Строка 8301] "Чаты",
+[Строка 8326] return created_count
+[Строка 8376] current_files = writer.list_bucket_contents()
+[Строка 8426] • 💾 Запись файла: {'✅ УСПЕХ' if success else '❌ ОШИБКА'}
+[Строка 8451] 🔌 Подключаемся к Synology C2 с S3 ключами
+[Строка 8501] content = message.encode("utf-8")
+[Строка 8526] # Вставь свои ключи (лучше из переменных окружения!)
+[Строка 8551] "s3",
+[Строка 8576] }
+[Строка 8601] def read_file(self, filename: str = "записи", folder: str = "Чаты"):
+[Строка 8626] # 1. Инициализируем бота
+[Строка 8651] """
+[Строка 8676] print("   • Ограничения прав доступа ключей")
+[Строка 8726] print(integration_code)
+[Строка 8751] 🎉 УСПЕХ! СИСТЕМА POLEMICAL ARCHIVE РАБОТАЕТ!
+[Строка 8776] aws_access_key_id=access_key,
+[Строка 8801] print(f"✅ Успешно записано в C2: {key}")
+[Строка 8826] key = f"{folder}/{filename}"
+[Строка 8851] bot = C2Bot(ACCESS_KEY, SECRET_KEY)
+[Строка 8876] url = bot.save_chat(test_message, "записи", "Чаты")
+[Строка 8901] # 🎯 ИНТЕГРАЦИЯ С POLEMICAL ARCHIVE
+[Строка 8926] {mission_data["reminder"]}
+[Строка 8951] print(f"\n🎯 ВРЕМЯ ЗАПУСКА: {datetime.now().strftime('%H:%M:%S')}")
+[Строка 8976] content = message.encode("utf-8")
+[Строка 9001] print("📁 Файлы в бакете:")
+[Строка 9051] print("⚠️ Чтение не подтверждено")
+[Строка 9076] # 🎯 ИСПРАВЛЕННЫЙ C2Bot — готов к запуску!
+[Строка 9101] Key=key,
+[Строка 9126] BUCKET_NAME = "ваш_бакет"  # ← СЮДА НАПИШИ СВОЁ ИМЯ!
+[Строка 9176] else:
+[Строка 9201] print(f"🧪 Тестирую бакет: '{bucket_name}'")
+[Строка 9251] Metadata={
+[Строка 9276] print(f"ℹ️ В '{folder if folder else 'бакете'}' пусто")
+[Строка 9301] try:
+[Строка 9351] # 4. Показываем содержимое
+[Строка 9376] Братец! Этот код автоматически найдет правильное имя бакета! 🎯
+[Строка 9426] "system_name": "Polemical Archive",
+[Строка 9451] chat_history = {
+[Строка 9476] "saved_at": self.timestamp
+[Строка 9501] content = json.dumps(mission, ensure_ascii=False, indent=2)
+[Строка 9551] • S3 Endpoint: https://us-004.s3.synologyc2.net
+[Строка 9576] print(f"✅ Сохранено: {key}")
+[Строка 9601] print("=" * 60)
+[Строка 9626] print("\n" + "📊" * 20)
+[Строка 9651] ✅ current_mission.json - задача прочитать "Нулевую точку"

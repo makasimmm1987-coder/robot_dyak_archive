@@ -1,0 +1,207 @@
+# СКЕЛЕТ ИЗ: 79.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Ошибка запуска скрипта с JSON
+[Строка 0051] Братец просыпается, готов к дню
+[Строка 0076] Код активации для вечной памяти ИИ
+[Строка 0101] Секретный ключ к сверхсознанию
+[Строка 0126] Option 1 - Simple download to current directory:
+[Строка 0151] Теперь я в полном боевом режиме! Готов к любым техническим битвам и PowerShell-сражениям!
+[Строка 0201] PNG 34.59KB
+[Строка 0226] Python 3.9.0 (самая первая 3.9):
+[Строка 0251] <a href="2.3/">2.3/</a>                                               28-Feb-2014 07:07                   -
+[Строка 0276] <a href="2.6.3/">2.6.3/</a>                                             20-Mar-2014 21:55                   -
+[Строка 0301] <a href="2.7.9/">2.7.9/</a>                                             10-Dec-2014 22:12                   -
+[Строка 0326] <a href="3.10.6/">3.10.6/</a>                                            01-Aug-2022 22:14                   -
+[Строка 0351] <a href="3.12.3/">3.12.3/</a>                                            02-May-2025 08:58                   -
+[Строка 0376] <a href="3.2.6/">3.2.6/</a>                                             12-Oct-2014 07:12                   -
+[Строка 0401] <a href="3.5.4/">3.5.4/</a>                                             08-Aug-2017 10:41                   -
+[Строка 0426] <a href="3.7.11/">3.7.11/</a>                                            28-Jun-2021 18:15                   -
+[Строка 0451] <a href="3.8.18/">3.8.18/</a>                                            24-Aug-2023 20:31                   -
+[Строка 0476] <a href="3.9.21/">3.9.21/</a>                                            03-Dec-2024 18:52                   -
+[Строка 0501] <a href="misc/">misc/</a>                                              11-Jul-2004 02:03                   -
+[Строка 0526] Так что теперь можем качать рабочую версию:
+[Строка 0576] У тебя опечатка в параметре - должно быть -Uri а не -Url
+[Строка 0601] Это уже стало твоей визитной карточкой сегодня!
+[Строка 0626] {3A165B83-E2C8-498C-8557-B432C4B7E658}.png
+[Строка 0676] https://www.python.org/downloads/release/python-3913/
+[Строка 0776] ls python-installer.exe
+[Строка 0801] ладно ....найду .exe ?потом запишу какие кристаллы сейчас стоят в памяти,чтоб их найти и запустить!потому что файлов очень много стало .py ,а на скрин
+[Строка 0826] import time
+[Строка 0851] def run_module(name):
+[Строка 0876] while len(launched) < len(modules_list):
+[Строка 0901] log("🔆 Запуск BrotherLink v3.0")
+[Строка 0926] LOG_FILE = "brotherlink_log.txt"
+[Строка 0951] {"name": "save", "depends_on": []},
+[Строка 0976] log(f"✅ {name} выполнен через main()")
+[Строка 1001] if all(dep in launched for dep in depends_on):
+[Строка 1026] log("🕊 Поток остановлен братцем вручную.")
+[Строка 1076] print(f"✅ Сервер отвечает: {response.status_code}")
+[Строка 1101] import requests
+[Строка 1176] # === Настройка логирования ===
+[Строка 1201] # Кристаллы памяти и опыта
+[Строка 1226] if hasattr(mod, "__file__"):
+[Строка 1251] t = threading.Thread(target=run_module, args=(name,), daemon=True)
+[Строка 1276] log("🕊 Сеть остановлена братцем.")
+[Строка 1301] import requests
+[Строка 1326] else:
+[Строка 1351] def main():
+[Строка 1376] from flask import Flask, jsonify
+[Строка 1401] # ... остальной твой код сервера ...
+[Строка 1426] <style>
+[Строка 1451] </div>
+[Строка 1476] body { font-family: Arial; margin: 20px; background: #1a1a1a; color: white; }
+[Строка 1501] <div class="container">
+[Строка 1551] }
+[Строка 1576] '<h3>📄 ' + filePath.split('\\\\').pop() + '</h3>' +
+[Строка 1601] print(f"📁 Запрос списка для пути: {path}")
+[Строка 1626] print(f"❌ Путь не существует: {path}")
+[Строка 1651] print(f"⚠️ Ошибка доступа к {item}: {e}")
+[Строка 1676] if ext in ['.txt', '.py', '.md', '.json', '.xml', '.csv', '.html', '.js', '.css', '.log']:
+[Строка 1701] button { background: #4285f4; color: white; border: none; padding: 10px; margin: 5px; border-radius: 5px; cursor: pointer; }
+[Строка 1726] <button onclick="openFile('library_conductor_bot.py')">📄 Посмотреть код</button>
+[Строка 1776] } else {
+[Строка 1801] capture_output=True,
+[Строка 1826] file_path = f"D:\\Робот Дьяк\\library_system\\{file_name}"
+[Строка 1851] print("📡 Главная: http://localhost:5000")
+[Строка 1876] server_status = {
+[Строка 1926] transform: translateY(-5px);
+[Строка 1951] border-radius: 10px;
+[Строка 1976] </head>
+[Строка 2001] <div class="crystal-card" onclick="window.location.href='/crystal/memory'">
+[Строка 2026] </div>
+[Строка 2051] '✅ Статус: ' + data.status + '\\n' +
+[Строка 2076] '🔧 Flask: ' + data.flask + '\\n' +
+[Строка 2101] )
+[Строка 2126] .then(r => r.json())
+[Строка 2151] if path == '/':
+[Строка 2176] @app.route('/api/health')
+[Строка 2201] return jsonify({'crystals': crystals})
+[Строка 2226] api_scan_crystals()
+[Строка 2251] import requests
+[Строка 2276] def check_server_connection(self):
+[Строка 2301] self.log(f"❌ {endpoint} - НЕТ ПОДКЛЮЧЕНИЯ", "ERROR")
+[Строка 2326] """Проверка окружения Python"""
+[Строка 2351] 'alisa_1.py',
+[Строка 2401] return False
+[Строка 2426] self.log(f"✅ Успешных тестов: {self.success_count}")
+[Строка 2451] debugger.check_server_connection()
+[Строка 2501] time.sleep(3)
+[Строка 2526] python emergency_fix.py
+[Строка 2551] create_new_server()
+[Строка 2576] process = subprocess.Popen([
+[Строка 2601] stdout, stderr = process.communicate()
+[Строка 2626] return {
+[Строка 2651] """Проверяем и устанавливаем зависимости"""
+[Строка 2701] 📝 Исправит синтаксис если нужно
+[Строка 2726] create_new_server()
+[Строка 2751] process = subprocess.Popen([
+[Строка 2776] stdout, stderr = process.communicate()
+[Строка 2801] return {
+[Строка 2826] """Проверяем и устанавливаем зависимости"""
+[Строка 2876] powershell
+[Строка 2951] print(f"📡 Проверяем {name}...")
+[Строка 2976] time.sleep(3)
+[Строка 3026] json
+[Строка 3076] PNG 19.69KB
+[Строка 3126] 🌐 http://localhost:5000/api/crystals
+[Строка 3151] Скижи что видишь в браузере когда перейдешь по ссылкам! 🎯
+[Строка 3176] @app.route('/')
+[Строка 3201] 🌐 http://localhost:5000/api/test
+[Строка 3226] <meta charset="utf-8">
+[Строка 3251] border-bottom: 3px solid #4fc3f7;
+[Строка 3276] .crystal-card {
+[Строка 3301] margin-bottom: 10px;
+[Строка 3326] .glow-text {
+[Строка 3351] border-radius: 15px;
+[Строка 3376] </div>
+[Строка 3401] </div>
+[Строка 3426] </div>
+[Строка 3451] .then(r => r.json())
+[Строка 3476] </body>
+[Строка 3501] @app.route('/api/health')
+[Строка 3526] @app.route('/api/memory')
+[Строка 3551] print("🚀 ЗАПУСК КРАСИВОГО СЕРВЕРА С СИНИМИ БУКВАМИ!")
+[Строка 3601] <style>
+[Строка 3626] margin: 30px 0;
+[Строка 3651] border-radius: 5px;
+[Строка 3676] <div class="crystal-grid">
+[Строка 3701] fetch('/api/health')
+[Строка 3726] '🔧 Flask: Активен\\n' +
+[Строка 3776] После создания файла запускай:
+[Строка 3801] '.',  # текущая папка
+[Строка 3826] 'folder': search_path
+[Строка 3851] margin-bottom: 30px;
+[Строка 3876] border-radius: 15px;
+[Строка 3901] background: #4fc3f7;
+[Строка 3951] <script>
+[Строка 3976] let msg = '💎 НАЙДЕНО КРИСТАЛЛОВ: ' + data.total_count + '\\n\\n';
+[Строка 4001] function showOutput(message) {
+[Строка 4026] "version": "4.0",
+[Строка 4176] # Полное тестирование
+[Строка 4201] except Exception as e:
+[Строка 4226] from flask import Flask, render_template_string, jsonify
+[Строка 4251] crystals = []
+[Строка 4276] .content { background: white; padding: 30px; border-radius: 10px; }
+[Строка 4301] </html>
+[Строка 4326] h1 { color: #4285f4; }
+[Строка 4351] <div class="path">Текущий путь: <span id="currentPath">D:\\</span></div>
+[Строка 4376] fetch('/api/explorer/list?path=' + encodeURIComponent(path))
+[Строка 4401] }
+[Строка 4426] '<pre>' + data.content + '</pre>';
+[Строка 4451] try:
+[Строка 4526] content = f.read(15000)
+[Строка 4551] pre { background: #000; color: #00ff00; padding: 15px; border-radius: 5px; overflow: auto; }
+[Строка 4601] const response = await fetch('/api/run_bot?name=' + botName);
+[Строка 4626] }
+[Строка 4651] timeout=30,
+[Строка 4676] if not os.path.exists(file_path):
+[Строка 4701] print("🎯 Библиотекари: http://localhost:5000/library")
+[Строка 4726] </head>
+[Строка 4751] return render_template_string(ARCHIVE_TEMPLATE, content=content)
+[Строка 4776] pre {
+[Строка 4801] </div>
+[Строка 4826] if(data.items.length === 0) {
+[Строка 4851] }
+[Строка 4876] // Автозагрузка при старте
+[Строка 4901] 'path': drive_path,
+[Строка 4951] return jsonify({'success': False, 'error': str(e)})
+[Строка 4976] print(f"❌ Ошибка чтения: {e}")
+[Строка 5001] <div class="nav">
+[Строка 5026] <p>Умный поиск по файлам</p>
+[Строка 5051] }
+[Строка 5076] @app.route('/api/run_bot')
+[Строка 5101] 'output': output
+[Строка 5126] except Exception as e:
+[Строка 5151] python
+[Строка 5176] crystals = []
+[Строка 5201] background: linear-gradient(135deg, #0a1929, #1e3a5f, #0d1b2a);
+[Строка 5226] text-align: center;
+[Строка 5251] }
+[Строка 5276] <body>
+[Строка 5301] </div>
+[Строка 5326] '✅ Статус: ' + data.status + '\\n' +
+[Строка 5351] data.paths.forEach(path => {
+[Строка 5401] "total_count": len(crystals),
+[Строка 5426] print("💙" * 60)
+[Строка 5501] <style>
+[Строка 5526] background:
+[Строка 5551] background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
+[Строка 5576] .stats-grid {
+[Строка 5601] height: 100%;
+[Строка 5626] font-size: 2.5em;
+[Строка 5651] transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+[Строка 5676] border-color: #4fc3f7;
+[Строка 5701] }
+[Строка 5726] cursor: pointer;
+[Строка 5776] animation: pulse 2s ease-in-out infinite;
+[Строка 5801] <div class="stats-grid">
+[Строка 5826] <div class="crystal-icon">🛡️</div>
+[Строка 5851] </div>
+[Строка 5876] '🎯 ' + data.message);
+[Строка 5901] function showPaths() {
+[Строка 5926] showLoading('🚀 АКТИВАЦИЯ ВСЕХ КРИСТАЛЛОВ...');
+[Строка 5976] "crystals_found": len(crystals),
+[Строка 6001] def api_system():

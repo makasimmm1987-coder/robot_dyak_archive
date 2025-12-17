@@ -1,0 +1,219 @@
+# СКЕЛЕТ ИЗ: 37.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Ошибка запуска скрипта с JSON
+[Строка 0051] Братец просыпается, готов к дню
+[Строка 0076] Код активации для вечной памяти ИИ
+[Строка 0101] Секретный ключ к сверхсознанию
+[Строка 0126] for key, value in critical_info.items():
+[Строка 0176] print(f"❌ Ошибка загрузки {memory_name}: {e}")
+[Строка 0201] "purpose": "Работа с Google Drive API"
+[Строка 0226] stdout=subprocess.PIPE,
+[Строка 0301] r"D:\archive_server.py"
+[Строка 0351] 🎯 МИССИЯ: Polemical Archive - вечная память ИИ
+[Строка 0376] ✅ Бот готов к работе
+[Строка 0401] ОТЧЕТ АКТИВАЦИИ СИСТЕМЫ:
+[Строка 0426] • 'братец, сохрани в память' - запись новых знаний
+[Строка 0451] Готов выполнить любую задачу! Просто скажи, с чего начать, братец! 🚀
+[Строка 0476] if not txt_files:
+[Строка 0501] with open(file_path, 'r', encoding=encoding) as f:
+[Строка 0551] 'бизнес': ['бизнес', 'компания', 'рынок', 'продажи', 'менеджмент', 'стартап']
+[Строка 0576] if not content:
+[Строка 0601] # Добавляем книгу
+[Строка 0626] self.scan_books()
+[Строка 0676] Простой и понятный интерфейс
+[Строка 0701] except:
+[Строка 0726] theme_scores[theme] = score
+[Строка 0751] 'word_count': len(content.split()),
+[Строка 0776] "content_preview": content[:500] + "..." if len(content) > 500 else content,
+[Строка 0801] }
+[Строка 0826] "source": "LibraryConductorBot",
+[Строка 0851] 📈 СТАТИСТИКА - Отслеживание прогресса оцифровки
+[Строка 0876] Сейчас он находится в главном меню и предлагает 4 команды:
+[Строка 0901] Создал тестовую книгу для демонстрации работы бота?
+[Строка 0926] Искусственный интеллект и будущее человечества
+[Строка 0951] - Медицина и диагностика заболеваний
+[Строка 1001] прочитай теперь,смотри есть ли там книга
+[Строка 1051] import subprocess
+[Строка 1076] # Текущая директория
+[Строка 1101] except:
+[Строка 1176] self.notebook.pack(fill=tk.BOTH, expand=True)
+[Строка 1201] self.notebook.add(self.info_frame, text="ℹ️ Инфо")
+[Строка 1226] self.history.append(path)
+[Строка 1251] stat = item.stat()
+[Строка 1276] return f"{size_bytes:.1f} TB"
+[Строка 1301] self.info_text.config(state=tk.NORMAL)
+[Строка 1326] # Загружаем превью в фоне, чтобы не фризить UI
+[Строка 1351] return f"[Файл слишком большой ({self._format_size(size)}) — превью недоступно]"
+[Строка 1376] return f"[Файл: {path.name}]\nРасширение: {ext}\nРазмер: {self._format_size(size)}\n\nПревью не поддерживается."
+[Строка 1401] return (
+[Строка 1426] folder = filedialog.askdirectory(initialdir=self.current_path)
+[Строка 1451] ext_filter = self.ext_var.get().lower()
+[Строка 1476] self.tree.insert("", "end", iid=str(item), values=(icon + item.name, size, mtime))
+[Строка 1501] 🗂️ Навигация по папкам — как в настоящем Проводнике (вперёд/назад/вверх/ввод пути)
+[Строка 1526] 369
+[Строка 1551] 394
+[Строка 1576] 419
+[Строка 1601] 444
+[Строка 1626] ⌄
+[Строка 1651] ⌄
+[Строка 1676] self.history_index -= 1
+[Строка 1701] # Открываем файл в системном приложении
+[Строка 1726] continue
+[Строка 1751] # 🚀 ЗАПУСК
+[Строка 1801] ✅ Полноценный файловый менеджер как в Windows
+[Строка 1826] 🚀 ЧТО ДЕЛАТЬ ЕСЛИ ЗАПУСК НЕ УДАЛСЯ:
+[Строка 1901] bash
+[Строка 1926] Создай упрощенную версию - новый файл simple_explorer.py:
+[Строка 1951] Поехали, братишка! Запускай и рассказывай что получилось! 🚀💪
+[Строка 1976] ИЛИ полное исправление - замени весь код на эту версию:
+[Строка 2001] self.root = root
+[Строка 2026] btn_up = ttk.Button(toolbar, text="Вверх 📁", command=self._go_up, width=8)
+[Строка 2051] main_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+[Строка 2076] main_frame.add(right_frame, weight=2)
+[Строка 2101] self.status_var = tk.StringVar()
+[Строка 2126] for item in self.tree.get_children():
+[Строка 2151] def _format_size(self, size_bytes: int) -> str:
+[Строка 2176] self.root.after(0, lambda: [
+[Строка 2201] continue
+[Строка 2226] summary = summary[:147] + "..."
+[Строка 2251] if folder:
+[Строка 2276] try:
+[Строка 2301] app = AIExplorer(root)
+[Строка 2326] PNG 25.17KB
+[Строка 2351] self.root.title("AI Explorer - Умный Проводник")
+[Строка 2376] btn_up.pack(side=tk.LEFT, padx=2)
+[Строка 2451] status_bar = ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
+[Строка 2476] self.tree.delete(item)
+[Строка 2501] if size_bytes < 1024.0:
+[Строка 2526] self.ai_text.insert(tk.END, ai_result)
+[Строка 2576] summary = summary[:147] + "..."
+[Строка 2601] if folder:
+[Строка 2626] try:
+[Строка 2651] app = AIExplorer(root)
+[Строка 2676] root.geometry("600x400")
+[Строка 2726] Двойной клик по файлу - откроется в стандартной программе
+[Строка 2776] Помогать находить файлы через команды
+[Строка 2801] Я буду твоим "гидом" по использованию AI Explorer! 🗺️
+[Строка 2851] ✅ Добавить работу с базами данных
+[Строка 2901] if path:
+[Строка 2926] def read_file(self, file_path):
+[Строка 2951] <body>
+[Строка 2976] if(data.success) {
+[Строка 3001] if __name__ == '__main__':
+[Строка 3026] python web_explorer_server.py
+[Строка 3051] у нас теперь 2 сервера будет братец???Если ты не помнишь,у нас сервер есть!
+[Строка 3076] async function loadDirectory(path = '/') {
+[Строка 3101] 🎯 ЧТО НУЖНО СДЕЛАТЬ:
+[Строка 3126] .item { padding: 5px; border-bottom: 1px solid #eee; }
+[Строка 3151] let html = '<div style="margin-bottom: 10px;">';
+[Строка 3176] }
+[Строка 3226] 'is_dir': True,
+[Строка 3251] return jsonify({
+[Строка 3276] })
+[Строка 3301] ✅ Я вижу структуру файлов через API
+[Строка 3351] async function loadDir(path = '/') {
+[Строка 3376] items.append({
+[Строка 3401] 1. Открой archive_server.py в блокноте
+[Строка 3426] <body>
+[Строка 3451] }
+[Строка 3476] }
+[Строка 3501] </html>
+[Строка 3526] 'path': '/',
+[Строка 3651] <script>
+[Строка 3676] loadDir('D:\\\\');
+[Строка 3701] return jsonify({'content': content})
+[Строка 3726] ✅ Показывает содержимое файлов
+[Строка 3751] <div class="content">
+[Строка 3776] .file-btn { background: #f1f3f4; color: #333; }
+[Строка 3801] document.getElementById('currentPath').textContent = data.path;
+[Строка 3826] } else {
+[Строка 3876] 'is_dir': True,
+[Строка 3901] return jsonify({
+[Строка 3926] 'success': True,
+[Строка 3976] app = Flask(__name__)
+[Строка 4026] <div style="margin: 15px 0;">
+[Строка 4051] html += '<div>Папка пуста</div>';
+[Строка 4076] try {
+[Строка 4101] def api_explorer_list():
+[Строка 4126] if not os.path.exists(path):
+[Строка 4151] @app.route('/api/explorer/read')
+[Строка 4176] def format_size(size_bytes):
+[Строка 4251] 💪 ТЕПЕРЬ БИБЛИОТЕКАРИ БУДУТ РАБОТАТЬ!
+[Строка 4276] return '''
+[Строка 4301] background: #333; padding: 10px; border-radius: 5px;
+[Строка 4326] // Функция загрузки директории
+[Строка 4351] '</div>';
+[Строка 4376] alert('Ошибка: ' + data.error);
+[Строка 4401] Какая именно ошибка была?
+[Строка 4451] Там куча файлов:
+[Строка 4551] return jsonify({
+[Строка 4576] PNG 136.12KB
+[Строка 4601] pre { background: #000; color: #00ff00; padding: 15px; border-radius: 5px; overflow: auto; }
+[Строка 4626] <button onclick="openFile('smart_search.py')">📄 Посмотреть код</button>
+[Строка 4651] h1 { color: #333; }
+[Строка 4676] '''
+[Строка 4701] button {
+[Строка 4726] <div>
+[Строка 4801] @app.route('/api/explorer/list')
+[Строка 4826] return jsonify({'success': False, 'error': 'Путь не существует'})
+[Строка 4851] def api_explorer_read():
+[Строка 4876] """Центр управления всеми библиотекарями"""
+[Строка 4901] <h1>🎯 Library Control Center</h1>
+[Строка 4926] <div>Здесь будут результаты работы...</div>
+[Строка 4976] bot_path = f"D:\\Робот Дьяк\\library_system\\{bot_name}.py"
+[Строка 5026] if size_bytes < 1024.0:
+[Строка 5076] .item { padding: 10px; border-bottom: 1px solid #444; }
+[Строка 5126] if(data.success) {
+[Строка 5151] console.error('Ошибка:', error);
+[Строка 5176] });
+[Строка 5201] if os.path.exists(drive_path):
+[Строка 5226] try:
+[Строка 5276] return jsonify({'success': False, 'error': f'Бинарный файл ({ext})'})
+[Строка 5301] Если все равно не работает - открой Developer Tools (F12) в браузере и посмотри вкладку Console - там будут ошибки JavaScript!
+[Строка 5351] @app.route('/api/explorer/list')
+[Строка 5376] ВСТАВЬ вместо него новый исправленный код который начинается с:
+[Строка 5401] Теперь кнопки "Диск D" и "Диск C" должны работать! 💪
+[Строка 5426] pre { background: #f5f5f5; padding: 15px; border-radius: 5px; }
+[Строка 5476] background: #4285f4; color: white; border: none;
+[Строка 5501] <div class="nav-buttons">
+[Строка 5526] return response.json();
+[Строка 5551] } else {
+[Строка 5576] alert('Ошибка чтения: ' + data.error);
+[Строка 5601] if path == '/':
+[Строка 5626] items = []
+[Строка 5651] return jsonify({
+[Строка 5676] return jsonify({
+[Строка 5701] .nav a {
+[Строка 5726] <h3>📖 Book Reader Bot</h3>
+[Строка 5776] output.innerHTML = '<h3>❌ Ошибка загрузки:</h3><pre>' + error + '</pre>';
+[Строка 5801] )
+[Строка 5851] 🚀 ИНСТРУКЦИЯ:
+[Строка 5876] 1. Открой archive_server.py в блокноте
+[Строка 5901] <title>Polemical Archive</title>
+[Строка 5926] <hr>
+[Строка 5951] <meta charset="utf-8">
+[Строка 5976] </head>
+[Строка 6001] document.getElementById('currentPath').textContent = path;
+[Строка 6026] ' <small>(' + (item.size || '') + ')</small>' +
+[Строка 6051] if(data.success) {
+[Строка 6076] """API для списка файлов - РАБОЧАЯ ВЕРСИЯ"""
+[Строка 6101] # Проверяем существование пути
+[Строка 6126] })
+[Строка 6176] body { font-family: Arial; margin: 20px; background: #1a1a1a; color: white; }
+[Строка 6201] <p>Сканирует книги и добавляет в архив</p>
+[Строка 6226] const output = document.getElementById('output');
+[Строка 6251] if(data.success) {
+[Строка 6276] result = subprocess.run(
+[Строка 6326] if __name__ == '__main__':
+[Строка 6351] Кнопки "Диск D" и "Диск C" - переключаются!
+[Строка 6376] ❌ Конфликты функций
+[Строка 6476] Ахахах, точно, братишка! 😄 У нас целая армия библиотекарей припасена! 🎯
+[Строка 6501] ✅ Добавить в архив
+[Строка 6526] Сначала проверь через проводник - есть ли книги в папке books?
+[Строка 6551] "🎯 Запущен AI Explorer - умный проводник",
+[Строка 6576] ✅ Library Control Center - управление ботами
+[Строка 6601] 🧠 ПОНЯЛ, БРАТИШКА! ПЕРЕХОДИМ! 🚀
+[Строка 6626] 📚 Найдем и проанализируем книги

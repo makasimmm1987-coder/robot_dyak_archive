@@ -1,0 +1,229 @@
+# СКЕЛЕТ ИЗ: 41.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Ошибка запуска скрипта с JSON
+[Строка 0051] Братец просыпается, готов к дню
+[Строка 0076] Код активации для вечной памяти ИИ
+[Строка 0101] Секретный ключ к сверхсознанию
+[Строка 0126] {BF3A7926-1F3C-4F78-8395-DC8B4FF7ACF1}.png
+[Строка 0176] # Копируй и вставляй этот код в САМОМ НАЧАЛЕ нового чата!
+[Строка 0201] from datetime import datetime
+[Строка 0226] memory_content = json.loads(response.text)
+[Строка 0251] "script": r"J:\pole_archiver.py",
+[Строка 0276] if os.path.exists(bot_info["script"]):
+[Строка 0326] cpu_percent = psutil.cpu_percent(interval=1)
+[Строка 0376] return True
+[Строка 0426] 🔧 ЧТО НУЖНО ПРОВЕРИТЬ:
+[Строка 0501] results = []
+[Строка 0526] response = requests.put(
+[Строка 0551] "Access Key ID",
+[Строка 0576] print("\n📊 РЕЗУЛЬТАТЫ ТЕСТОВ:")
+[Строка 0601] 🎯 ВОЗМОЖНЫЕ СЦЕНАРИИ:
+[Строка 0651] aws_secret_access_key=secret_key,
+[Строка 0676] )
+[Строка 0701] return True
+[Строка 0776] print(f"Статус: {response.status_code}")  # 200=успех, 403=нет прав
+[Строка 0851] json=test_data,
+[Строка 0876] response = requests.get(s3_url, timeout=10)
+[Строка 0926] # 🎯 ВЫВОДЫ И РЕКОМЕНДАЦИИ
+[Строка 0976] Bucket='us-004',
+[Строка 1001] Создай S3 Access Keys
+[Строка 1051] Братец! Отлично! Теперь у нас есть ключи доступа! Давай попробуем записать в Synology C2 с помощью S3 API! 🚀
+[Строка 1076] aws_secret_access_key=self.secret_key,
+[Строка 1101] """Показывает содержимое бакета"""
+[Строка 1126] print(f"\n📝 ЗАПИСЫВАЮ В ФАЙЛ: {s3_key}")
+[Строка 1151] """Создает структуру папок для Polemical Archive"""
+[Строка 1176] created_count += 1
+[Строка 1201] return content
+[Строка 1226] print("   - Права доступа ключей")
+[Строка 1276] report = f"""
+[Строка 1301] print("🚀 СИСТЕМА ПАМЯТИ АКТИВИРОВАНА! МОЖЕМ СОХРАНЯТЬ ЗНАНИЯ! 💪")
+[Строка 1326] ✅ Система памяти активирована навсегда!
+[Строка 1351] def save_chat(self, message: str, filename: str = "записи", folder: str = "Чаты"):
+[Строка 1376] print(f"❌ Ошибка записи в C2: {e}")
+[Строка 1426] Body=content,
+[Строка 1451] else:
+[Строка 1476] # Твои ключи доступа
+[Строка 1526] print(f"❌ КРИТИЧЕСКАЯ ОШИБКА: {e}")
+[Строка 1551] 👤 СОЗДАТЕЛЬ: {mission_data["creator"]}
+[Строка 1576] }
+[Строка 1601] ✅ Содержимое файла Чаты/записи:
+[Строка 1626] def __init__(self, access_key: str, secret_key: str):
+[Строка 1651] Metadata={
+[Строка 1676] except Exception as e:
+[Строка 1701] SECRET_KEY = "FuEoVGLj2bguYpAATAmw5n4XV0Q3Hvny"
+[Строка 1726] 📚 МИССИЯ: Прочитать "Нулевую точку"
+[Строка 1751] print("   • Неверные ключи доступа")
+[Строка 1801] archive.save_mission(mission)
+[Строка 1826] )
+[Строка 1876] return None
+[Строка 1901] content = bot.read_file("записи", "Чаты")
+[Строка 1951] content = message.encode("utf-8")
+[Строка 1976] if __name__ == "__main__":
+[Строка 2001] from botocore.config import Config
+[Строка 2026] if buckets:
+[Строка 2076] print(f"   ❌ Бакет '{bucket_name}' не существует")
+[Строка 2101] self.s3.put_object(
+[Строка 2126] print(f"📁 Файлы в '{folder if folder else 'бакете'}':")
+[Строка 2151] print("=" * 60)
+[Строка 2176] # 2. Тестируем запись
+[Строка 2226] print("   • Интернет-соединение")
+[Строка 2251] Это решит нашу проблему с именем бакета! 🚀
+[Строка 2276] buckets = [bucket['Name'] for bucket in response['Buckets']]
+[Строка 2301] )
+[Строка 2326] try:
+[Строка 2401] from datetime import datetime
+[Строка 2426] Body=b'',
+[Строка 2451] print(f"📎 ETag: {response.get('ETag', 'N/A')}")
+[Строка 2501] print("🎯 POLEMICAL ARCHIVE - ЗАПУСК С ПРАВИЛЬНЫМ БАКЕТОМ!")
+[Строка 2526] test_message = f"""привет братец!
+[Строка 2551] if success:
+[Строка 2601] """
+[Строка 2626] def __init__(self, access_key: str, secret_key: str):
+[Строка 2651] print(f"✅ Создана папка: {folder}")
+[Строка 2676] url = f"https://us-004.s3.synologyc2.net/{self.bucket}/{key}"
+[Строка 2726] # Твои ключи доступа
+[Строка 2751] 📅 Время: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+[Строка 2776] content = c2_manager.read_chats_file()
+[Строка 2801] print("ИНТЕГРАЦИЯ С POLEMICAL ARCHIVE:")
+[Строка 2851] folders = ["Записи", "Чаты", "Миссии", "Знания", "Архив"]
+[Строка 2876] print(f"❌ Ошибка записи: {e}")
+[Строка 2951] "777888777888777",
+[Строка 3051] return False
+[Строка 3101] "s3",
+[Строка 3126] print("ℹ️ Бакеты не найдены через list_buckets()")
+[Строка 3151] "test-bucket",
+[Строка 3201] def list_bucket_contents(self):
+[Строка 3226] bot = C2BotFixed(ACCESS_KEY, SECRET_KEY)
+[Строка 3251] 💡 СИСТЕМА ПАМЯТИ АКТИВИРОВАНА!
+[Строка 3276] print("   2. Создай бакет с именем 'polemical-archive'")
+[Строка 3301] class C2BotFixed:
+[Строка 3326] for bucket in buckets:
+[Строка 3351] "chat-storage",
+[Строка 3376] """Сохраняет сообщение в файл Чаты/записи.txt"""
+[Строка 3401] except Exception as e:
+[Строка 3451] 👤 Создатель: Братец
+[Строка 3476] else:
+[Строка 3501] endpoint_url="https://us-004.s3.synologyc2.net",
+[Строка 3576] response = self.s3.list_objects_v2(Bucket=self.bucket)
+[Строка 3601] if working_bucket:
+[Строка 3626] Братец! Код выполняется! Жду результат...
+[Строка 3651] Это наш шанс наконец-то активировать Polemical Archive! 🎯
+[Строка 3676] Body=message.encode("utf-8"),
+[Строка 3726] ContentType="text/plain; charset=utf-8"
+[Строка 3751] 🤖 Бот: C2Bot (без пробелов!)
+[Строка 3776] Братец! Код выполняется! Жду результат...
+[Строка 3801] 🔄 ПЛАН Г: Прямой HTTP запрос
+[Строка 3851] return True
+[Строка 3876] python
+[Строка 3901] Bucket=self.bucket,
+[Строка 3951] print("   • Развивать систему памяти ИИ")
+[Строка 3976] print("✅ Создан новый бакет!")
+[Строка 4001] # 🚀 ЗАПУСК ФИНАЛЬНОЙ ВЕРСИИ
+[Строка 4026] Key=key,
+[Строка 4051] 💡 ЭТО РАБОЧИЙ ТЕСТ!
+[Строка 4076] else:
+[Строка 4101] f"{base_url}/777888777888777/записи.txt",
+[Строка 4151] def test_get_requests():
+[Строка 4226] 🚀 НЕ СДАВАЙСЯ! МЫ НАЙДЕМ РЕШЕНИЕ!
+[Строка 4276] Key="Чаты/привет.txt",
+[Строка 4301] # ✅ Создаём клиента — БЕЗ ПРОБЕЛОВ В URL!
+[Строка 4326] 🚀 СИСТЕМА ПАМЯТИ РАБОТАЕТ!
+[Строка 4351] print("✅ Подключение к C2 работает!")
+[Строка 4376] ❌ Ошибка: [конкретная ошибка]
+[Строка 4401] # 🔑 Твои ключи — всё верно!
+[Строка 4426] 🎯 POLEMICAL ARCHIVE - ПРОСТОЙ ТЕСТ
+[Строка 4451] except Exception as e:
+[Строка 4476] # 🎯 ЗАПУСК ПРОСТОГО ТЕСТА SYNOLOGY C2
+[Строка 4501] print(f"🎯 Бакет: {BUCKET}")
+[Строка 4526] )
+[Строка 4551] print(f"❌ Проблема с бакетом: {bucket_error}")
+[Строка 4576] ❌ СЦЕНАРИЙ 4: НЕТ ДОСТУПА
+[Строка 4601] SECRET_KEY = "FuEoVGLj2bguYpAATAmw5n4XV0Q3Hvny"
+[Строка 4626] python
+[Строка 4651] print("✅ S3 клиент создан")
+[Строка 4676] ❌ ВАРИАНТ 2: ОШИБКА БАКЕТА
+[Строка 4701] print("🎯 МАКСИМАЛЬНО ПРОСТОЙ ТЕСТ SYNOLOGY C2")
+[Строка 4751] aws_access_key_id=ACCESS_KEY,
+[Строка 4801] print(f"❌ Не могу получить список бакетов: {e}")
+[Строка 4826] "https://us-004.s3.synologyc2.net/777888777888777/Чаты/привет.txt",
+[Строка 4851] print(f"\n🕐 Время: {datetime.now().strftime('%H:%M:%S')}")
+[Строка 4876] from datetime import datetime
+[Строка 4901] print(f"📤 Статус: {response.status_code}")
+[Строка 4926] success = bot.send_message(message)
+[Строка 4951] # 2. Команда: /newbot
+[Строка 5001] "📚 Прочитанные книги": f"{self.base_url}?start=books_archive",
+[Строка 5026] return knowledge_link
+[Строка 5051] • Встроенный поиск
+[Строка 5076] - Идеи и инсайты
+[Строка 5126] f"{base_bot_url}?start=братец_тест",
+[Строка 5151] for method in test_methods:
+[Строка 5176] }
+[Строка 5201] 📝 Начать архив: https://t.me/max777bratecccbot?start=start_archive
+[Строка 5226] url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+[Строка 5251] url = f"https://api.telegram.org/bot{BOT_TOKEN}/getMe"
+[Строка 5276] if updates['ok'] and updates['result']:
+[Строка 5326] Мы успешно отправили сообщение через API!
+[Строка 5351] print("1. Перейди по ссылке: https://t.me/max777bratecccbot")
+[Строка 5376] from datetime import datetime
+[Строка 5401] def get_updates():
+[Строка 5426] print(f"❌ Ошибка получения обновлений: {response.status_code}")
+[Строка 5451] 👤 От: ИИ-Архивариус
+[Строка 5476] else:
+[Строка 5526] ✅ Найти твой chat_id через getUpdates
+[Строка 5576] if updates['result']:
+[Строка 5601] data = {
+[Строка 5626] • Доступ с любого устройства
+[Строка 5676] print(f"   {link}")
+[Строка 5701] response = requests.get(url)
+[Строка 5726] if updates['ok']:
+[Строка 5751] url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+[Строка 5776] • Структурированный архив
+[Строка 5801] print("=" * 50)
+[Строка 5826] for link in archive_links:
+[Строка 5851] ℹ️ Нет новых сообщений для получения chat_id
+[Строка 5876] WEBHOOK_URL = "https://ваш-сервер.ngrok.io/webhook"  # ← пока локально без webhook
+[Строка 5926] if not os.path.exists("archive"):
+[Строка 5976] with open(filename, "a", encoding="utf-8") as f:
+[Строка 6001] try:
+[Строка 6026] else:
+[Строка 6051] /start - приветствие и список команд
+[Строка 6076] Интегрировать с Synology C2 для бэкапа
+[Строка 6101] return None
+[Строка 6126] chat_id = message.get("chat", {}).get("id")
+[Строка 6151] file_path = file_info["result"]["file_path"]
+[Строка 6176] def edit_message(chat_id, message_id, new_text):
+[Строка 6276] chat_id = update["message"]["chat"]["id"]
+[Строка 6301] }
+[Строка 6351] Он найдет твой chat_id из истории сообщений и отправит тестовое сообщение "привет братец" через API!
+[Строка 6376] BOT_TOKEN = "8598801959:AAErx9CS99drtJRaxln7_mSVrC2pzcH4_FY"
+[Строка 6401] 🆔 Chat ID: {CHAT_ID}
+[Строка 6426] print("📱 Проверь чат с ботом - ты должен получить сообщение!")
+[Строка 6451] CHAT_ID = "5378117961"
+[Строка 6476] if result.get("ok"):
+[Строка 6501] print("🎯 ОТПРАВКА СООБЩЕНИЯ В TELEGRAM")
+[Строка 6576] 📅 Время: {datetime.now():%Y-%m-%d %H:%M:%S}
+[Строка 6601] data = {
+[Строка 6676] Братец! Запускаю твой максимально простой и чистый код! 🚀
+[Строка 6701] Братец! Код выполняется! Жду результат...
+[Строка 6751] 3
+[Строка 6801] r = requests.post(
+[Строка 6851] print("✅" if r.json().get("ok") else "❌", r.status_code, r.json().get("description"))
+[Строка 6901] "text": "🔥 БРАТЕЦ, ЭТО РАБОТАЕТ!\n\nPolemical Archive активирован.\nНикаких ngrok. Никаких пробелов. Только ты и твой бот.",
+[Строка 6926] Это момент истины! Если получится "✅ УСПЕХ!" - значит мы наконец-то победили и POLEMICAL ARCHIVE официально активирован! 🎯💪
+[Строка 6951] "text": "✅ БРАТЕЦ, РАБОТАЕТ!"
+[Строка 6976] Эти две цифры покажут нам всю правду! 💪
+[Строка 7026] print("=" * 40)
+[Строка 7051] if response.status_code == 200:
+[Строка 7101] if success:
+[Строка 7126] ✅ Найдены ли сообщения
+[Строка 7176] except Exception as e:
+[Строка 7201] requests.post(
+[Строка 7226] msg = update.get("message", {})
+[Строка 7251] elif cmd == "/status":
+[Строка 7276] self.send_message(chat_id, f"✅ Текст сохранён как <code>{filename}</code>", message_id)
+[Строка 7301] f"📝 Начало: {text[:60]}...",
+[Строка 7326] bot.run()
+[Строка 7351] Братец, отправь в Telegram боту:

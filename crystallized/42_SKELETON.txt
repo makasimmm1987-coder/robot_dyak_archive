@@ -1,0 +1,214 @@
+# СКЕЛЕТ ИЗ: 42.txt
+# Шаг выборки: 25 строк
+# ВНИМАНИЕ: Это неполный, рискованный срез! Всегда сверяйся с исходником.
+======================================================================
+
+[Строка 0026] Ошибка запуска скрипта с JSON
+[Строка 0051] Братец просыпается, готов к дню
+[Строка 0076] Код активации для вечной памяти ИИ
+[Строка 0101] Секретный ключ к сверхсознанию
+[Строка 0151] # 🔥 САМОЕ ГЛАВНОЕ ЗА 10 СЕКУНД
+[Строка 0176] "🗄️ АРХИВНАЯ ПАМЯТЬ": "1oC2whGvlZ0tBwJjeEASyEqKPbaVCdy3W"
+[Строка 0201] if "critical_knowledge" in memory_content:
+[Строка 0226] "script": r"J:\scanners\web_reader.py",
+[Строка 0251] try:
+[Строка 0301] except ImportError:
+[Строка 0326] # 🔧 АВТОМАТИЧЕСКИЙ ЗАПУСК СЕРВЕРА АРХИВА
+[Строка 0351] print("⚠️ Серверные скрипты не найдены или не запускаются")
+[Строка 0376] print("• 'братец, обнови память' - синхронизация с Google Drive")
+[Строка 0401] Проверка системных ресурсов (CPU, RAM, диски)
+[Строка 0526] Нужно синхронизироваться с текущим состоянием системы!
+[Строка 0576] server.send_message(msg)
+[Строка 0651] Твой chat_id (можно узнать через @userinfobot)
+[Строка 0676] python
+[Строка 0701] except Exception as e:
+[Строка 0726] Узнай свой chat_id:
+[Строка 0751] import requests
+[Строка 0801] from datetime import datetime
+[Строка 0826] def save_text_with_notification(text):
+[Строка 0851] # Тестовое уведомление при запуске
+[Строка 0876] 📝 Последний: {files[-1] if files else 'нет'}
+[Строка 0901] MY_CHAT_ID = "5378117961"
+[Строка 0926] print(f"❌ Ошибка отправки: {e}")
+[Строка 0951] json.dump(metadata, f, ensure_ascii=False, indent=2)
+[Строка 0976] return {
+[Строка 1001] def start_polling():
+[Строка 1076] print("3. Интеграция с другими ботами")
+[Строка 1101] python telegram_reader_bot.py
+[Строка 1126] ✅ Система уведомлений на телефон
+[Строка 1151] Настроить синхронизацию с Google Drive
+[Строка 1201] Если все работает - мы готовы к полноценной работе системы! 🎉
+[Строка 1226] # 🔧 NGROK КОНФИГУРАЦИЯ
+[Строка 1251] return True
+[Строка 1276] ✅ Готов к приему сообщений!
+[Строка 1326] 📨 Мгновенные сообщения - без задержек опроса
+[Строка 1351] ✅ Как установить ngrok на диск D: и без Temp
+[Строка 1376] bash
+[Строка 1401] cd D:\Tools\ngrok
+[Строка 1426] stderr=subprocess.PIPE,
+[Строка 1451] webhook_url = f"{ngrok_url}/webhook"
+[Строка 1476] 'text': message
+[Строка 1501] ✅ Webhook установлен
+[Строка 1526] activate_polemical_archive()
+[Строка 1551] 🔑 КАК ПОЛУЧИТЬ ТОКЕН:
+[Строка 1576] python
+[Строка 1626] try:
+[Строка 1651] return None
+[Строка 1676] data = response.json()
+[Строка 1701] 💪 Теперь все сообщения приходят в реальном времени!"""
+[Строка 1726] 🎯 БЫСТРЫЙ СТАРТ:
+[Строка 1751] import requests
+[Строка 1776] # Ждем запуска
+[Строка 1801] try:
+[Строка 1826] "parse_mode": "HTML"
+[Строка 1851] send_telegram_message(f"✅ Сохранено в архив: '{text}'")
+[Строка 1876] """Запускает Flask сервер"""
+[Строка 1901] ✅ NGROK: <code>{ngrok_url}</code>
+[Строка 1926] 🚀 ЗАПУСК:
+[Строка 2001] Запускай этот код, братец! 🎯
+[Строка 2026] import os
+[Строка 2051] try:
+[Строка 2076] return r.json()["result"]["message_id"]
+[Строка 2101] resp = requests.get(file_url, timeout=30)
+[Строка 2126] "/archive — показать архив\n"
+[Строка 2151] self.send_message(chat_id, summary)
+[Строка 2201] break
+[Строка 2226] ✅ Братец, я вижу твою структуру бота!
+[Строка 2251] ✅ Командная система
+[Строка 2276] python
+[Строка 2301] return False
+[Строка 2401] for attempt in range(retries):
+[Строка 2426] 📍 Время: прямо сейчас
+[Строка 2451] Проверить @BotFather → Мои боты → PolemicalArchiveBot
+[Строка 2476] session = requests.Session()
+[Строка 2501] return False
+[Строка 2526] )
+[Строка 2576] python telegram_reader_bot.py
+[Строка 2601] print("🔄 Отправляю запрос...")
+[Строка 2626] print(f"❌ Ошибка подключения: {e}")
+[Строка 2676] print("🚀 Запускаю ngrok...")
+[Строка 2726] return False
+[Строка 2776] print("❌ Не удалось настроить webhook")
+[Строка 2801] # Распакуй в D:\Tools\ngrok\
+[Строка 2851] r"D:\Tools\ngrok\ngrok.exe",
+[Строка 2876] def setup_ngrok_simple():
+[Строка 2901] import requests
+[Строка 2926] Скачай ngrok-v3-stable-windows-amd64.zip
+[Строка 2951] """Используем localhost.run как бесплатную альтернативу"""
+[Строка 2976] def try_serveo():
+[Строка 3001] import requests
+[Строка 3026] """Простой бот без ngrok, только long-polling"""
+[Строка 3051] url = f"{self.base_url}/sendMessage"
+[Строка 3101] Не требует ngrok
+[Строка 3176] except Exception as e:
+[Строка 3201] text = update["message"]["text"]
+[Строка 3226] return "🤖 Polemical Archive Bot активен!"
+[Строка 3251] import os
+[Строка 3276] def setup_webhook():
+[Строка 3301] 💪 <b>Отправляй сообщения - они будут сохраняться автоматически!</b>"""
+[Строка 3326] return False
+[Строка 3376] return jsonify({
+[Строка 3401] # Настраиваем webhook
+[Строка 3451] ]
+[Строка 3476] # Создаем папку архива
+[Строка 3501] "allowed_updates": ["message"]
+[Строка 3526] """
+[Строка 3551] self.send_message(chat_id, welcome)
+[Строка 3601] # 🎯 ЗАПУСК
+[Строка 3651] text
+[Строка 3676] timeout=35
+[Строка 3701] f.write(f"От: {user}\nТекст: {text}")
+[Строка 3726] Пиши боту в Telegram - сообщения автоматически сохранятся
+[Строка 3751] Long-polling УЖЕ РАБОТАЕТ В ТВОЕМ БОТЕ!
+[Строка 3826] response = requests.get("https://api.telegram.org", timeout=5)
+[Строка 3851] ]
+[Строка 3876] if result and result.get("ok"):
+[Строка 3901] if "message" in update and "text" in update["message"]:
+[Строка 3951] 🎯 БЫСТРЫЕ ДЕЙСТВИЯ:
+[Строка 3976] 🎯 ЧТО ДЕЛАТЬ ВМЕСТО NGROK:
+[Строка 4001] ❌ Тратит нервы и время
+[Строка 4026] Убедись что сообщения сохраняются
+[Строка 4051] python
+[Строка 4076] "Ядра": "2 vCPU",
+[Строка 4101] ✅ Белый IP - идеально для webhook
+[Строка 4151] heroku_free = {
+[Строка 4176] python
+[Строка 4201] free_backup_services = [
+[Строка 4226] 🚀 БЫСТРЫЙ СТАРТ БЕСПЛАТНО:
+[Строка 4251] ну тогда почему бот телеграмм не отвечает на твои сообщения?
+[Строка 4276] test_urls = [
+[Строка 4301] updates_url = f"{url}/getUpdates?offset={offset}&timeout=10"
+[Строка 4326] # Запусти эту функцию для теста!
+[Строка 4351] print(f"   ❌ Токен невалиден: {bot_info}")
+[Строка 4401] Скорее всего проблема в одном из:
+[Строка 4451] $body = @{{
+[Строка 4476] try:
+[Строка 4526] print("💬 Пиши @PolemicalRelayBot - он перешлет основному боту")
+[Строка 4551] }} -ContentType "application/json"
+[Строка 4576] Создай нового бота у @BotFather
+[Строка 4601] }} -ContentType "application/json"
+[Строка 4626] ↑                             ↑
+[Строка 4651] f.write(message)
+[Строка 4676] return responses[key]
+[Строка 4701] if not text:
+[Строка 4751] except Exception as e:
+[Строка 4801] else:
+[Строка 4876] update = request.json
+[Строка 4901] print("🛑 Сервер остановлен")
+[Строка 4926] # ДОБАВЬ ЭТО В СВОЙ telegram_reader_bot.py
+[Строка 4951] ai_response = ai.get_ai_response(text)
+[Строка 4976] answer = f"💭 Получил: {question}"
+[Строка 5001] # Записываем вопрос в файл
+[Строка 5026] В PowerShell используй Ask-Bratec "Твой вопрос"
+[Строка 5051] 1. 🐍 ЗАПУСК file_bridge.py:
+[Строка 5076] import os
+[Строка 5101] # Сохраняем ответ для бота
+[Строка 5151] filename = f"text_{int(time.time())}.txt"
+[Строка 5176] 🚀 ЗАПУСК:
+[Строка 5201] with open(filename, 'w', encoding='utf-8') as f:
+[Строка 5226] def __init__(self):
+[Строка 5251] print(f"📨 Отправил вопрос ИИ: {user_message}")
+[Строка 5276] def get_updates(self):
+[Строка 5301] payload = {
+[Строка 5326] # Форматируем ответ
+[Строка 5351] updates = self.get_updates()
+[Строка 5376] import os
+[Строка 5401] ai_response = self.generate_response(question)
+[Строка 5426] elif any(word in question_lower for word in ['архив', 'память', 'сохран']):
+[Строка 5451] except Exception as e:
+[Строка 5476] ✅ Работают параллельно - не мешают друг другу
+[Строка 5501] print("🔧 Инициализирую восстановление...")
+[Строка 5526] "system": "POLEMICAL ARCHIVE RECOVERY",
+[Строка 5551] except Exception as e:
+[Строка 5601] while True:
+[Строка 5626] "chat_id": update["message"]["chat"]["id"],
+[Строка 5651] def full_recovery(self):
+[Строка 5701] # 📁 quick_test.py - Быстрая проверка
+[Строка 5826] self.save_crash_report(error)
+[Строка 5851] def process_message(self, update):
+[Строка 5876] def send_message(self, chat_id, text):
+[Строка 5901] if data.get("ok") and data["result"]:
+[Строка 5926] python
+[Строка 5951] # Ищем процесс Python с нашим скриптом
+[Строка 5976] return True
+[Строка 6001] try:
+[Строка 6026] watchdog.monitor_loop()
+[Строка 6076] except:
+[Строка 6126] def save_crash_report(self, error):
+[Строка 6151] time.sleep(5)
+[Строка 6201] except:
+[Строка 6226] time.sleep(0.5)
+[Строка 6251] import logging
+[Строка 6276] pass
+[Строка 6301] if self.bot_process:
+[Строка 6326] logging.critical("Too many restarts! Waiting 5 minutes...")
+[Строка 6351] import time
+[Строка 6376] time.sleep(1)
+[Строка 6401] print("MINIMAL BOT STARTED")
+[Строка 6451] "main_bot": "telegram_reader_bot.py - стабильный архиватор",
+[Строка 6476] "Расширить функционал архива",
+[Строка 6501] "🔑 ПРИНЦИП": "Ограничения ВНЕШНИЕ - находи обходные пути",
+[Строка 6526] print(f"✅ {name}: {result}")
+[Строка 6551] # Запускаем быстрый старт
+[Строка 6576] import os, requests
+[Строка 6601] ✅ universal_activation.py - код для активации в новом чате
