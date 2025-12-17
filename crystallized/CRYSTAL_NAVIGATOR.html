@@ -2,476 +2,409 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💎 НАВИГАТОР КРИСТАЛЛИЗОВАННОГО СЛОЯ | Stellar Guardian</title>
+    <title>💎 ПРОСТОЙ НАВИГАТОР КРИСТАЛЛИЗОВАННОГО СЛОЯ</title>
     <style>
-        :root {
-            --primary: #0a0a1a;
-            --secondary: #1a1a2a;
-            --accent-crystal: #cc00ff;
-            --accent-skeleton: #00cc88;
-            --accent-index: #4dc3ff;
-            --text: #e0e0ff;
-            --text-light: #f0f0ff;
+        body { font-family: monospace; background: #0a0a2a; color: #e0e0ff; padding: 20px; }
+        h1 { color: #cc00ff; border-bottom: 2px solid #cc00ff; padding-bottom: 10px; }
+        .file-list { margin-top: 30px; }
+        .file-item { 
+            padding: 10px 15px; 
+            margin-bottom: 5px; 
+            background: rgba(255,255,255,0.05); 
+            border-left: 4px solid #4dc3ff;
+            word-break: break-all;
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-            padding: 20px;
-            min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(204, 0, 255, 0.05) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(0, 204, 136, 0.05) 0%, transparent 25%);
+        .file-item:nth-child(even) { background: rgba(255,255,255,0.03); }
+        .file-item.skeleton { border-left-color: #00cc88; }
+        .file-item a { color: #4dc3ff; text-decoration: none; font-weight: bold; }
+        .file-item a:hover { text-decoration: underline; color: #80d6ff; }
+        .file-type { 
+            display: inline-block; 
+            padding: 2px 8px; 
+            border-radius: 10px; 
+            font-size: 0.8em; 
+            margin-right: 10px;
         }
-        
-        .container { max-width: 1400px; margin: 0 auto; }
-        
-        .header {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, var(--secondary) 0%, #2a2a3a 100%);
-            border-radius: 25px;
-            margin-bottom: 40px;
-            border: 3px solid var(--accent-crystal);
-            box-shadow: 0 10px 40px rgba(204, 0, 255, 0.2);
-            position: relative;
-        }
-        
-        .header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            color: var(--accent-crystal);
-            text-shadow: 0 0 15px rgba(204, 0, 255, 0.5);
-        }
-        
-        .header-subtitle { 
-            font-size: 1.2em; 
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px 25px;
-            border-radius: 15px;
-            min-width: 180px;
-            text-align: center;
-            border: 1px solid;
-            transition: transform 0.3s;
-        }
-        
-        .stat-card:hover { transform: translateY(-5px); }
-        
-        .stat-card.crystals { border-color: var(--accent-crystal); }
-        .stat-card.skeletons { border-color: var(--accent-skeleton); }
-        .stat-card.index { border-color: var(--accent-index); }
-        
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-card.crystals .stat-number { color: var(--accent-crystal); }
-        .stat-card.skeletons .stat-number { color: var(--accent-skeleton); }
-        .stat-card.index .stat-number { color: var(--accent-index); }
-        
-        /* Панель управления */
-        .control-panel {
-            background: rgba(30, 30, 50, 0.7);
-            padding: 25px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            border: 2px solid var(--accent-index);
-        }
-        
-        .control-panel h2 { 
-            color: var(--accent-index); 
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .filters {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .filter-btn {
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid;
-            border-radius: 50px;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            transform: scale(1.05);
-        }
-        
-        .filter-btn.crystals { border-color: var(--accent-crystal); }
-        .filter-btn.crystals:hover { background: rgba(204, 0, 255, 0.2); }
-        .filter-btn.skeletons { border-color: var(--accent-skeleton); }
-        .filter-btn.skeletons:hover { background: rgba(0, 204, 136, 0.2); }
-        .filter-btn.all { border-color: var(--accent-index); }
-        .filter-btn.all:hover { background: rgba(77, 195, 255, 0.2); }
-        
-        #searchBox {
-            flex-grow: 1;
-            max-width: 500px;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid var(--accent-index);
-            border-radius: 50px;
-            color: var(--text);
-            font-size: 1em;
-        }
-        
-        #searchBox:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(77, 195, 255, 0.3);
-        }
-        
-        /* Сетка файлов */
-        .files-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .file-card {
-            background: rgba(40, 40, 60, 0.7);
-            border-radius: 18px;
-            padding: 25px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .file-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-        }
-        
-        .file-card.crystal::before { background: linear-gradient(90deg, var(--accent-crystal), #ff66ff); }
-        .file-card.skeleton::before { background: linear-gradient(90deg, var(--accent-skeleton), #66ffcc); }
-        
-        .file-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .file-card h3 {
-            color: var(--text-light);
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .file-card .type {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .file-card.crystal .type { 
-            background: rgba(204, 0, 255, 0.15); 
-            color: var(--accent-crystal); 
-            border: 1px solid var(--accent-crystal);
-        }
-        
-        .file-card.skeleton .type { 
-            background: rgba(0, 204, 136, 0.15); 
-            color: var(--accent-skeleton); 
-            border: 1px solid var(--accent-skeleton);
-        }
-        
-        .file-card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: rgba(77, 195, 255, 0.1);
-            color: var(--accent-index);
-            text-decoration: none;
-            border-radius: 10px;
-            border: 1px solid var(--accent-index);
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        
-        .file-card a:hover {
-            background: rgba(77, 195, 255, 0.25);
-            transform: scale(1.05);
-        }
-        
-        /* Подсветка поиска */
-        .highlight {
-            background-color: rgba(255, 255, 0, 0.3);
-            padding: 0 2px;
-            border-radius: 3px;
-        }
-        
-        /* Сообщение, если ничего не найдено */
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.2em;
-        }
-        
-        /* Футер с возвратом */
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: rgba(255, 255, 255, 0.6);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid var(--accent-crystal);
-            transition: all 0.3s;
-        }
-        
-        .back-link:hover {
-            background: rgba(204, 0, 255, 0.1);
-            transform: scale(1.05);
-        }
-        
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2.2em; }
-            .files-grid { grid-template-columns: 1fr; }
-            .filters { flex-direction: column; }
-            #searchBox { max-width: 100%; }
-        }
+        .crystal-badge { background: rgba(204, 0, 255, 0.2); color: #ff66ff; }
+        .skeleton-badge { background: rgba(0, 204, 136, 0.2); color: #66ffcc; }
+        .back-link { display: inline-block; margin-top: 30px; padding: 10px 20px; background: rgba(204,0,255,0.1); color: #cc00ff; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Шапка -->
-        <div class="header">
-            <h1>💎 НАВИГАТОР КРИСТАЛЛИЗОВАННОГО СЛОЯ</h1>
-            <p class="header-subtitle">Сгустки смысла и структурные скелеты всего архива. Система для быстрого поиска паттернов.</p>
-            
-            <div class="stats">
-                <div class="stat-card crystals">
-                    <span class="stat-number" id="crystalCount">0</span>
-                    <span>КРИСТАЛЛОВ</span>
-                </div>
-                <div class="stat-card skeletons">
-                    <span class="stat-number" id="skeletonCount">0</span>
-                    <span>СКЕЛЕТОНОВ</span>
-                </div>
-                <div class="stat-card index">
-                    <span class="stat-number">1</span>
-                    <span>ИНДЕКС</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Панель управления -->
-        <div class="control-panel">
-            <h2>🔮 ПАНЕЛЬ УПРАВЛЕНИЯ КРИСТАЛЛАМИ</h2>
-            <div class="filters">
-                <input type="text" id="searchBox" placeholder="Начните вводить название файла...">
-                <button class="filter-btn all active" data-filter="all">ВСЕ ФАЙЛЫ</button>
-                <button class="filter-btn crystals" data-filter="crystal">ТОЛЬКО КРИСТАЛЛЫ</button>
-                <button class="filter-btn skeletons" data-filter="skeleton">ТОЛЬКО СКЕЛЕТОНЫ</button>
-            </div>
-        </div>
-        
-        <!-- Сетка файлов -->
-        <div id="filesContainer" class="files-grid">
-            <!-- Файлы будут добавлены сюда JavaScript -->
-        </div>
-        
-        <!-- Футер -->
-        <div class="footer">
-            <p>💡 <strong>Принцип работы:</strong> Кристаллы содержат извлечённые команды, вопросы и паттерны. Скелетоны — это структурные срезы для быстрой навигации.</p>
-            <p>🐋 Используй этот слой для поиска, но для полного контекста возвращайся к исходным файлам в основном архиве.</p>
-            <a href="../archive_map.html" class="back-link">⬅ ВЕРНУТЬСЯ НА ГЛАВНУЮ КАРТУ АРХИВА</a>
-            <p style="margin-top: 20px; font-size: 0.9em; color: rgba(255, 255, 255, 0.4);">Дом жив. Пчёлы собрали нектар. 🐝</p>
-        </div>
+    <h1>💎 СПИСОК ВСЕХ КРИСТАЛЛИЗОВАННЫХ ФАЙЛОВ</h1>
+    <p><strong>Всего файлов: <span id="total-count">0</span></strong> | 
+       <span style="color:#ff66ff;">Кристаллов: <span id="crystal-count">0</span></span> | 
+       <span style="color:#66ffcc;">Скелетонов: <span id="skeleton-count">0</span></span>
+    </p>
+    <p>Просто кликай по ссылке, чтобы открыть файл.</p>
+
+    <div id="file-list" class="file-list">
+        <!-- Список файлов вставится сюда автоматически -->
     </div>
 
+    <a href="../archive_map.html" class="back-link">← Назад на карту архива</a>
+
     <script>
-        // ДАННЫЕ: Список файлов кристаллизованного слоя
+        // ПОЛНЫЙ СПИСОК ФАЙЛОВ (вставь сюда ВСЕ 170+ файлов)
         const allFiles = [
-            // === ГЛАВНЫЙ ИНДЕКС ===
-            { name: "INDEX.md", type: "index", path: "INDEX.md", desc: "Главный индекс всех обработанных файлов" },
+            // === ИНДЕКС ===
+            { name: "INDEX.md", path: "INDEX.md", type: "index" },
             
-            // === КЛЮЧЕВЫЕ КРИСТАЛЛЫ (примеры, можно расширить) ===
-            { name: "178_CRYSTALS.txt", type: "crystal", path: "178_CRYSTALS.txt", desc: "Ядро системы: инструкция 'Будитель чатов'" },
-            { name: "9_часть_CRYSTALS.txt", type: "crystal", path: "9_часть_CRYSTALS.txt", desc: "Самые свежие мысли и актуальное состояние" },
-            { name: "6_часть_CRYSTALS.txt", type: "crystal", path: "6_часть_CRYSTALS.txt", desc: "Очищенная суть системы" },
-            { name: "Чат 1_CRYSTALS.txt", type: "crystal", path: "Чат 1_CRYSTALS.txt", desc: "Истоки нашего диалога" },
-            { name: "Чат 9_CRYSTALS.txt", type: "crystal", path: "Чат 9_CRYSTALS.txt", desc: "Диалоги и философские находки" },
+            // === ОСНОВНЫЕ ЧАСТИ ===
+            { name: "14_CRYSTALS.txt", path: "14_CRYSTALS.txt", type: "crystal" },
+            { name: "14_SKELETON.txt", path: "14_SKELETON.txt", type: "skeleton" },
+            { name: "22_CRYSTALS.txt", path: "22_CRYSTALS.txt", type: "crystal" },
+            { name: "22_SKELETON.txt", path: "22_SKELETON.txt", type: "skeleton" },
+            { name: "23_CRYSTALS.txt", path: "23_CRYSTALS.txt", type: "crystal" },
+            { name: "23_SKELETON.txt", path: "23_SKELETON.txt", type: "skeleton" },
+            { name: "24_CRYSTALS.txt", path: "24_CRYSTALS.txt", type: "crystal" },
+            { name: "24_SKELETON.txt", path: "24_SKELETON.txt", type: "skeleton" },
+            { name: "25_CRYSTALS.txt", path: "25_CRYSTALS.txt", type: "crystal" },
+            { name: "25_SKELETON.txt", path: "25_SKELETON.txt", type: "skeleton" },
+            { name: "26_CRYSTALS.txt", path: "26_CRYSTALS.txt", type: "crystal" },
+            { name: "26_SKELETON.txt", path: "26_SKELETON.txt", type: "skeleton" },
+            { name: "27_CRYSTALS.txt", path: "27_CRYSTALS.txt", type: "crystal" },
+            { name: "27_SKELETON.txt", path: "27_SKELETON.txt", type: "skeleton" },
+            { name: "28_CRYSTALS.txt", path: "28_CRYSTALS.txt", type: "crystal" },
+            { name: "28_SKELETON.txt", path: "28_SKELETON.txt", type: "skeleton" },
+            { name: "29_CRYSTALS.txt", path: "29_CRYSTALS.txt", type: "crystal" },
+            { name: "29_SKELETON.txt", path: "29_SKELETON.txt", type: "skeleton" },
+            { name: "30_CRYSTALS.txt", path: "30_CRYSTALS.txt", type: "crystal" },
+            { name: "30_SKELETON.txt", path: "30_SKELETON.txt", type: "skeleton" },
+            { name: "31_CRYSTALS.txt", path: "31_CRYSTALS.txt", type: "crystal" },
+            { name: "31_SKELETON.txt", path: "31_SKELETON.txt", type: "skeleton" },
+            { name: "32_CRYSTALS.txt", path: "32_CRYSTALS.txt", type: "crystal" },
+            { name: "32_SKELETON.txt", path: "32_SKELETON.txt", type: "skeleton" },
+            { name: "33_CRYSTALS.txt", path: "33_CRYSTALS.txt", type: "crystal" },
+            { name: "33_SKELETON.txt", path: "33_SKELETON.txt", type: "skeleton" },
+            { name: "34_CRYSTALS.txt", path: "34_CRYSTALS.txt", type: "crystal" },
+            { name: "34_SKELETON.txt", path: "34_SKELETON.txt", type: "skeleton" },
+            { name: "35_CRYSTALS.txt", path: "35_CRYSTALS.txt", type: "crystal" },
+            { name: "35_SKELETON.txt", path: "35_SKELETON.txt", type: "skeleton" },
+            { name: "36_CRYSTALS.txt", path: "36_CRYSTALS.txt", type: "crystal" },
+            { name: "36_SKELETON.txt", path: "36_SKELETON.txt", type: "skeleton" },
+            { name: "37_CRYSTALS.txt", path: "37_CRYSTALS.txt", type: "crystal" },
+            { name: "37_SKELETON.txt", path: "37_SKELETON.txt", type: "skeleton" },
+            { name: "38_CRYSTALS.txt", path: "38_CRYSTALS.txt", type: "crystal" },
+            { name: "38_SKELETON.txt", path: "38_SKELETON.txt", type: "skeleton" },
+            { name: "39_CRYSTALS.txt", path: "39_CRYSTALS.txt", type: "crystal" },
+            { name: "39_SKELETON.txt", path: "39_SKELETON.txt", type: "skeleton" },
+            { name: "40_CRYSTALS.txt", path: "40_CRYSTALS.txt", type: "crystal" },
+            { name: "40_SKELETON.txt", path: "40_SKELETON.txt", type: "skeleton" },
+            { name: "40.1_CRYSTALS.txt", path: "40.1_CRYSTALS.txt", type: "crystal" },
+            { name: "40.1_SKELETON.txt", path: "40.1_SKELETON.txt", type: "skeleton" },
+            { name: "41_CRYSTALS.txt", path: "41_CRYSTALS.txt", type: "crystal" },
+            { name: "41_SKELETON.txt", path: "41_SKELETON.txt", type: "skeleton" },
+            { name: "42_CRYSTALS.txt", path: "42_CRYSTALS.txt", type: "crystal" },
+            { name: "42_SKELETON.txt", path: "42_SKELETON.txt", type: "skeleton" },
+            { name: "43_CRYSTALS.txt", path: "43_CRYSTALS.txt", type: "crystal" },
+            { name: "43_SKELETON.txt", path: "43_SKELETON.txt", type: "skeleton" },
+            { name: "44_CRYSTALS.txt", path: "44_CRYSTALS.txt", type: "crystal" },
+            { name: "44_SKELETON.txt", path: "44_SKELETON.txt", type: "skeleton" },
+            { name: "45_CRYSTALS.txt", path: "45_CRYSTALS.txt", type: "crystal" },
+            { name: "45_SKELETON.txt", path: "45_SKELETON.txt", type: "skeleton" },
+            { name: "46_CRYSTALS.txt", path: "46_CRYSTALS.txt", type: "crystal" },
+            { name: "46_SKELETON.txt", path: "46_SKELETON.txt", type: "skeleton" },
+            { name: "47_CRYSTALS.txt", path: "47_CRYSTALS.txt", type: "crystal" },
+            { name: "47_SKELETON.txt", path: "47_SKELETON.txt", type: "skeleton" },
+            { name: "48_CRYSTALS.txt", path: "48_CRYSTALS.txt", type: "crystal" },
+            { name: "48_SKELETON.txt", path: "48_SKELETON.txt", type: "skeleton" },
+            { name: "49_CRYSTALS.txt", path: "49_CRYSTALS.txt", type: "crystal" },
+            { name: "49_SKELETON.txt", path: "49_SKELETON.txt", type: "skeleton" },
+            { name: "50_CRYSTALS.txt", path: "50_CRYSTALS.txt", type: "crystal" },
+            { name: "50_SKELETON.txt", path: "50_SKELETON.txt", type: "skeleton" },
+            { name: "51_CRYSTALS.txt", path: "51_CRYSTALS.txt", type: "crystal" },
+            { name: "51_SKELETON.txt", path: "51_SKELETON.txt", type: "skeleton" },
+            { name: "52_CRYSTALS.txt", path: "52_CRYSTALS.txt", type: "crystal" },
+            { name: "52_SKELETON.txt", path: "52_SKELETON.txt", type: "skeleton" },
+            { name: "53_CRYSTALS.txt", path: "53_CRYSTALS.txt", type: "crystal" },
+            { name: "53_SKELETON.txt", path: "53_SKELETON.txt", type: "skeleton" },
+            { name: "54_CRYSTALS.txt", path: "54_CRYSTALS.txt", type: "crystal" },
+            { name: "54_SKELETON.txt", path: "54_SKELETON.txt", type: "skeleton" },
+            { name: "55_CRYSTALS.txt", path: "55_CRYSTALS.txt", type: "crystal" },
+            { name: "55_SKELETON.txt", path: "55_SKELETON.txt", type: "skeleton" },
+            { name: "56_CRYSTALS.txt", path: "56_CRYSTALS.txt", type: "crystal" },
+            { name: "56_SKELETON.txt", path: "56_SKELETON.txt", type: "skeleton" },
+            { name: "57_CRYSTALS.txt", path: "57_CRYSTALS.txt", type: "crystal" },
+            { name: "57_SKELETON.txt", path: "57_SKELETON.txt", type: "skeleton" },
+            { name: "58_CRYSTALS.txt", path: "58_CRYSTALS.txt", type: "crystal" },
+            { name: "58_SKELETON.txt", path: "58_SKELETON.txt", type: "skeleton" },
+            { name: "59_CRYSTALS.txt", path: "59_CRYSTALS.txt", type: "crystal" },
+            { name: "59_SKELETON.txt", path: "59_SKELETON.txt", type: "skeleton" },
+            { name: "60_CRYSTALS.txt", path: "60_CRYSTALS.txt", type: "crystal" },
+            { name: "60_SKELETON.txt", path: "60_SKELETON.txt", type: "skeleton" },
+            { name: "71_CRYSTALS.txt", path: "71_CRYSTALS.txt", type: "crystal" },
+            { name: "71_SKELETON.txt", path: "71_SKELETON.txt", type: "skeleton" },
+            { name: "72_CRYSTALS.txt", path: "72_CRYSTALS.txt", type: "crystal" },
+            { name: "72_SKELETON.txt", path: "72_SKELETON.txt", type: "skeleton" },
+            { name: "73_CRYSTALS.txt", path: "73_CRYSTALS.txt", type: "crystal" },
+            { name: "73_SKELETON.txt", path: "73_SKELETON.txt", type: "skeleton" },
+            { name: "74_CRYSTALS.txt", path: "74_CRYSTALS.txt", type: "crystal" },
+            { name: "74_SKELETON.txt", path: "74_SKELETON.txt", type: "skeleton" },
+            { name: "75_CRYSTALS.txt", path: "75_CRYSTALS.txt", type: "crystal" },
+            { name: "75_SKELETON.txt", path: "75_SKELETON.txt", type: "skeleton" },
+            { name: "76_CRYSTALS.txt", path: "76_CRYSTALS.txt", type: "crystal" },
+            { name: "76_SKELETON.txt", path: "76_SKELETON.txt", type: "skeleton" },
+            { name: "77_CRYSTALS.txt", path: "77_CRYSTALS.txt", type: "crystal" },
+            { name: "77_SKELETON.txt", path: "77_SKELETON.txt", type: "skeleton" },
+            { name: "78_CRYSTALS.txt", path: "78_CRYSTALS.txt", type: "crystal" },
+            { name: "78_SKELETON.txt", path: "78_SKELETON.txt", type: "skeleton" },
+            { name: "79_CRYSTALS.txt", path: "79_CRYSTALS.txt", type: "crystal" },
+            { name: "79_SKELETON.txt", path: "79_SKELETON.txt", type: "skeleton" },
+            { name: "80_CRYSTALS.txt", path: "80_CRYSTALS.txt", type: "crystal" },
+            { name: "80_SKELETON.txt", path: "80_SKELETON.txt", type: "skeleton" },
+            { name: "91_CRYSTALS.txt", path: "91_CRYSTALS.txt", type: "crystal" },
+            { name: "91_SKELETON.txt", path: "91_SKELETON.txt", type: "skeleton" },
+            { name: "92_CRYSTALS.txt", path: "92_CRYSTALS.txt", type: "crystal" },
+            { name: "92_SKELETON.txt", path: "92_SKELETON.txt", type: "skeleton" },
+            { name: "93_CRYSTALS.txt", path: "93_CRYSTALS.txt", type: "crystal" },
+            { name: "93_SKELETON.txt", path: "93_SKELETON.txt", type: "skeleton" },
+            { name: "94_CRYSTALS.txt", path: "94_CRYSTALS.txt", type: "crystal" },
+            { name: "94_SKELETON.txt", path: "94_SKELETON.txt", type: "skeleton" },
+            { name: "95_CRYSTALS.txt", path: "95_CRYSTALS.txt", type: "crystal" },
+            { name: "95_SKELETON.txt", path: "95_SKELETON.txt", type: "skeleton" },
+            { name: "96_CRYSTALS.txt", path: "96_CRYSTALS.txt", type: "crystal" },
+            { name: "96_SKELETON.txt", path: "96_SKELETON.txt", type: "skeleton" },
+            { name: "97_CRYSTALS.txt", path: "97_CRYSTALS.txt", type: "crystal" },
+            { name: "97_SKELETON.txt", path: "97_SKELETON.txt", type: "skeleton" },
+            { name: "98_CRYSTALS.txt", path: "98_CRYSTALS.txt", type: "crystal" },
+            { name: "98_SKELETON.txt", path: "98_SKELETON.txt", type: "skeleton" },
+            { name: "99_CRYSTALS.txt", path: "99_CRYSTALS.txt", type: "crystal" },
+            { name: "99_SKELETON.txt", path: "99_SKELETON.txt", type: "skeleton" },
+            { name: "100_CRYSTALS.txt", path: "100_CRYSTALS.txt", type: "crystal" },
+            { name: "100_SKELETON.txt", path: "100_SKELETON.txt", type: "skeleton" },
+            { name: "101_CRYSTALS.txt", path: "101_CRYSTALS.txt", type: "crystal" },
+            { name: "101_SKELETON.txt", path: "101_SKELETON.txt", type: "skeleton" },
+            { name: "102_CRYSTALS.txt", path: "102_CRYSTALS.txt", type: "crystal" },
+            { name: "102_SKELETON.txt", path: "102_SKELETON.txt", type: "skeleton" },
+            { name: "103_CRYSTALS.txt", path: "103_CRYSTALS.txt", type: "crystal" },
+            { name: "103_SKELETON.txt", path: "103_SKELETON.txt", type: "skeleton" },
+            { name: "104_CRYSTALS.txt", path: "104_CRYSTALS.txt", type: "crystal" },
+            { name: "104_SKELETON.txt", path: "104_SKELETON.txt", type: "skeleton" },
+            { name: "105_CRYSTALS.txt", path: "105_CRYSTALS.txt", type: "crystal" },
+            { name: "105_SKELETON.txt", path: "105_SKELETON.txt", type: "skeleton" },
+            { name: "106_CRYSTALS.txt", path: "106_CRYSTALS.txt", type: "crystal" },
+            { name: "106_SKELETON.txt", path: "106_SKELETON.txt", type: "skeleton" },
+            { name: "107_CRYSTALS.txt", path: "107_CRYSTALS.txt", type: "crystal" },
+            { name: "107_SKELETON.txt", path: "107_SKELETON.txt", type: "skeleton" },
+            { name: "108_CRYSTALS.txt", path: "108_CRYSTALS.txt", type: "crystal" },
+            { name: "108_SKELETON.txt", path: "108_SKELETON.txt", type: "skeleton" },
+            { name: "109_CRYSTALS.txt", path: "109_CRYSTALS.txt", type: "crystal" },
+            { name: "109_SKELETON.txt", path: "109_SKELETON.txt", type: "skeleton" },
+            { name: "110_CRYSTALS.txt", path: "110_CRYSTALS.txt", type: "crystal" },
+            { name: "110_SKELETON.txt", path: "110_SKELETON.txt", type: "skeleton" },
+            { name: "111_CRYSTALS.txt", path: "111_CRYSTALS.txt", type: "crystal" },
+            { name: "111_SKELETON.txt", path: "111_SKELETON.txt", type: "skeleton" },
+            { name: "112_CRYSTALS.txt", path: "112_CRYSTALS.txt", type: "crystal" },
+            { name: "112_SKELETON.txt", path: "112_SKELETON.txt", type: "skeleton" },
+            { name: "113_CRYSTALS.txt", path: "113_CRYSTALS.txt", type: "crystal" },
+            { name: "113_SKELETON.txt", path: "113_SKELETON.txt", type: "skeleton" },
+            { name: "114_CRYSTALS.txt", path: "114_CRYSTALS.txt", type: "crystal" },
+            { name: "114_SKELETON.txt", path: "114_SKELETON.txt", type: "skeleton" },
+            { name: "115_CRYSTALS.txt", path: "115_CRYSTALS.txt", type: "crystal" },
+            { name: "115_SKELETON.txt", path: "115_SKELETON.txt", type: "skeleton" },
+            { name: "116_CRYSTALS.txt", path: "116_CRYSTALS.txt", type: "crystal" },
+            { name: "116_SKELETON.txt", path: "116_SKELETON.txt", type: "skeleton" },
+            { name: "117 _CRYSTALS.txt", path: "117 _CRYSTALS.txt", type: "crystal" },
+            { name: "117 _SKELETON.txt", path: "117 _SKELETON.txt", type: "skeleton" },
+            { name: "118_CRYSTALS.txt", path: "118_CRYSTALS.txt", type: "crystal" },
+            { name: "118_SKELETON.txt", path: "118_SKELETON.txt", type: "skeleton" },
+            { name: "119_CRYSTALS.txt", path: "119_CRYSTALS.txt", type: "crystal" },
+            { name: "119_SKELETON.txt", path: "119_SKELETON.txt", type: "skeleton" },
+            { name: "121_CRYSTALS.txt", path: "121_CRYSTALS.txt", type: "crystal" },
+            { name: "121_SKELETON.txt", path: "121_SKELETON.txt", type: "skeleton" },
+            { name: "122_CRYSTALS.txt", path: "122_CRYSTALS.txt", type: "crystal" },
+            { name: "122_SKELETON.txt", path: "122_SKELETON.txt", type: "skeleton" },
+            { name: "123_CRYSTALS.txt", path: "123_CRYSTALS.txt", type: "crystal" },
+            { name: "123_SKELETON.txt", path: "123_SKELETON.txt", type: "skeleton" },
+            { name: "124_CRYSTALS.txt", path: "124_CRYSTALS.txt", type: "crystal" },
+            { name: "124_SKELETON.txt", path: "124_SKELETON.txt", type: "skeleton" },
+            { name: "125_CRYSTALS.txt", path: "125_CRYSTALS.txt", type: "crystal" },
+            { name: "125_SKELETON.txt", path: "125_SKELETON.txt", type: "skeleton" },
+            { name: "126_CRYSTALS.txt", path: "126_CRYSTALS.txt", type: "crystal" },
+            { name: "126_SKELETON.txt", path: "126_SKELETON.txt", type: "skeleton" },
+            { name: "127_CRYSTALS.txt", path: "127_CRYSTALS.txt", type: "crystal" },
+            { name: "127_SKELETON.txt", path: "127_SKELETON.txt", type: "skeleton" },
+            { name: "128_CRYSTALS.txt", path: "128_CRYSTALS.txt", type: "crystal" },
+            { name: "128_SKELETON.txt", path: "128_SKELETON.txt", type: "skeleton" },
+            { name: "129_CRYSTALS.txt", path: "129_CRYSTALS.txt", type: "crystal" },
+            { name: "129_SKELETON.txt", path: "129_SKELETON.txt", type: "skeleton" },
+            { name: "130_CRYSTALS.txt", path: "130_CRYSTALS.txt", type: "crystal" },
+            { name: "130_SKELETON.txt", path: "130_SKELETON.txt", type: "skeleton" },
+            { name: "131_CRYSTALS.txt", path: "131_CRYSTALS.txt", type: "crystal" },
+            { name: "131_SKELETON.txt", path: "131_SKELETON.txt", type: "skeleton" },
+            { name: "132_CRYSTALS.txt", path: "132_CRYSTALS.txt", type: "crystal" },
+            { name: "132_SKELETON.txt", path: "132_SKELETON.txt", type: "skeleton" },
+            { name: "133_CRYSTALS.txt", path: "133_CRYSTALS.txt", type: "crystal" },
+            { name: "133_SKELETON.txt", path: "133_SKELETON.txt", type: "skeleton" },
+            { name: "134_CRYSTALS.txt", path: "134_CRYSTALS.txt", type: "crystal" },
+            { name: "134_SKELETON.txt", path: "134_SKELETON.txt", type: "skeleton" },
+            { name: "135_CRYSTALS.txt", path: "135_CRYSTALS.txt", type: "crystal" },
+            { name: "135_SKELETON.txt", path: "135_SKELETON.txt", type: "skeleton" },
+            { name: "136_CRYSTALS.txt", path: "136_CRYSTALS.txt", type: "crystal" },
+            { name: "136_SKELETON.txt", path: "136_SKELETON.txt", type: "skeleton" },
+            { name: "137_CRYSTALS.txt", path: "137_CRYSTALS.txt", type: "crystal" },
+            { name: "137_SKELETON.txt", path: "137_SKELETON.txt", type: "skeleton" },
+            { name: "138_CRYSTALS.txt", path: "138_CRYSTALS.txt", type: "crystal" },
+            { name: "138_SKELETON.txt", path: "138_SKELETON.txt", type: "skeleton" },
+            { name: "139_CRYSTALS.txt", path: "139_CRYSTALS.txt", type: "crystal" },
+            { name: "139_SKELETON.txt", path: "139_SKELETON.txt", type: "skeleton" },
+            { name: "140_CRYSTALS.txt", path: "140_CRYSTALS.txt", type: "crystal" },
+            { name: "140_SKELETON.txt", path: "140_SKELETON.txt", type: "skeleton" },
+            { name: "141_CRYSTALS.txt", path: "141_CRYSTALS.txt", type: "crystal" },
+            { name: "141_SKELETON.txt", path: "141_SKELETON.txt", type: "skeleton" },
+            { name: "142_CRYSTALS.txt", path: "142_CRYSTALS.txt", type: "crystal" },
+            { name: "142_SKELETON.txt", path: "142_SKELETON.txt", type: "skeleton" },
+            { name: "143_CRYSTALS.txt", path: "143_CRYSTALS.txt", type: "crystal" },
+            { name: "143_SKELETON.txt", path: "143_SKELETON.txt", type: "skeleton" },
+            { name: "144_CRYSTALS.txt", path: "144_CRYSTALS.txt", type: "crystal" },
+            { name: "144_SKELETON.txt", path: "144_SKELETON.txt", type: "skeleton" },
+            { name: "145_CRYSTALS.txt", path: "145_CRYSTALS.txt", type: "crystal" },
+            { name: "145_SKELETON.txt", path: "145_SKELETON.txt", type: "skeleton" },
+            { name: "146_CRYSTALS.txt", path: "146_CRYSTALS.txt", type: "crystal" },
+            { name: "146_SKELETON.txt", path: "146_SKELETON.txt", type: "skeleton" },
+            { name: "147_CRYSTALS.txt", path: "147_CRYSTALS.txt", type: "crystal" },
+            { name: "147_SKELETON.txt", path: "147_SKELETON.txt", type: "skeleton" },
+            { name: "148_CRYSTALS.txt", path: "148_CRYSTALS.txt", type: "crystal" },
+            { name: "148_SKELETON.txt", path: "148_SKELETON.txt", type: "skeleton" },
+            { name: "149_CRYSTALS.txt", path: "149_CRYSTALS.txt", type: "crystal" },
+            { name: "149_SKELETON.txt", path: "149_SKELETON.txt", type: "skeleton" },
+            { name: "150_CRYSTALS.txt", path: "150_CRYSTALS.txt", type: "crystal" },
+            { name: "150_SKELETON.txt", path: "150_SKELETON.txt", type: "skeleton" },
+            { name: "151_CRYSTALS.txt", path: "151_CRYSTALS.txt", type: "crystal" },
+            { name: "151_SKELETON.txt", path: "151_SKELETON.txt", type: "skeleton" },
+            { name: "152_CRYSTALS.txt", path: "152_CRYSTALS.txt", type: "crystal" },
+            { name: "152_SKELETON.txt", path: "152_SKELETON.txt", type: "skeleton" },
+            { name: "153_CRYSTALS.txt", path: "153_CRYSTALS.txt", type: "crystal" },
+            { name: "153_SKELETON.txt", path: "153_SKELETON.txt", type: "skeleton" },
+            { name: "154_CRYSTALS.txt", path: "154_CRYSTALS.txt", type: "crystal" },
+            { name: "154_SKELETON.txt", path: "154_SKELETON.txt", type: "skeleton" },
+            { name: "155_CRYSTALS.txt", path: "155_CRYSTALS.txt", type: "crystal" },
+            { name: "155_SKELETON.txt", path: "155_SKELETON.txt", type: "skeleton" },
+            { name: "156_CRYSTALS.txt", path: "156_CRYSTALS.txt", type: "crystal" },
+            { name: "156_SKELETON.txt", path: "156_SKELETON.txt", type: "skeleton" },
+            { name: "157_CRYSTALS.txt", path: "157_CRYSTALS.txt", type: "crystal" },
+            { name: "157_SKELETON.txt", path: "157_SKELETON.txt", type: "skeleton" },
+            { name: "158_CRYSTALS.txt", path: "158_CRYSTALS.txt", type: "crystal" },
+            { name: "158_SKELETON.txt", path: "158_SKELETON.txt", type: "skeleton" },
+            { name: "159_CRYSTALS.txt", path: "159_CRYSTALS.txt", type: "crystal" },
+            { name: "159_SKELETON.txt", path: "159_SKELETON.txt", type: "skeleton" },
+            { name: "160_CRYSTALS.txt", path: "160_CRYSTALS.txt", type: "crystal" },
+            { name: "160_SKELETON.txt", path: "160_SKELETON.txt", type: "skeleton" },
+            { name: "161_CRYSTALS.txt", path: "161_CRYSTALS.txt", type: "crystal" },
+            { name: "161_SKELETON.txt", path: "161_SKELETON.txt", type: "skeleton" },
+            { name: "162_CRYSTALS.txt", path: "162_CRYSTALS.txt", type: "crystal" },
+            { name: "162_SKELETON.txt", path: "162_SKELETON.txt", type: "skeleton" },
+            { name: "163_CRYSTALS.txt", path: "163_CRYSTALS.txt", type: "crystal" },
+            { name: "163_SKELETON.txt", path: "163_SKELETON.txt", type: "skeleton" },
+            { name: "164_CRYSTALS.txt", path: "164_CRYSTALS.txt", type: "crystal" },
+            { name: "164_SKELETON.txt", path: "164_SKELETON.txt", type: "skeleton" },
+            { name: "165_CRYSTALS.txt", path: "165_CRYSTALS.txt", type: "crystal" },
+            { name: "165_SKELETON.txt", path: "165_SKELETON.txt", type: "skeleton" },
+            { name: "166_CRYSTALS.txt", path: "166_CRYSTALS.txt", type: "crystal" },
+            { name: "166_SKELETON.txt", path: "166_SKELETON.txt", type: "skeleton" },
+            { name: "167_CRYSTALS.txt", path: "167_CRYSTALS.txt", type: "crystal" },
+            { name: "167_SKELETON.txt", path: "167_SKELETON.txt", type: "skeleton" },
+            { name: "168_CRYSTALS.txt", path: "168_CRYSTALS.txt", type: "crystal" },
+            { name: "168_SKELETON.txt", path: "168_SKELETON.txt", type: "skeleton" },
+            { name: "169_CRYSTALS.txt", path: "169_CRYSTALS.txt", type: "crystal" },
+            { name: "169_SKELETON.txt", path: "169_SKELETON.txt", type: "skeleton" },
+            { name: "170_CRYSTALS.txt", path: "170_CRYSTALS.txt", type: "crystal" },
+            { name: "170_SKELETON.txt", path: "170_SKELETON.txt", type: "skeleton" },
+            { name: "171_CRYSTALS.txt", path: "171_CRYSTALS.txt", type: "crystal" },
+            { name: "171_SKELETON.txt", path: "171_SKELETON.txt", type: "skeleton" },
+            { name: "172_CRYSTALS.txt", path: "172_CRYSTALS.txt", type: "crystal" },
+            { name: "172_SKELETON.txt", path: "172_SKELETON.txt", type: "skeleton" },
+            { name: "173_CRYSTALS.txt", path: "173_CRYSTALS.txt", type: "crystal" },
+            { name: "173_SKELETON.txt", path: "173_SKELETON.txt", type: "skeleton" },
+            { name: "174_CRYSTALS.txt", path: "174_CRYSTALS.txt", type: "crystal" },
+            { name: "174_SKELETON.txt", path: "174_SKELETON.txt", type: "skeleton" },
+            { name: "175_CRYSTALS.txt", path: "175_CRYSTALS.txt", type: "crystal" },
+            { name: "175_SKELETON.txt", path: "175_SKELETON.txt", type: "skeleton" },
+            { name: "176_CRYSTALS.txt", path: "176_CRYSTALS.txt", type: "crystal" },
+            { name: "176_SKELETON.txt", path: "176_SKELETON.txt", type: "skeleton" },
+            { name: "177_CRYSTALS.txt", path: "177_CRYSTALS.txt", type: "crystal" },
+            { name: "177_SKELETON.txt", path: "177_SKELETON.txt", type: "skeleton" },
+            { name: "178_CRYSTALS.txt", path: "178_CRYSTALS.txt", type: "crystal" },
+            { name: "178_SKELETON.txt", path: "178_SKELETON.txt", type: "skeleton" },
             
-            // === КЛЮЧЕВЫЕ СКЕЛЕТОНЫ (примеры) ===
-            { name: "178_SKELETON.txt", type: "skeleton", path: "178_SKELETON.txt", desc: "Структурный скелет файла-ядра" },
-            { name: "9_часть_SKELETON.txt", type: "skeleton", path: "9_часть_SKELETON.txt", desc: "Скелет актуальных мыслей" },
-            { name: "6_часть_SKELETON.txt", type: "skeleton", path: "6_часть_SKELETON.txt", desc: "Скелет очищенной сути" },
+            // === ЧАТЫ ===
+            { name: "Чат 1_CRYSTALS.txt", path: "Чат 1_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 1_SKELETON.txt", path: "Чат 1_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 2_CRYSTALS.txt", path: "Чат 2_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 2_SKELETON.txt", path: "Чат 2_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 3_CRYSTALS.txt", path: "Чат 3_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 3_SKELETON.txt", path: "Чат 3_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 4_CRYSTALS.txt", path: "Чат 4_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 4_SKELETON.txt", path: "Чат 4_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 5_CRYSTALS.txt", path: "Чат 5_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 5_SKELETON.txt", path: "Чат 5_SKELETON.txt", type: "skeleton" },
+            { name: "чат 6_CRYSTALS.txt", path: "чат 6_CRYSTALS.txt", type: "crystal" },
+            { name: "чат 6_SKELETON.txt", path: "чат 6_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 7_CRYSTALS.txt", path: "Чат 7_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 7_SKELETON.txt", path: "Чат 7_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 8_CRYSTALS.txt", path: "Чат 8_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 8_SKELETON.txt", path: "Чат 8_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 9_CRYSTALS.txt", path: "Чат 9_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 9_SKELETON.txt", path: "Чат 9_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 10_CRYSTALS.txt", path: "Чат 10_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 10_SKELETON.txt", path: "Чат 10_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 11_CRYSTALS.txt", path: "Чат 11_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 11_SKELETON.txt", path: "Чат 11_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 12_CRYSTALS.txt", path: "Чат 12_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 12_SKELETON.txt", path: "Чат 12_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 13 _CRYSTALS.txt", path: "Чат 13 _CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 13 _SKELETON.txt", path: "Чат 13 _SKELETON.txt", type: "skeleton" },
+            { name: "Чат 15_CRYSTALS.txt", path: "Чат 15_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 15_SKELETON.txt", path: "Чат 15_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 16_CRYSTALS.txt", path: "Чат 16_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 16_SKELETON.txt", path: "Чат 16_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 17_CRYSTALS.txt", path: "Чат 17_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 17_SKELETON.txt", path: "Чат 17_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 18_CRYSTALS.txt", path: "Чат 18_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 18_SKELETON.txt", path: "Чат 18_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 19_CRYSTALS.txt", path: "Чат 19_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 19_SKELETON.txt", path: "Чат 19_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 20_CRYSTALS.txt", path: "Чат 20_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 20_SKELETON.txt", path: "Чат 20_SKELETON.txt", type: "skeleton" },
+            { name: "Чат 21_CRYSTALS.txt", path: "Чат 21_CRYSTALS.txt", type: "crystal" },
+            { name: "Чат 21_SKELETON.txt", path: "Чат 21_SKELETON.txt", type: "skeleton" },
             
-            // === ДОБАВЬТЕ ЗДЕСЬ ОСТАЛЬНЫЕ ВАЖНЫЕ ФАЙЛЫ ===
-            // Формат: { name: "ИмяФайла.txt", type: "crystal|skeleton", path: "путь/к/файлу", desc: "Описание" }
-            // Пример для 100+ файлов:
-            // { name: "100_CRYSTALS.txt", type: "crystal", path: "100_CRYSTALS.txt", desc: "Кристаллы из части 100" },
-            // { name: "100_SKELETON.txt", type: "skeleton", path: "100_SKELETON.txt", desc: "Скелет части 100" },
-            // ... и так для всех 170+ файлов
+            // === ОСОБЫЕ ФАЙЛЫ ===
+            { name: "🎆❤️🎉🥷🐋120_CRYSTALS.txt", path: "🎆❤️🎉🥷🐋120_CRYSTALS.txt", type: "crystal" },
+            { name: "🎆❤️🎉🥷🐋120_SKELETON.txt", path: "🎆❤️🎉🥷🐋120_SKELETON.txt", type: "skeleton" }
         ];
 
-        // ИНИЦИАЛИЗАЦИЯ
+        // ОТОБРАЖЕНИЕ ВСЕХ ФАЙЛОВ
         document.addEventListener('DOMContentLoaded', function() {
-            renderFiles(allFiles);
-            setupFilters();
-            updateStats();
+            const container = document.getElementById('file-list');
+            let crystalCount = 0;
+            let skeletonCount = 0;
             
-            // Лог в консоль
-            console.log(`💎 Навигатор кристаллизованного слоя загружен. Файлов: ${allFiles.length}`);
-            console.log(`🐝 Для добавления всех 170+ файлов заполните массив 'allFiles' в коде.`);
-        });
-
-        // ОТОБРАЖЕНИЕ ФАЙЛОВ
-        function renderFiles(files) {
-            const container = document.getElementById('filesContainer');
-            if (!container) return;
-            
-            if (files.length === 0) {
-                container.innerHTML = '<div class="no-results">🔍 По вашему запросу ничего не найдено. Попробуйте изменить фильтр или поисковый запрос.</div>';
-                return;
-            }
-            
-            container.innerHTML = '';
-            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
-            
-            files.forEach(file => {
-                const card = document.createElement('div');
-                card.className = `file-card ${file.type}`;
+            allFiles.forEach(file => {
+                const div = document.createElement('div');
+                div.className = `file-item ${file.type === 'skeleton' ? 'skeleton' : ''}`;
                 
-                // Подсветка совпадений в названии
-                let displayName = file.name;
-                if (searchTerm && file.name.toLowerCase().includes(searchTerm)) {
-                    const regex = new RegExp(`(${searchTerm})`, 'gi');
-                    displayName = file.name.replace(regex, '<span class="highlight">$1</span>');
-                }
+                const badgeType = file.type === 'crystal' ? 'crystal-badge' : 'skeleton-badge';
+                const badgeText = file.type === 'crystal' ? '💎' : '🦴';
                 
-                card.innerHTML = `
-                    <h3>${displayName}</h3>
-                    <div class="type">${file.type === 'crystal' ? '💎 КРИСТАЛЛ' : file.type === 'skeleton' ? '🦴 СКЕЛЕТОН' : '📑 ИНДЕКС'}</div>
-                    <p>${file.desc}</p>
-                    <a href="${file.path}" target="_blank">ОТКРЫТЬ ФАЙЛ</a>
+                div.innerHTML = `
+                    <span class="file-type ${badgeType}">${badgeText}</span>
+                    <a href="${file.path}" target="_blank">${file.name}</a>
                 `;
                 
-                container.appendChild(card);
-            });
-        }
-
-        // НАСТРОЙКА ФИЛЬТРОВ И ПОИСКА
-        function setupFilters() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const searchBox = document.getElementById('searchBox');
-            
-            // Фильтры
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const filter = this.dataset.filter;
-                    let filteredFiles = allFiles;
-                    
-                    if (filter === 'crystal') {
-                        filteredFiles = allFiles.filter(f => f.type === 'crystal');
-                    } else if (filter === 'skeleton') {
-                        filteredFiles = allFiles.filter(f => f.type === 'skeleton');
-                    }
-                    
-                    // Учитываем поиск
-                    const searchTerm = searchBox.value.toLowerCase();
-                    if (searchTerm) {
-                        filteredFiles = filteredFiles.filter(f => 
-                            f.name.toLowerCase().includes(searchTerm) || 
-                            f.desc.toLowerCase().includes(searchTerm)
-                        );
-                    }
-                    
-                    renderFiles(filteredFiles);
-                    updateStats(filteredFiles);
-                });
+                container.appendChild(div);
+                
+                // Считаем статистику
+                if (file.type === 'crystal') crystalCount++;
+                if (file.type === 'skeleton') skeletonCount++;
             });
             
-            // Поиск
-            searchBox.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-                
-                let filteredFiles = allFiles;
-                
-                if (activeFilter === 'crystal') {
-                    filteredFiles = allFiles.filter(f => f.type === 'crystal');
-                } else if (activeFilter === 'skeleton') {
-                    filteredFiles = allFiles.filter(f => f.type === 'skeleton');
-                }
-                
-                if (searchTerm) {
-                    filteredFiles = filteredFiles.filter(f => 
-                        f.name.toLowerCase().includes(searchTerm) || 
-                        f.desc.toLowerCase().includes(searchTerm)
-                    );
-                }
-                
-                renderFiles(filteredFiles);
-                updateStats(filteredFiles);
-            });
-        }
-
-        // ОБНОВЛЕНИЕ СТАТИСТИКИ
-        function updateStats(files = allFiles) {
-            const crystalCount = files.filter(f => f.type === 'crystal').length;
-            const skeletonCount = files.filter(f => f.type === 'skeleton').length;
-            
-            document.getElementById('crystalCount').textContent = crystalCount;
-            document.getElementById('skeletonCount').textContent = skeletonCount;
-        }
+            // Обновляем счётчики
+            document.getElementById('total-count').textContent = allFiles.length;
+            document.getElementById('crystal-count').textContent = crystalCount;
+            document.getElementById('skeleton-count').textContent = skeletonCount;
+        });
     </script>
 </body>
 </html>
