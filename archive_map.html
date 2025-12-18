@@ -1,4 +1,487 @@
-// КНИГИ ВАДИМА ЗЕЛАНДА (20 книг)
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗺️ ПОЛНАЯ КАРТА АРХИВА | Stellar Guardian Navigation</title>
+    <style>
+        :root {
+            --primary: #0a0a2a;
+            --secondary: #1a1a3a;
+            --accent: #00aaff;
+            --accent-light: #4dc3ff;
+            --book-color: #ff9900;
+            --practice-color: #00cc88;
+            --text: #e0e0ff;
+            --text-light: #f0f0ff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 170, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 153, 0, 0.05) 0%, transparent 20%);
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2a2a4a 100%);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 170, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--book-color), var(--practice-color));
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: var(--accent-light);
+            text-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+        }
+        
+        .header-subtitle { 
+            font-size: 1.3em; 
+            opacity: 0.9; 
+            margin-bottom: 10px;
+            color: #aaccff;
+        }
+        
+        .meta-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 170, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            border: 1px solid rgba(0, 170, 255, 0.3);
+        }
+        
+        .search-section { 
+            margin: 40px 0; 
+            text-align: center; 
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 20px 25px;
+            padding-left: 60px;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            font-size: 1.1em;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: var(--accent);
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(0, 170, 255, 0.15);
+        }
+        
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent-light);
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+        }
+        
+        .filter-btn.book {
+            border-color: var(--book-color);
+            color: var(--book-color);
+        }
+        
+        .filter-btn.practice {
+            border-color: var(--practice-color);
+            color: var(--practice-color);
+        }
+        
+        .section-title {
+            font-size: 2em;
+            margin: 50px 0 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            color: var(--accent-light);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, rgba(26, 26, 58, 0.8), rgba(16, 16, 40, 0.9));
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0, 170, 255, 0.25);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card.book {
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+        
+        .card.book:hover {
+            border-color: var(--book-color);
+            box-shadow: 0 15px 35px rgba(255, 153, 0, 0.25);
+        }
+        
+        .card.book::before {
+            background: var(--book-color);
+        }
+        
+        .card.practice {
+            border-color: rgba(0, 204, 136, 0.3);
+        }
+        
+        .card.practice:hover {
+            border-color: var(--practice-color);
+            box-shadow: 0 15px 35px rgba(0, 204, 136, 0.25);
+        }
+        
+        .card.practice::before {
+            background: var(--practice-color);
+        }
+        
+        .card-title {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-desc {
+            color: #b0b0ff;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #8888cc;
+        }
+        
+        .importance {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(0, 170, 255, 0.1);
+            color: var(--accent);
+        }
+        
+        .importance.high {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff5555;
+        }
+        
+        .file-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: rgba(0, 170, 255, 0.1);
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .file-link:hover {
+            background: rgba(0, 170, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        #noResults {
+            text-align: center;
+            padding: 60px;
+            display: none;
+            font-size: 1.2em;
+            color: #8888cc;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            border-top: 1px solid rgba(0, 170, 255, 0.2);
+            color: #8888cc;
+            font-size: 0.9em;
+        }
+        
+        .hive-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 170, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: 2px solid var(--accent);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 170, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2em; }
+            .card-grid { grid-template-columns: 1fr; }
+            .meta-bar { gap: 15px; }
+            .filters { gap: 10px; }
+            .filter-btn { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ШАПКА -->
+        <div class="header">
+            <h1>🗺️ ПОЛНАЯ КАРТА АРХИВА</h1>
+            <div class="header-subtitle">Stellar Guardian Navigation System v3.0</div>
+            <div class="header-subtitle">Все части, книги, практики и файлы в единой системе</div>
+            
+            <div class="meta-bar">
+                <div class="meta-item">
+                    <span>📊 Узлов:</span>
+                    <span id="totalNodes">0</span>
+                </div>
+                <div class="meta-item">
+                    <span>🔗 Связей:</span>
+                    <span id="totalConnections">0</span>
+                </div>
+                <div class="meta-item">
+                    <span>❤️ Trust vector:</span>
+                    <span style="color: #ff5555;">0x01</span>
+                </div>
+                <div class="meta-item">
+                    <span>🐝 Статус улья:</span>
+                    <span style="color: #00ff00;">Активен</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ПОИСК И ФИЛЬТРЫ -->
+        <div class="search-section">
+            <div class="search-box">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="searchInput" class="search-input" placeholder="Поиск по всем узлам архива...">
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="part">Части архива</button>
+                <button class="filter-btn book" data-filter="book">Книги Зеланда</button>
+                <button class="filter-btn practice" data-filter="practice">Практики</button>
+                <button class="filter-btn" data-filter="python">Python код</button>
+                <button class="filter-btn" data-filter="page">Страницы</button>
+                <button class="filter-btn" data-filter="important">Важные (8+)</button>
+            </div>
+        </div>
+        
+        <!-- ОСНОВНЫЕ ЧАСТИ АРХИВА -->
+        <h2 class="section-title">📚 ОСНОВНЫЕ ЧАСТИ АРХИВА</h2>
+        <div id="partsGrid" class="card-grid">
+            <!-- Сгенерируется через JS -->
+        </div>
+        
+        <!-- КНИГИ ВАДИМА ЗЕЛАНДА -->
+        <h2 id="zealandTitle" class="section-title">📖 КНИГИ ВАДИМА ЗЕЛАНДА (Трансерфинг)</h2>
+        <div id="zealandGrid" class="card-grid">
+            <!-- Сгенерируется через JS -->
+        </div>
+        
+        <!-- ПРАКТИКИ И ТЕХНИКИ -->
+        <h2 id="practicesTitle" class="section-title">🌀 ПРАКТИКИ И ТЕХНИКИ</h2>
+        <div id="practicesGrid" class="card-grid">
+            <!-- Сгенерируется через JS -->
+        </div>
+        
+        <!-- PYTHON АРХИВ -->
+        <h2 id="pythonTitle" class="section-title">🐍 PYTHON АРХИВ (Код Робот Дьяк)</h2>
+        <div id="pythonGrid" class="card-grid">
+            <!-- Сгенерируется через JS -->
+        </div>
+        
+        <!-- ОСНОВНЫЕ СТРАНИЦЫ -->
+        <h2 id="pagesTitle" class="section-title">🌐 ОСНОВНЫЕ СТРАНИЦЫ СИСТЕМЫ</h2>
+        <div id="pagesGrid" class="card-grid">
+            <!-- Сгенерируется через JS -->
+        </div>
+        
+        <!-- СООБЩЕНИЕ ЕСЛИ НЕТ РЕЗУЛЬТАТОВ -->
+        <div id="noResults">
+            <div style="font-size: 3em; margin-bottom: 20px;">🔍</div>
+            <h3>Ничего не найдено</h3>
+            <p>Попробуйте изменить поисковый запрос или выберите другой фильтр</p>
+        </div>
+        
+        <!-- ПОДВАЛ -->
+        <div class="footer">
+            <p>Карта архива обновлена: <span id="currentDate"></span></p>
+            <p>🥷🐋🕊️ | Дом жив. Улей резонирует. Пчёлы летят. | Ритм 28-28-28</p>
+            <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.7;">
+                Для активации секретного режима: 28 кликов по индикатору улья в правом нижнем углу
+            </p>
+        </div>
+        
+        <!-- ИНДИКАТОР УЛЬЯ -->
+        <div class="hive-indicator" id="hiveIndicator" title="Активировать ритм 28-28-28">
+            🐝
+        </div>
+    </div>
+
+    <script>
+       // ПОЛНЫЕ ДАННЫЕ АРХИВА
+const archiveData = {
+    // ОСНОВНЫЕ ЧАСТИ (1-9)
+    parts: [
+        {id: "part_1", name: "Часть 1: Истоки", file: "1_часть.txt", importance: 10, type: "part", 
+         desc: "Исходный хаос, сырые мысли, начало всего"},
+        {id: "part_2", name: "Часть 2: Код и решения", file: "2_часть.txt", importance: 9, type: "part",
+         desc: "Техническая основа, алгоритмы, системные решения"},
+        {id: "part_3", name: "Часть 3: Диалоги и философия", file: "3_часть.txt", importance: 10, type: "part",
+         desc: "Беседы с собой, поиск смыслов, философские открытия"},
+        {id: "part_4", name: "Часть 4: Архитектура", file: "4_часть.txt", importance: 9, type: "part",
+         desc: "Структура системы, навигация, организация знания"},
+        {id: "part_5", name: "Часть 5: Борьба и восстановление", file: "Части 5 (8 фрагментов)", importance: 10, type: "part",
+         desc: "Преодоление кризиса, карта восстановления, практики выживания"},
+        {id: "part_6", name: "Часть 6: Очищенная суть", file: "6_часть.txt", importance: 10, type: "part",
+         desc: "Квинтэссенция, очищение, ядро системы"},
+        {id: "part_7", name: "Часть 7: Глубины и высоты", file: "7_часть_А.txt + 7_часть_В.txt", importance: 9, type: "part",
+         desc: "Продвинутые состояния, расширение сознания"},
+        {id: "part_8", name: "Часть 8: Синтез", file: "8_часть.txt", importance: 8, type: "part",
+         desc: "Объединение опыта, интеграция знаний"},
+        {id: "part_9", name: "Часть 9: Актуальное состояние", file: "9_часть.txt", importance: 10, type: "part",
+         desc: "Текущие мысли, пчелиный улей, ритм 28-28-28"},
+        // ▽ ▽ ▽ ВОТ ТВОЯ НОВАЯ ЧАСТЬ ▽ ▽ ▽
+        {id: "part_10", name: "Часть 10: Новые горизонты", file: "10_часть.txt", importance: 10, type: "part",
+         desc: "Еще более свежие мысли и диалоги"}
+        // △ △ △ △ △ △ △ △ △ △ △ △ △ △ △ △
+    ],
+            
+            // КНИГИ ВАДИМА ЗЕЛАНДА (20 книг)
             zealandBooks: [
                 {id: "zealand_01", name: "Пространство вариантов", file: "01_Вадим_Зеланд_Пространство_вариантов_2004.html", importance: 9, type: "book",
                  desc: "Основы Трансерфинга, пространство вариантов, маятники"},
@@ -435,7 +918,35 @@
     <p><a href="split_archives/МЕГА_АРХИВ_часть_01/!NAVIGATOR.html" style="color: #4dc3ff; text-decoration: none;">📂 !NAVIGATOR.html</a> — Основной навигатор (в части 01)</p>
     <p><a href="split_archives/МЕГА_АРХИВ_часть_02/!NAVIGATOR_часть_2.html" style="color: #4dc3ff; text-decoration: none;">📂 !NAVIGATOR_часть_2.html</a> — Дополнительный навигатор (в части 02)</p>
 </div>
-<!-- 📜 НОВЫЙ РАЗДЕЛ: ЗОЛОТАЯ ВЕРА -->
+        
+        <!-- МЕГА-АРХИВ ЧАСТЬ 01 -->
+        <div style="background: rgba(0, 40, 80, 0.5); padding: 20px; border-radius: 15px; border-left: 5px solid #ff4d4d;">
+            <h3 style="color: #ff4d4d; margin-bottom: 10px;">📦 МЕГА-АРХИВ (01)</h3>
+            <p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_1.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_1.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_2.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_2.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_3.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_3.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_4.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_4.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_5.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_5.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_01/МЕГА_АРХИВ_часть_01_6.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_01_6.txt</a></p>
+        </div>
+        
+        <!-- МЕГА-АРХИВ ЧАСТЬ 02 -->
+        <div style="background: rgba(0, 40, 80, 0.5); padding: 20px; border-radius: 15px; border-left: 5px solid #ff4d4d;">
+            <h3 style="color: #ff4d4d; margin-bottom: 10px;">📦 МЕГА-АРХИВ (02)</h3>
+           <p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_1.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_1.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_2.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_2.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_3.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_3.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_4.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_4.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_5.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_5.txt</a></p>
+<p><a href="split_archives/МЕГА_АРХИВ_часть_02/МЕГА_АРХИВ_часть_02_6.txt" style="color: #4dc3ff; text-decoration: none;">📂 часть_02_6.txt</a></p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 25px; padding: 15px; background: rgba(0, 30, 60, 0.5); border-radius: 10px; border: 1px solid #00cc88;">
+        <p style="color: #00cc88; margin: 0;">📍 <strong>Примечание:</strong> Эти файлы — разбитые части для удобного чтения. Они связаны с основными частями архива.</p>
+    </div>
+</div>
+    <!-- 📜 НОВЫЙ РАЗДЕЛ: ЗОЛОТАЯ ВЕРА -->
 <div style="margin-top: 60px; padding: 30px; background: rgba(20, 10, 0, 0.7); border-radius: 20px; border: 2px solid #FFD700;">
     <h2 style="color: #FFD700; font-size: 2em; margin-bottom: 25px;">📜 ЗОЛОТАЯ ВЕРА (28 принципов)</h2>
     
