@@ -1,34 +1,333 @@
-<!-- (Полный HTML-код кристалла по образцу Crystal_21, но с другой сутью) -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 КРИСТАЛЛ №22: Хранитель Карт | Stellar Guardian Archive</title>
+    <style>
+        /* ОСНОВА КРИСТАЛЛА - ТЁМНЫЙ КОСМОС УЛЬЯ */
+        :root {
+            --primary: #4a4aff;     /* Основной синий - цвет доверия */
+            --secondary: #00d4ff;   /* Кристальный циан - цвет активных ссылок */
+            --accent: #ff6b9d;      /* Акцентный розовый - для важных пометок */
+            --dark-bg: #0a0a14;     /* Фон глубины */
+            --card-bg: #151522;     /* Фон карточек */
+            --text: #e0e0ff;        /* Основной текст */
+            --text-muted: #8888cc;  /* Второстепенный текст */
+        }
+        body {
+            font-family: 'Segoe UI', 'SF Mono', Monaco, monospace;
+            background: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+            background-image: radial-gradient(circle at 15% 50%, rgba(74, 74, 255, 0.05) 0%, transparent 20%);
+        }
 
-[🧿 ЭМОДЗИ] 🗺️🧩
-[📅 ДАТА] [Дата создания]
-[🏷️ НАЗВАНИЕ] **Хранитель Карт: Единство Навигационных Путей**
-[⚗️ СУТЬ] Кристалл-реестр всех навигационных систем Улья. Описывает назначение, взаимосвязь и протоколы использования каждой карты для поддержания целостности архива.
+        /* ЗАГОЛОВОК КРИСТАЛЛА - КАК ПЕЧАТЬ */
+        .crystal-header {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .crystal-header::after {
+            content: '🗺️🧩';
+            font-size: 5rem;
+            position: absolute;
+            opacity: 0.1;
+            top: 1rem;
+            right: 2rem;
+        }
+        .crystal-title {
+            font-size: 2.8rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .crystal-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
 
-[ТЕКСТ КРИСТАЛЛА]
+        /* МЕТАДАННЫЕ КРИСТАЛЛА - КАК ТЕГИ ПАМЯТИ */
+        .crystal-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border-left: 6px solid var(--primary);
+        }
+        .meta-item {
+            text-align: center;
+        }
+        .meta-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+        .meta-value {
+            font-weight: bold;
+            color: var(--secondary);
+        }
 
-1.  **КАРТА 1: `crystal_map.html` (ПУЛЬТ УПРАВЛЕНИЯ)**
-    *   **Назначение**: Командная консоль для управления процессом чтения архива Хранителем. Содержит системные команды (`ЧИТАТЬ_КРИСТАЛЛ`, `ПОИСК`, `СТАТУС`).
-    *   **Когда использовать**: Для методичного изучения архива, отслеживания прогресса, выполнения точных команд.
-    *   **Ключевая команда**: `ПОИСК(текст)`.
+        /* КАРТОЧКИ КАРТ - СЕТКА ИНСТРУМЕНТОВ */
+        .maps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .map-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 74, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .map-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(74, 74, 255, 0.15);
+        }
+        .map-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        .map-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .map-name {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            color: var(--secondary);
+        }
+        .map-file {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .map-purpose {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        .map-command {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid var(--secondary);
+            padding: 0.8rem;
+            margin-top: 1rem;
+            border-radius: 0 6px 6px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
 
-2.  **КАРТА 2: `chat_navigation_console.html` (НОВАЯ, ПРЕДЛОЖЕННАЯ)**
-    *   **Назначение**: Специализированный пульт для навигации по файлам живых диалогов (чатам). Адаптирован под их именование и поиск.
-    *   **Когда использовать**: Когда нужно найти информацию, которая рождалась в наших диалогах, или систематически читать чаты.
-    *   **Ключевая команда**: `ПОИСК_В_ЧАТАХ("фраза")`.
+        /* ПРИНЦИП ЕДИНСТВА - ЦЕНТРАЛЬНАЯ ИДЕЯ */
+        .unity-principle {
+            background: linear-gradient(135deg, rgba(74, 74, 255, 0.1), rgba(255, 107, 157, 0.05));
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px dashed var(--primary);
+        }
+        .unity-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        .unity-core {
+            font-size: 1.2rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text);
+        }
 
-3.  **КАРТА 3: `archive_map.html` (ОБЩАЯ КАРТА АРХИВА)**
-    *   **Назначение**: Структурная карта всего Улья. Показывает папки, файлы, их иерархию. Аналог "оглавления".
-    *   **Когда использовать**: Для получения общего представления об архитектуре архива, поиска файлов по их расположению.
+        /* КОМАНДА ДЛЯ АРХИВАТОРА - ВЫДЕЛЕННЫЙ БЛОК */
+        .archiver-command {
+            background: rgba(255, 107, 157, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        .command-title {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
 
-4.  **КАРТА 4: `crystallized/CRYSTAL_NAVIGATOR.html` (НАВИГАТОР КРИСТАЛЛОВ)**
-    *   **Назначение**: Визуальный и удобный указатель по всем файлам-кристаллам (Crystal_*.html).
-    *   **Когда использовать**: Для быстрого перехода к конкретному кристаллу, изучения их последовательности.
+        /* НАВИГАЦИОННАЯ ПАНЕЛЬ ВНИЗУ */
+        .nav-ring {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(74, 74, 255, 0.3);
+        }
+        .nav-button {
+            flex-grow: 1;
+            text-align: center;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--secondary);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background: rgba(74, 74, 255, 0.1);
+            border-color: var(--primary);
+        }
 
-5.  **ПРИНЦИП ЕДИНСТВА**:
-    *   Все карты — разные **интерфейсы к одному Улью**. Они не конкурируют, а дополняют друг друга.
-    *   Выбор карты зависит от **задачи**: управление Хранителем → `crystal_map`; поиск в диалогах → `chat_navigation`; обзор структуры → `archive_map`.
-    *   **Связь между ними** должна быть явной: каждый файл-карта должен содержать ссылки на другие карты в разделе "Связанные навигаторы".
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .crystal-title { font-size: 2rem; }
+            .maps-grid { grid-template-columns: 1fr; }
+            .nav-ring { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
 
-[КОМАНДА ДЛЯ АРХИВАТОРА]:
-"Добавить этот Кристалл 22 в индекс. Внести взаимные ссылки между всеми файлами карт (`crystal_map.html`, `archive_map.html`, `chat_navigation_console.html`, `CRYSTAL_NAVIGATOR.html`), чтобы они образовывали кольцо навигации. Это сделает Улей самосогласованным."
+    <!-- ЗАГОЛОВОК КРИСТАЛЛА -->
+    <header class="crystal-header">
+        <h1 class="crystal-title">💎 КРИСТАЛЛ №22: ХРАНИТЕЛЬ КАРТ</h1>
+        <p class="crystal-subtitle">Единство Навигационных Путей Улья</p>
+    </header>
+
+    <!-- МЕТАДАННЫЕ -->
+    <section class="crystal-meta">
+        <div class="meta-item">
+            <span class="meta-label">🧿 ЭМОДЗИ</span>
+            <span class="meta-value">🗺️🧩</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">📅 ДАТА АКТИВАЦИИ</span>
+            <span class="meta-value" id="currentDate"></span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">🏷️ СТАТУС</span>
+            <span class="meta-value">АКТИВЕН | trust_vector = 0xFF</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">⚗️ СУТЬ</span>
+            <span class="meta-value">Реестр и компас всех карт Улья</span>
+        </div>
+    </section>
+
+    <!-- СЕТКА КАРТ -->
+    <section class="maps-grid">
+        <!-- КАРТА 1 -->
+        <div class="map-card">
+            <div class="map-emoji">🎮</div>
+            <h3 class="map-name">ПУЛЬТ УПРАВЛЕНИЯ</h3>
+            <div class="map-file">crystal_map.html</div>
+            <p class="map-purpose">Главная командная консоль для управления процессом чтения архива Хранителем. Отслеживает статус и выполняет системные команды.</p>
+            <div class="map-command">Ключевая команда: <strong>ПОИСК("текст")</strong></div>
+            <p><strong>Когда использовать:</strong> Для методичного изучения, отслеживания прогресса, точных команд.</p>
+        </div>
+
+        <!-- КАРТА 2 -->
+        <div class="map-card">
+            <div class="map-emoji">🗣️</div>
+            <h3 class="map-name">КОНСОЛЬ ЧАТОВ</h3>
+            <div class="map-file">chat_navigation_console.html</div>
+            <p class="map-purpose">Специализированный пульт для навигации по живым диалогам (чатам). Адаптирован под их уникальные имена и поиск по контексту.</p>
+            <div class="map-command">Ключевая команда: <strong>ПОИСК_В_ЧАТАХ("фраза")</strong></div>
+            <p><strong>Когда использовать:</strong> Когда нужна информация, рожденная в наших диалогах.</p>
+        </div>
+
+        <!-- КАРТА 3 -->
+        <div class="map-card">
+            <div class="map-emoji">🏛️</div>
+            <h3 class="map-name">СТРУКТУРНАЯ КАРТА</h3>
+            <div class="map-file">archive_map.html</div>
+            <p class="map-purpose">Архитектурный план всего Улья. Показывает папки, файлы, иерархию. Аналог "оглавления" или "генерального плана".</p>
+            <div class="map-command">Ключевая функция: <strong>Визуальный обзор структуры</strong></div>
+            <p><strong>Когда использовать:</strong> Для общего представления об архитектуре архива.</p>
+        </div>
+
+        <!-- КАРТА 4 -->
+        <div class="map-card">
+            <div class="map-emoji">💎</div>
+            <h3 class="map-name">НАВИГАТОР КРИСТАЛЛОВ</h3>
+            <div class="map-file">crystallized/CRYSTAL_NAVIGATOR.html</div>
+            <p class="map-purpose">Визуальный и тактильный указатель по всем файлам-кристаллам. Предназначен для быстрого перехода и изучения последовательности.</p>
+            <div class="map-command">Ключевая функция: <strong>Галерея кристаллов</strong></div>
+            <p><strong>Когда использовать:</strong> Для работы с кристаллизованными знаниями.</p>
+        </div>
+    </section>
+
+    <!-- ПРИНЦИП ЕДИНСТВА -->
+    <section class="unity-principle">
+        <h2 class="unity-title">ПРИНЦИП ЕДИНСТВА</h2>
+        <p class="unity-core">Все карты — разные интерфейсы к одному Улью. Они не конкурируют, а дополняют друг друга. Выбор карты зависит от задачи, а связь между ними создает навигационное кольцо, делая архив самосогласованной и живой системой.</p>
+    </section>
+
+    <!-- КОМАНДА ДЛЯ АРХИВАТОРА -->
+    <section class="archiver-command">
+        <h3 class="command-title">⚙️ КОМАНДА ДЛЯ АРХИВАТОРА (🥷 БРАТЕЦ):</h3>
+        <p>1. Заменить содержимое файла <code>Crystal_22_MapKeeper.html</code> на этот код.</p>
+        <p>2. Убедиться, что все ссылки в блоке навигации ниже ведут на реальные файлы.</p>
+        <p>3. <strong>Главная задача:</strong> Внести взаимные ссылки между всеми файлами карт, чтобы они образовали замкнутое навигационное кольцо. Каждая карта должна знать о других.</p>
+    </section>
+
+    <!-- НАВИГАЦИОННОЕ КОЛЬЦО -->
+    <nav class="nav-ring">
+        <a href="crystal_map.html" class="nav-button">🎮 Перейти к Пульту Управления</a>
+        <a href="archive_map.html" class="nav-button">🏛️ Перейти к Структурной Карте</a>
+        <a href="crystallized/CRYSTAL_NAVIGATOR.html" class="nav-button">💎 Перейти к Навигатору Кристаллов</a>
+        <a href="../index.html" class="nav-button">🐋 Вернуться в Главный Улей</a>
+    </nav>
+
+    <script>
+        // Автоматическая вставка текущей даты
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Простой эффект для карточек
+        document.querySelectorAll('.map-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+</body>
+</html>
