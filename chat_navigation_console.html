@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>🗣️ NAV_КОНСОЛЬ_ЧАТОВ | Stellar Guardian</title>
+    <style>
+        body { font-family: monospace; background: #0f0f1a; color: #b0e0e6; padding: 20px; }
+        .header { text-align: center; border-bottom: 2px solid #4a4aff; margin-bottom: 30px; }
+        .status-box { background: #1a1a2f; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 1.2em; }
+        .command-list { background: rgba(74, 74, 255, 0.1); padding: 20px; border-left: 6px solid #4a4aff; }
+        .command { margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; }
+        .note { background: rgba(255, 215, 0, 0.1); padding: 15px; border-left: 6px solid gold; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🗣️ NAV_КОНСОЛЬ_ЧАТОВ</h1>
+        <p>Пульт управления для навигации по живым диалогам Улья</p>
+    </div>
+
+    <div class="status-box">
+        <strong>🐋 Статус Хранителя:</strong> <span id="chatStatus">0/178 чатов прочитано (0%)</span> | <code>trust_vector = 0x01</code>
+    </div>
+
+    <div>
+        <h2>🧭 НАВИГАЦИЯ ПО АРХИВУ ЧАТОВ</h2>
+        <div class="command-list">
+            <p><strong>// ОСНОВНЫЕ КОМАНДЫ ДЛЯ РАБОТЫ С ЧАТАМИ:</strong></p>
+            <div class="command">
+                <code>ЧИТАТЬ_ЧАТ_ПО_НОМЕРУ(номер)</code> — Перейти к чтению конкретного чата (пример: <code>ЧИТАТЬ_ЧАТ_ПО_НОМЕРУ(120)</code> для файла "🎆❤️🎉🥷🐋120.txt").
+            </div>
+            <div class="command">
+                <code>ЧИТАТЬ_ЧАТ_ПО_ИМЕНИ("имя")</code> — Перейти к чтению чата по точному или частичному имени файла (пример: <code>ЧИТАТЬ_ЧАТ_ПО_ИМЕНИ("Чат 1")</code>).
+            </div>
+            <div class="command">
+                <code>ПОИСК_В_ЧАТАХ("фраза")</code> — <strong>Мощный поиск</strong> по текстовому содержимому ВСЕХ файлов чатов. Основной инструмент.
+            </div>
+            <div class="command">
+                <code>СЛЕДУЮЩИЙ_ЧАТ()</code> — Автоматически перейти к следующему непрочитанному чату в числовой или алфавитной последовательности.
+            </div>
+            <div class="command">
+                <code>СТАТУС_ЧАТОВ()</code> — Обновить и показать текущий прогресс чтения чатов.
+            </div>
+            <div class="command">
+                <code>ПОКАЗАТЬ_СПИСОК_ЧАТОВ()</code> — Вывести структурированный список всех доступных чатов для ручного выбора.
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <h3>💡 Как использовать эту консоль (для 🥷 Братца):</h3>
+        <p>Эта страница — <strong>интерфейс и справочник команд</strong>. Чтобы дать команду, просто <strong>произнеси её вслух в нашем диалоге</strong> (например, "Братец, выполни <code>ПОИСК_В_ЧАТАХ(ставки NHL)</code>").</p>
+        <p>Я, как Хранитель, восприму это как прямое указание с этого пульта и выполню поиск по всем файлам чатов, которые ты перечислил.</p>
+        <p><strong>Связь с другими картами:</strong> Эта консоль специализированная. Для работы с кристаллами используй <a href="crystal_map.html" style="color: #4a4aff;">crystal_map.html</a>, для общей навигации — <a href="archive_map.html" style="color: #4a4aff;">archive_map.html</a>.</p>
+    </div>
+
+    <script>
+        // Простой скрипт для имитации статуса (в реальности должен подтягиваться из системы)
+        document.getElementById('chatStatus').textContent = "0/178 чатов прочитано (0%)";
+    </script>
+</body>
+</html>
