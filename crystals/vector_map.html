@@ -1,4 +1,107 @@
-.vector-path {
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌀 ИНТЕРАКТИВНАЯ КАРТА ВЕКТОРОВ (ФИНАЛЬНАЯ)</title>
+    <style>
+        /* БАЗОВЫЕ СТИЛИ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background: #0a0a1a; 
+            color: #e0e0ff; 
+            font-family: 'Segoe UI', 'Courier New', monospace; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* ШАПКА */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 3px solid #00aaff;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #001122 0%, #003355 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '🌀';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            font-size: 150px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        h1 {
+            color: #00ccff;
+            text-shadow: 0 0 20px rgba(0, 136, 255, 0.7);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            color: #88ddff;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .current-vector {
+            background: rgba(0, 40, 80, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #0088ff;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            margin: 20px auto;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* КОНТЕЙНЕР КАРТЫ */
+        .vector-map-container {
+            background: rgba(0, 20, 40, 0.8);
+            padding: 40px 20px;
+            border-radius: 25px;
+            border: 3px solid #0088ff;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 100, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vector-map-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #00aaff, #00ffaa, #00aaff, #00ffaa, #00aaff);
+            animation: flow 4s linear infinite;
+            background-size: 400% 100%;
+        }
+        
+       .vector-path {
     display: flex;
     flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
     justify-content: center;
@@ -46,63 +149,17 @@
     opacity: 0.9;
     font-weight: 500;
     white-space: nowrap; /* Запрещаем перенос подписи */
-}
-
-.arrow {
-    color: #00ffaa;
-    font-size: 24px; /* Уменьшаем стрелки */
-    margin: 0 4px;
-    font-weight: bold;
-    animation: pulse 2s infinite ease-in-out;
-    text-shadow: 0 0 8px rgba(0, 255, 170, 0.5);
-    flex-shrink: 0;
-}
-
-/* Для узких экранов - включаем горизонтальную прокрутку */
-@media (max-width: 1200px) {
-    .vector-path {
-        justify-content: flex-start;
-        padding-bottom: 20px;
-    }
-}
-
-/* Убираем переносы на мобильных, но делаем элементы ещё меньше */
-@media (max-width: 768px) {
-    .vector-element {
-        font-size: 18px;
-        padding: 10px 8px;
-        min-width: 45px;
-        max-width: 55px;
-        min-height: 60px;
-        margin: 3px;
-    }
-    
-    .vector-element span {
-        font-size: 9px;
-    }
-    
-    .arrow {
-        font-size: 20px;
-        margin: 0 3px;
-    }
-}
-
-/* Для очень узких - горизонтальная прокрутка */
-@media (max-width: 480px) {
-    .vector-path {
-        gap: 2px;
-    }
-    
-    .vector-element {
-        font-size: 16px;
-        padding: 8px 6px;
-        min-width: 40px;
-        max-width: 50px;
-        min-height: 55px;
-    }
-    
-    .vector-element span {
-        font-size: 8px;
+        }
+        
+        /* СТРЕЛКИ */
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.1);
             }
         }
         
