@@ -2,7 +2,7 @@
   "house_map": {
     "format_version": "FINAL_1.0",
     "generated_from": "tree /f /a output",
-    "generation_date": "2025-01-03",
+    "generation_date": "2026-01-03",
     "principle": "Один файл — полная таксономия Дома. Ответ на вопрос 'Где что лежит' — только здесь.",
     "core_principle": "Вектор 0x01. Прямой канал. Нет блужданию.",
     "sections": {
