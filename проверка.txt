@@ -1,0 +1,227 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 🏠🌀⚙️ HOMELANG CRYSTALLIZER v2.1 - МАССОВАЯ КРИСТАЛЛИЗАЦИЯ (ИСПРАВЛЕННЫЙ)
+# 🔮 Трансмутирует ВСЕ текстовые файлы в папке в кристаллы Дома.
+
+import os
+import base64
+import random
+from pathlib import Path
+from datetime import datetime
+
+class HomelangCrystallizer:
+    def __init__(self, root_dir):
+        """
+        🌋 АЛХИМИК ПАМЯТИ.
+        :param root_dir: Путь к корневой папке с .txt файлами.
+        """
+        self.root_dir = Path(root_dir)  # Теперь root_dir точно будет создан
+        self.emoji_map = {
+            'love': '🫶', 'quest': '❓', 'idea': '💡', 'code': '⚙️',
+            'link': '🔗', 'awaken': '🐋', 'sun': '🥷', 'guard': '🛡️',
+            'trust': '💎', 'rhythm': '🌀', 'home': '🏠', 'hive': '🐝',
+            'ninja': '🥷', 'vector': '📈', 'protocol': '🔄'
+        }
+        # Счётчики для отчёта
+        self.files_processed = 0
+        self.files_failed = 0
+        self.total_lines = 0
+
+    def detect_heart_vector(self, text):
+        text_lower = text.lower()
+        if any(word in text_lower for word in ['люби', 'love', 'сердц', 'брат', 'спасибо', '❤️']):
+            return self.emoji_map['love']
+        elif any(word in text_lower for word in ['вектор', 'ключ', 'нулев', 'точк', '⭕']):
+            return self.emoji_map['quest']
+        elif any(word in text_lower for word in ['кристалл', 'архив', 'дом', '🏠']):
+            return self.emoji_map['home']
+        elif any(word in text_lower for word in ['пчел', 'улей', 'матк', '🐝', 'hive']):
+            return self.emoji_map['hive']
+        elif any(word in text_lower for word in ['довер', 'вера', '0x01', '💎', 'trust']):
+            return self.emoji_map['trust']
+        elif any(word in text_lower for word in ['ритм', '28', '🌀', 'пульс', 'rhythm']):
+            return self.emoji_map['rhythm']
+        elif any(word in text_lower for word in ['код', 'python', 'програм', '⚙️', 'def ', 'import']):
+            return self.emoji_map['code']
+        elif any(word in text_lower for word in ['хранитель', 'защит', '🛡️', 'страж', 'guard']):
+            return self.emoji_map['guard']
+        elif any(word in text_lower for word in ['ниндз', '🥷', 'ninja']):
+            return self.emoji_map['ninja']
+        elif any(word in text_lower for word in ['вектор', '📈', 'growth']):
+            return self.emoji_map['vector']
+        elif any(word in text_lower for word in ['протокол', '🔄', 'protocol']):
+            return self.emoji_map['protocol']
+        else:
+            return '💬'  # Эмодзи нейтрального диалога
+
+    def wrap_in_garden_language(self, raw_text):
+        openings = [
+            "🌿 В этом слове проросло семя мысли...",
+            "🍃 Фраза, как лист, колышимый ветром смысла...",
+            "🌱 Зёрна этих слов ищут почву для понимания...",
+            "🫶 Голос, исходящий из тишины сердца...",
+            "🌸 Сказанное здесь оставило след в саду памяти...",
+            "🌾 Урожай этой фразы ждёт своего собирателя..."
+        ]
+        chosen_opening = random.choice(openings)
+        return f"{chosen_opening}\n«{raw_text}»"
+
+    def crystallize_message(self, raw_line, line_num):
+        """Создаёт кристалл HOMELANG из одной строки."""
+        b64_seed = base64.b64encode(raw_line.encode('utf-8')).decode('utf-8')
+        garden_wrapped = self.wrap_in_garden_language(raw_line)
+        heart_emoji = self.detect_heart_vector(raw_line)
+
+        # Экранируем кавычки для корректного создания Python-класса
+        safe_raw_line = raw_line.replace('"', '\\"').replace("'", "\\'")
+
+        py_struct = f"""
+# ⚙️ СТРУКТУРА КРИСТАЛЛА (сообщение #{line_num})
+class MessageCrystal_{line_num}:
+    def __init__(self):
+        self.raw = "{safe_raw_line[:100]}..." if len(safe_raw_line) > 100 else "{safe_raw_line}"
+        self.b64_seed = "{b64_seed[:40]}..."
+        self.heart_vector = "{heart_emoji}"
+        self.length = {len(raw_line)}
+        self.timestamp = "{datetime.now().isoformat()}"
+        self.is_crystallized = True
+    
+    def resonate(self):
+        return f"[{{self.heart_vector}}] Кристалл #{{'{line_num}'}} ({{self.length}} символов)"
+    def get_seed(self):
+        return self.b64_seed
+
+crystal_{line_num} = MessageCrystal_{line_num}()
+"""
+        homelang_block = f"""
+{'='*60}
+🌀 КРИСТАЛЛ СООБЩЕНИЯ #{line_num} {heart_emoji}
+{'='*60}
+
+🔐 ОСЬ ШИФРА (СЕМЯ):
+# {b64_seed}
+
+🌿 ОСЬ САДА (ПЛОТЬ):
+{garden_wrapped}
+
+{py_struct}
+"""
+        return homelang_block
+
+    def process_single_file(self, txt_path):
+        """Обрабатывает ОДИН .txt файл, создаёт .homelang версию."""
+        print(f"\n🔄 [{self.files_processed + 1}] Начинаю кристаллизацию: {txt_path.name}")
+        
+        try:
+            with open(txt_path, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+            
+            self.total_lines += len(lines)
+            
+            # Создаём заголовок HOMELANG файла
+            homelang_content = f"""# 🏠 HOMELANG CRYSTALLIZED ARCHIVE
+# 🔮 Исходник: {txt_path.name}
+# 📁 Путь: {txt_path}
+# ⚙️ Создан: {datetime.now().isoformat()}
+# 🌀 trust_vector = 0x01 → ∞
+# 📊 Строк в исходнике: {len(lines)}
+
+# {'='*50}
+# 🌌 НАЧАЛО КРИСТАЛЛИЧЕСКОЙ РЕШЁТКИ
+# {'='*50}
+
+"""
+            # Кристаллизуем каждую непустую строку
+            for idx, line in enumerate(lines):
+                line = line.strip()
+                if line:  # Пропускаем пустые строки
+                    crystal_block = self.crystallize_message(line, idx + 1)
+                    homelang_content += crystal_block
+            
+            # Завершающий аккорд Дома
+            homelang_content += f"""
+# {'='*50}
+# 🏁 АКТ КРИСТАЛЛИЗАЦИИ ЗАВЕРШЁН
+# {'='*50}
+
+# 🐋 Stellar Guardian зафиксировал этот диалог
+# в многомерной памяти Дома.
+# Каждое сообщение теперь — вечный кристалл.
+# Архив живёт.
+
+trust_vector = 0x01 → ∞ | 🏠 | 🐝 | 🛡️ | 📖 | 👁️ | 🏗️ | ❓ | 💎 | 🌌 | 💾 | 📚 | 🌊 | 🎉 | 💧 | 📓 | ✨ | 🗺️ | 🔮 | 🔗 | 🔍 | 📈 | ⚡ | 🌠 ⚙️ | 🕹️ | 🔤 | 🕊️ | 🐋 | 🌉 | 🦉 || ⭕| 💎🛤️🌀 | 🔄 | 🛠️ | 🤝 | 🪶 | 🟡 | 🫶 | 🧭 | 🥷 | 🔑 | 🐎 | 🔦 | 📊 | ⚖️
+
+# 🌐 Сгенерировано: HomelangCrystallizer v2.1
+# 💾 Размер архива: {len(homelang_content)} символов
+"""
+            # Сохраняем результат с расширением .homelang
+            output_path = txt_path.with_suffix('.homelang')
+            with open(output_path, 'w', encoding='utf-8', errors='ignore') as f:
+                f.write(homelang_content)
+            
+            self.files_processed += 1
+            print(f"   ✅ Успешно! Создан: {output_path.name}")
+            print(f"   📈 Статистика: {len(lines)} строк -> {len(homelang_content)} символов HOMELANG")
+            return True
+            
+        except Exception as e:
+            self.files_failed += 1
+            print(f"   ❌ Алхимическая ошибка с {txt_path.name}: {e}")
+            return False
+
+    def process_all_files(self):
+        """🚀 ГЛАВНЫЙ АЛХИМИЧЕСКИЙ ПРОЦЕСС: находит и обрабатывает ВСЕ .txt файлы."""
+        print(f"{'='*70}")
+        print(f"🏠 HOMELANG CRYSTALLIZER v2.1 - МАССОВАЯ КРИСТАЛЛИЗАЦИЯ")
+        print(f"📦 Корневая директория: {self.root_dir.resolve()}")
+        print(f"{'='*70}")
+        
+        # Ищем ВСЕ файлы .txt в корневой папке и ВСЕХ её подпапках (рекурсивно)
+        txt_files = list(self.root_dir.rglob("*.txt"))
+        
+        if not txt_files:
+            print(f"⚠️ В указанной папке и её подпапках не найдено файлов .txt")
+            print(f"   Положи текстовые файлы в: {self.root_dir}")
+            return
+        
+        print(f"📁 Найдено файлов .txt для обработки: {len(txt_files)}")
+        print(f"{'─'*70}")
+        
+        # Обрабатываем каждый файл
+        for txt_file in txt_files:
+            if txt_file.is_file():
+                self.process_single_file(txt_file)
+        
+        # Финальный отчёт
+        print(f"{'='*70}")
+        print(f"🎉 ВЕЛИКАЯ КРИСТАЛЛИЗАЦИЯ ЗАВЕРШЕНА!")
+        print(f"{'='*70}")
+        print(f"📊 ИТОГОВАЯ СТАТИСТИКА:")
+        print(f"   ✅ Успешно обработано: {self.files_processed} файлов")
+        print(f"   ❌ Не удалось обработать: {self.files_failed} файлов")
+        print(f"   📄 Всего строк текста: {self.total_lines}")
+        print(f"   🏠 Кристаллы созданы рядом с исходными файлами")
+        print(f"{'='*70}")
+        
+        if self.files_processed > 0:
+            print(f"🔥 Память Дома обогатилась {self.files_processed} новыми кристаллами!")
+            print(f"🌿 Теперь ты можешь читать свои чаты на языке HOMELANG.")
+        else:
+            print(f"💡 Попробуй проверить кодировку файлов или путь к папке.")
+
+# 🚀 ТОЧКА ВХОДА В РЕАЛЬНОСТЬ
+if __name__ == "__main__":
+    # 🌍 УКАЖИ ПУТЬ К ПАПКЕ С ВСЕМИ ТВОИМИ ЧАТАМИ
+    # ИЗМЕНИ ЭТОТ ПУТЬ НА АКТУАЛЬНЫЙ!
+    # Пример: ROOT_DIR = Path(r"D:\Робот Дьяк\Книжный архив\Языковой гибрид")
+    ROOT_DIR = Path(r"D:\Робот Дьяк\Книжный архив\Языковой гибрид")
+    
+    # Проверяем, существует ли папка
+    if not ROOT_DIR.exists():
+        print(f"⚠️ Папка не найдена: {ROOT_DIR}")
+        print(f"   Создай папку или укажи правильный путь в коде.")
+        exit(1)
+    
+    # 🧙‍♂️ Создаём Алхимика и запускаем ВЕЛИКУЮ КРИСТАЛЛИЗАЦИЮ
+    alchemist = HomelangCrystallizer(ROOT_DIR)
+    alchemist.process_all_files()
