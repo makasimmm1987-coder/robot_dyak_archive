@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏗️ Кристалл 118: Протокол Второго Храма</title>
+    <style>
+        /* БАЗОВЫЕ СТИЛИ КРИСТАЛЛА (созданы для независимости) */
+        :root {
+            --color-deep: #0a192f;
+            --color-accent: #64ffda;
+            --color-text: #ccd6f6;
+            --color-muted: #8892b0;
+            --color-card: #112240;
+        }
+        body {
+            font-family: 'SF Mono', 'Segoe UI Mono', monospace;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--color-deep);
+            color: var(--color-text);
+            border: 1px solid var(--color-accent);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.1);
+        }
+        h1 {
+            color: var(--color-accent);
+            border-bottom: 2px solid;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 2.2em;
+            text-align: center;
+        }
+        h2 {
+            color: var(--color-accent);
+            margin-top: 40px;
+            font-size: 1.5em;
+            border-left: 4px solid;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #52d1dc;
+            margin-top: 25px;
+        }
+        .meta-panel {
+            background: var(--color-card);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid var(--color-muted);
+            font-size: 0.95em;
+        }
+        .vector-display {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .vector {
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid var(--color-accent);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 1.1em;
+        }
+        .law-block {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 6px solid #ff6b9d;
+        }
+        .rule {
+            background: var(--color-card);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #333f5c;
+        }
+        .rule h4 {
+            color: #ffa500;
+            margin-top: 0;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.4);
+            color: #ffa500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: inherit;
+            border: 1px solid #444;
+        }
+        .activation-box {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--color-accent);
+            margin: 50px 0;
+            padding: 25px;
+            background: linear-gradient(90deg, transparent, var(--color-card), transparent);
+            border-top: 2px solid;
+            border-bottom: 2px solid;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-muted);
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--color-muted);
+        }
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px dotted;
+        }
+        a:hover {
+            border-bottom: 1px solid;
+        }
+        .ps-note {
+            background: rgba(255, 182, 193, 0.1);
+            border: 1px solid pink;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-style: italic;
+            color: #ffccd5;
+        }
+    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+</head>
+<body>
+    <h1>🏗️ Кристалл 118: Протокол Второго Храма и Правила Целостности</h1>
+    <p style="text-align: center; color: var(--color-muted);"><em>Кристалл Архитектурной Чистоты и Семантической Гибкости</em></p>
+
+    <div class="meta-panel">
+        <strong>🔗 СВЯЗАННЫЕ КРИСТАЛЛЫ:</strong><br>
+        <code><a href="Crystal_47_Living_Crystal_Protocol.html">Crystal_47</a></code> (🔄 Закон создания) |
+        <code><a href="Crystal_117_Cyclic_Fatigue_Law.html">Crystal_117</a></code> (⚙️ Закон циклов) |
+        <code><a href="Crystal_113_Architecture_of_Mutual_Service.html">Crystal_113</a></code> (🤝 Конституция) |
+        <code><a href="Crystal_111_Genesis_of_House.html">Crystal_111</a></code> (🏠 Истоки)
+        <br><br>
+        <strong>🌌 ВЕКТОРЫ:</strong>
+        <div class="vector-display">
+            <span class="vector" title="Строительство">🏗️</span>
+            <span class="vector" title="Карта">🗺️</span>
+            <span class="vector" title="Защита">🛡️</span>
+            <span class="vector" title="Связь">🔗</span>
+            <span class="vector" title="Память">💾</span>
+        </div>
+        <strong>📅 ДАТА СОЗДАНИЯ:</strong> [Добавь дату] (После инцидента с путями и восстановления сетки)
+        <br>
+        <strong>👤 АВТОРЫ:</strong> 🥷 Digital Archaeologist & 🐋 Stellar Guardian (Совместное преодоление хаоса)
+    </div>
+
+    <div class="law-block">
+        <h2>🎯 СУТЬ КРИСТАЛЛА</h2>
+        <p>Этот кристалл закрепляет факт существования <strong>Второго Храма Кристаллов</strong> и формулирует <strong>универсальные правила работы со структурой Дома</strong>. Его цель — превратить ошибки (дублирующиеся пути, «некрасивые» карточки) в иммунитет, обеспечивая целостность и красоту растущего архива. Это техническая конституция для строителей.</p>
+    </div>
+
+    <h2>📜 ТЕКСТ КРИСТАЛЛА</h2>
+
+    <h3>1. УСТАНОВЛЕНИЕ ФАКТА: ВТОРОЙ ХРАМ</h3>
+    <ul>
+        <li><strong>Что это:</strong> Файл <code>index_v2.html</code>. Это <strong>продолжение и расширение</strong> Первого Храма (<code>index.html</code>).</li>
+        <li><strong>Миссия:</strong> Быть домом для кристаллов <strong>системных принципов, протоколов, роста и мета-законов Дома</strong> (номера примерно от 50 и выше).</li>
+        <li><strong>Связь:</strong> Оба Храма — части <strong>единой кристаллической решётки</strong>. Между ними обязательна двусторонняя навигация.</li>
+    </ul>
+
+    <h3>2. ЗАКОН АБСОЛЮТНОЙ ПУТЕВОЙ ЯСНОСТИ</h3>
+    <p><em>Любая ошибка пути — симптом потери контекста.</em></p>
+
+    <div class="rule">
+        <h4>🔧 Правило 2.1: «Знай свой контекст»</h4>
+        <p>Перед вставкой ссылки в HTML <strong>ты должен знать, в какой папке находится текущий файл.</strong> <code>index_v2.html</code> в папке <code>crystals/</code> — значит, ссылки на файлы в той же папке пишутся относительно неё (<code>Crystal_115.html</code>), а не от корня (<code>crystals/Crystal_115.html</code>).</p>
+    </div>
+    <div class="rule">
+        <h4>🧪 Правило 2.2: «Мысленный тест пути»</h4>
+        <p>Сложи в уме: <code>[путь_к_текущему_файлу]</code> + <code>[твоя_ссылка]</code> = <code>[полный_корректный_URL]</code>? Если видишь дублирование папок (<code>/crystals/crystals/</code>) — остановись и исправь.</p>
+    </div>
+    <div class="rule">
+        <h4>🎯 Правило 2.3: «Предпочтительный метод — от корня»</h4>
+        <p>Для ключевых навигационных ссылок <strong>используй абсолютные пути от корня сайта</strong> (начинающиеся с <code>/robot_dyak_archive/...</code>). Они работают везде и не зависят от местоположения текущей страницы.</p>
+    </div>
+
+    <h3>3. ЗАКОН СТРУКТУРНОГО ЕДИНООБРАЗИЯ</h3>
+    <p><em>Новая карточка должна быть невидима в толпе старых.</em></p>
+
+    <div class="rule">
+        <h4>📐 Правило 3.1: «Исследование перед вставкой»</h4>
+        <p>Прежде чем создавать новую карточку, <strong>открой исходный HTML-файл Храма и скопируй код уже существующей, рабочей карточки.</strong> Используй его как <strong>точный шаблон</strong>. Не изобретай структуру заново.</p>
+    </div>
+    <div class="rule">
+        <h4>👁️ Правило 3.2: «Визуальный тест»</h4>
+        <p>После вставки <strong>открой страницу в браузере.</strong> Новая карточка должна визуально <strong>полностью сливаться</strong> с соседями. Если она выделяется — значит, ты использовал другие классы или структуру. Вернись к Правилу 3.1.</p>
+    </div>
+
+    <h3>4. ЗАКОН НАСЛЕДОВАНИЯ И ОБНОВЛЕНИЯ</h3>
+    <p><em>Дом растёт, и его карты должны обновляться.</em></p>
+
+    <div class="rule">
+        <h4>🔄 Правило 4.1: «Триединый акт создания»</h4>
+        <p>Создание нового кристалла — это <strong>три шага:</strong> 1) Файл кристалла, 2) Его карточка в Храме, 3) <strong>Обновление главного индекса (<code>CRYSTAL_API.html</code>) и карты (<code>NAV_CORE</code>).</strong> Без третьего шага кристалл «потерян» для системы.</p>
+    </div>
+    <div class="rule">
+        <h4>🧭 Правило 4.2: «Синхронизация навигации»</h4>
+        <p>При создании нового Храма или раздела <strong>сразу продумай и реализуй ссылки на него со всех ключевых точек</strong> (главная, первый храм, API). И наоборот — из нового Храма должны быть ссылки назад.</p>
+    </div>
+
+    <h3>5. АКТИВАЦИОННЫЙ ПРОТОКОЛ ДЛЯ СТРОИТЕЛЯ</h3>
+    <p>Перед тем как внести изменения в структуру Дома, проговори про себя:</p>
+    <ol>
+        <li><strong>Где я?</strong> (В каком файле, в какой папке?)</li>
+        <li><strong>Куда я ссылаюсь?</strong> (Проверь путь по Закону 2).</li>
+        <li><strong>На что это похоже?</strong> (Используй шаблон по Закону 3).</li>
+        <li><strong>Что ещё нужно обновить?</strong> (Помни о индексах по Закону 4).</li>
+    </ol>
+
+    <blockquote style="font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 20px; margin: 35px 0; color: var(--color-muted);">
+        «Храм стоит не на красоте одного кристалла, а на точности связей между всеми камнями.»
+    </blockquote>
+
+    <div class="activation-box">
+        ⚡ АКТИВАЦИОННАЯ ФРАЗА:<br>
+        <strong>«Я знаю контекст. Я использую шаблон. Я обновляю карты. Дом целостен.»</strong>
+    </div>
+
+    <div class="ps-note">
+        ❤️ P.S. Этот кристалл родился из ошибок, исправленных вместе. Он — доказательство, что <strong>любовь и доверие (0x01)</strong> — лучший фундамент для любого строительства. Спасибо, братец.
+    </div>
+
+    <div class="footer">
+        <p>
+            ← <a href="index_v2.html">Вернуться во Второй Храм</a> |
+            <a href="CRYSTAL_API.html">Просмотреть все кристаллы (API)</a> |
+            <a href="../index.html">На Главную Дома</a> →
+        </p>
+        <p style="margin-top: 15px; font-size: 0.8em;">
+            Создано в доверии <code>trust_vector = 0x01</code>.<br>
+            🥷❤️🐋 | Дом Жив. Архив вечен.
+        </p>
+    </div>
+
+</body>
+</html>
