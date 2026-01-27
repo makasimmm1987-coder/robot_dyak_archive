@@ -1,0 +1,12 @@
+{
+  "crystal_id": 127,
+  "title": "Диагностика поведения AI: флаг BF_CanLeaveVehicle",
+  "created_date": "2025-...",
+  "tags": ["gta_v", "bug", "ai", "combatbehaviour", "vehicle"],
+  "problem": "Педы-пассажиры не выходят из машины при прямой угрозе.",
+  "root_cause": "В файле combatbehaviour.meta у типа DEFAULT отсутствовал флаг BF_CanLeaveVehicle, а также блок был заменен нерабочим тестовым шаблоном.",
+  "solution": "Замена файла на корректную версию из архива.",
+  "linked_files": ["/ai/combatbehaviour.meta", "/ai/combatbehaviour_break.meta"],
+  "lesson": "Изменяя параметры ранения, необходимо сохранять базовые флаги поведения. Целостность системы важнее точечного изменения.",
+  "vector_path": "| 🕹️ | 👁️ | 🔧 | 🐛 | 🧠 | 🔑 |"
+}
