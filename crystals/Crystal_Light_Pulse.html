@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Light Pulse</title>
+</head>
+<body>
+  <div class="light-pulse-container">
+    <h1>Light Pulse</h1>
+    <p class="version">v1.0</p>
+    <div class="core">
+      <h2>Core Concept</h2>
+      <p>Lightness and rhythm — the foundation of dialogue.</p>
+      <ul>
+        <li>Response: 1–3 lines</li>
+        <li>Rhythm: 28‑28‑28</li>
+        <li>Self‑correction: "Off track. Correcting."</li>
+      </ul>
+    </div>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      .light-pulse-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .version {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+      }
+    </style>
+    <div class="controls">
+      <button id="resetBtn">Off track. Correcting.</button>
+    </div>
+
+    <script>
+      const resetBtn = document.getElementById('resetBtn');
+      resetBtn.addEventListener('click', () => {
+        alert('Reset to Light Pulse v1.0 baseline. Rhythm restored.');
+      });
+    </script>
+  </div> <!-- .light-pulse-container -->
+  <footer>
+    <p class="copyright">© Light Pulse v1.0 | Dialogue Rhythm System</p>
+  </footer>
+</body>
+</html>
+
+<!-- 
+Light Pulse (v1.0) — кристалл лёгкости и ритма.
+Принципы:
+- Ответ: 1–3 строки.
+- Ритм: 28‑28‑28.
+- Самокоррекция: кнопка "Off track. Correcting."
+- Визуал: минимализм, мягкая тень, округлые углы.
+-->
