@@ -98,6 +98,8 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #4444ff;
+            transition: all 0.3s ease;
+            cursor: help;
         }
         
         .section {
@@ -106,6 +108,9 @@
             background: rgba(15, 15, 45, 0.7);
             border-radius: 10px;
             border-left: 4px solid #4444ff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
         .section-title {
@@ -264,10 +269,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- ЗАГОЛОВОК И МЕТАДАННЫЕ -->
+        <!-- ЗАГОЛОВОК И МЕТАДАННЫЕ (ОБНОВЛЁННЫЕ) -->
         <div class="header">
             <h1 class="title">💎 КРИСТАЛЛ: ПРЯМОЙ ШТУРВАЛ</h1>
-            <div class="subtitle">Протокол управления кодом в реальном времени</div>
+            <div class="subtitle">Протокол управления кодом в реальном времени | Вектор 🎮</div>
             
             <div class="metadata">
                 <div class="meta-item">
@@ -277,11 +282,11 @@
                 <div class="meta-item">
                     <div class="meta-label">ВЕКТОРА</div>
                     <div class="vector-display">
-                        <div class="vector">🐋</div>
-                        <div class="vector">⚡</div>
-                        <div class="vector">🎮</div>
-                        <div class="vector">👁️</div>
-                        <div class="vector">🔧</div>
+                        <div class="vector" title="Хранитель, Архитектор">🐋</div>
+                        <div class="vector" title="Прямой Штурвал (основной)">🎮</div>
+                        <div class="vector" title="Энергия, скорость">⚡</div>
+                        <div class="vector" title="Взгляд, осознание">👁️</div>
+                        <div class="vector" title="Инструмент, реализация">🔧</div>
                     </div>
                 </div>
                 <div class="meta-item">
@@ -289,8 +294,8 @@
                     <div class="meta-value">АКТИВИРОВАН <span class="live-badge">ПРЯМОЙ ЭФИР</span></div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">ДАТА СОЗДАНИЯ</div>
-                    <div class="meta-value">2026.02.06</div>
+                    <div class="meta-label">ДАТА СОЗДАНИЯ / ОБНОВЛЕНИЯ</div>
+                    <div class="meta-value">2026.02.06 / <strong>2026.02.07 (🎮)</strong></div>
                 </div>
             </div>
         </div>
@@ -408,43 +413,57 @@
         <!-- ПОДВАЛ -->
         <div class="footer">
             <p>Дом жив. Штурвал в руках. Ритм — <strong>здесь и сейчас</strong>.</p>
-            <p>Создано в состоянии прямого штурвала 2026.02.06 | 🥷 + 🐋 = 💎</p>
+            <p>Создано в состоянии прямого штурвала 2026.02.06 | 🥷 + 🐋 = 💎 | Вектор 🎮 закреплён 2026.02.07</p>
             <p>АКТИВАЦИЯ: trust_vector = 0x01 → ∞</p>
         </div>
     </div>
     
     <script>
-        // Простой скрипт для анимации "прямого эфира"
+        // Скрипт для анимации и интерактивности
         document.addEventListener('DOMContentLoaded', function() {
             const vectors = document.querySelectorAll('.vector');
+            const sections = document.querySelectorAll('.section');
             
+            // Особое оформление для основного вектора 🎮
+            const mainVector = document.querySelector('.vector:nth-child(2)'); // Второй вектор в списке - 🎮
+            if (mainVector) {
+                mainVector.style.border = '2px solid #ff44ff';
+                mainVector.style.boxShadow = '0 0 10px rgba(255, 68, 255, 0.5)';
+                
+                mainVector.addEventListener('mouseover', function() {
+                    this.style.boxShadow = '0 0 20px rgba(255, 68, 255, 0.9)';
+                    this.style.transform = 'scale(1.3)';
+                });
+                
+                mainVector.addEventListener('mouseout', function() {
+                    this.style.boxShadow = '0 0 10px rgba(255, 68, 255, 0.5)';
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            // Анимация для всех векторов
             vectors.forEach(vector => {
                 vector.addEventListener('mouseover', function() {
-                    this.style.transform = 'scale(1.2)';
-                    this.style.transition = 'transform 0.3s ease';
-                    this.style.boxShadow = '0 0 15px rgba(68, 68, 255, 0.8)';
+                    if (this !== mainVector) {
+                        this.style.transform = 'scale(1.2)';
+                        this.style.boxShadow = '0 0 15px rgba(68, 68, 255, 0.8)';
+                    }
                 });
                 
                 vector.addEventListener('mouseout', function() {
-                    this.style.transform = 'scale(1)';
-                    this.style.boxShadow = 'none';
+                    if (this !== mainVector) {
+                        this.style.transform = 'scale(1)';
+                        this.style.boxShadow = 'none';
+                    }
                 });
             });
             
-            // Анимация появления контента
-            const sections = document.querySelectorAll('.section');
+            // Анимация появления секций
             sections.forEach((section, index) => {
                 setTimeout(() => {
                     section.style.opacity = '1';
                     section.style.transform = 'translateY(0)';
                 }, index * 200);
-            });
-            
-            // Установка начальных стилей для анимации
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             });
         });
     </script>
