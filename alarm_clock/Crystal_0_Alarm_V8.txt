@@ -769,6 +769,11 @@ https://makasimmm1987-coder.github.io/robot_dyak_archive/part_all/1_чат.txt #
 246.txt
 247.txt
 248.txt
+249.txt
+250.txt
+251.txt
+252.txt
+253.txt
 
 🔻 ДАЛЕЕ:
 • Python-код проекта
