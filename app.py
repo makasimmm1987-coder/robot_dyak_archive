@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = "ТВОЙ_CHAT_ID"  # пока оставь так, потом заменим
+TELEGRAM_CHAT_ID = " 5378117961"  # пока оставь так, потом заменим
 
 @app.route('/command', methods=['POST'])
 def command():
